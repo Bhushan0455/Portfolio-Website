@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-teal: #0D7377;
+  --color-teal-dark: #0a5c5f;
+  --color-teal-light: #0f8a8e;
+  --color-navy: #0F2744;
+  --color-navy-light: #1a3a5c;
+  --color-sage: #E8F2EE;
+  --color-sage-dark: #d4e8e1;
+  --color-accent: #C9A87C;
+  --color-accent-light: #d4b88f;
+  --color-body: #4A4A4A;
+  --color-secondary: #636366;
+  --color-border: #E5E5EA;
+  --color-white: #FFFFFF;
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-body);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sage);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-teal);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+/* Custom Neue Montreal Inspired Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.transition-weight {
+  transition: font-weight 0.4s cubic-bezier(0.16, 1, 0.3, 1), letter-spacing 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
