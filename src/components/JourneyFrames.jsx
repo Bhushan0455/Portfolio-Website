@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { RiLeafLine, RiUserLine, RiBuildingLine, RiCompassLine } from 'react-icons/ri';
+import frame4Img from '../assets/frame4.png';
+import frame3Img from '../assets/frame3.png';
 
 export default function JourneyFrames() {
   const cards = [
@@ -19,13 +21,15 @@ export default function JourneyFrames() {
       title: 'Entrepreneurship',
       caption: 'Beyond Bound emerged from a desire to make preventive wellness more trustworthy and accessible.',
       icon: RiBuildingLine,
-      gradient: 'from-teal/5 via-sage/40 to-accent/10'
+      gradient: 'from-teal/5 via-sage/40 to-accent/10',
+      image: frame3Img
     },
     {
       title: 'Building The Future',
       caption: 'Continuing to learn, experiment, and create with purpose.',
       icon: RiCompassLine,
-      gradient: 'from-sage/20 via-accent/5 to-teal/10'
+      gradient: 'from-sage/20 via-accent/5 to-teal/10',
+      image: frame4Img
     }
   ];
 
@@ -93,23 +97,34 @@ export default function JourneyFrames() {
                   className="w-full md:w-3/5 aspect-[16/10] rounded-3xl border border-accent/20 p-2.5 bg-white shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden relative"
                 >
                   {/* Soft Gradient Placeholder Grid */}
-                  <div className={`w-full h-full rounded-2xl bg-gradient-to-br ${card.gradient} flex flex-col justify-center items-center p-8 relative overflow-hidden group`}>
-                    
-                    {/* Subtle grid lines for editorial feel */}
-                    <div className="absolute inset-0 grid grid-cols-6 grid-rows-4 opacity-[0.08] pointer-events-none">
-                      {Array(24).fill(0).map((_, gridIdx) => (
-                        <div key={gridIdx} className="border-t border-l border-navy"></div>
-                      ))}
+                  {card.image ? (
+                    <div className="w-full h-full rounded-2xl relative overflow-hidden group">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-[0.16,1,0.3,1]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent rounded-2xl" />
                     </div>
+                  ) : (
+                    <div className={`w-full h-full rounded-2xl bg-gradient-to-br ${card.gradient} flex flex-col justify-center items-center p-8 relative overflow-hidden group`}>
+                      
+                      {/* Subtle grid lines for editorial feel */}
+                      <div className="absolute inset-0 grid grid-cols-6 grid-rows-4 opacity-[0.08] pointer-events-none">
+                        {Array(24).fill(0).map((_, gridIdx) => (
+                          <div key={gridIdx} className="border-t border-l border-navy"></div>
+                        ))}
+                      </div>
 
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
-                      className="w-16 h-16 rounded-2xl bg-white/60 backdrop-blur-sm border border-accent/30 flex items-center justify-center text-teal shadow-sm relative z-10"
-                    >
-                      <Icon size={28} />
-                    </motion.div>
-                  </div>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.4 }}
+                        className="w-16 h-16 rounded-2xl bg-white/60 backdrop-blur-sm border border-accent/30 flex items-center justify-center text-teal shadow-sm relative z-10"
+                      >
+                        <Icon size={28} />
+                      </motion.div>
+                    </div>
+                  )}
 
                   {/* Editorial Reveal Shutter Mask */}
                   <motion.div

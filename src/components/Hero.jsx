@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { RiArrowRightLine, RiDoubleQuotesL } from 'react-icons/ri';
+import homeImg from '../assets/home.png';
 
 export default function Hero({ preloaderActive }) {
   const scrollTo = (id) => {
@@ -157,7 +158,7 @@ export default function Hero({ preloaderActive }) {
                 animate={preloaderActive ? { opacity: 0 } : { opacity: 0.35 }}
                 transition={{ delay: 0.8, duration: 1.0 }}
                 className="absolute -inset-4 bg-cover bg-center rounded-[36px] pointer-events-none scale-105 z-[-1] blur-2xl"
-                style={{ backgroundImage: "url('/founder_hero.png')" }}
+                style={{ backgroundImage: `url(${homeImg})` }}
               />
 
               {/* Float Wrapper */}
@@ -175,7 +176,7 @@ export default function Hero({ preloaderActive }) {
                   initial={{ scale: 1.15 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.3 }}
-                  src="/founder_hero.png"
+                  src={homeImg}
                   alt="Priyanshu Chauhan"
                   className="w-full h-full object-cover rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-[0.16,1,0.3,1]"
                 />
