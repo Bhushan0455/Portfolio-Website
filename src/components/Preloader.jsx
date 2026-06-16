@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import section-specific portrait assets
@@ -89,6 +89,7 @@ function BackgroundParticles() {
   );
 }
 
+
 // Configuration stages
 const INTRO_STAGES = [
   {
@@ -134,70 +135,142 @@ const INTRO_STAGES = [
 ];
 
 const STEP_DURATIONS = [11000, 9500, 10000, 9500, 8000];
+const TOTAL_STAGES = INTRO_STAGES.length; // 5
 
 export default function Preloader({ onComplete }) {
   const [step, setStep] = useState(0); // 0 to 4 (5 stages)
-  const [progress, setProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  
-  const touchStartRef = useRef(0);
+  // Key to force re-mount of AnimatePresence children on manual nav
+  const [animKey, setAnimKey] = useState(0);
 
-  // Tick timer driving progress and steps
+
+
+  // Auto-advance timer ref
+  const autoAdvanceTimer = useRef(null);
+  // Track if component is mounted
+  const isMounted = useRef(true);
+
+
+
+  // Cleanup on unmount
   useEffect(() => {
-    if (step >= 5) {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+      if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
+    };
+  }, []);
+
+  // ── Navigate to a specific step ──
+  const navigateToStep = useCallback((targetStep) => {
+    // Clear existing auto-advance timer
+    if (autoAdvanceTimer.current) {
+      clearTimeout(autoAdvanceTimer.current);
+      autoAdvanceTimer.current = null;
+    }
+
+    if (targetStep >= TOTAL_STAGES) {
+      // Final chapter passed → finish preloader
+      setStep(TOTAL_STAGES);
+      setIsVisible(false);
+      if (onComplete) onComplete();
+      return;
+    }
+
+    if (targetStep < 0) return; // Can't go before first chapter
+
+    // Increment animKey to force fresh animation mount
+    setAnimKey(prev => prev + 1);
+    setStep(targetStep);
+  }, [onComplete]);
+
+  // ── Auto-advance timer: starts/restarts whenever `step` changes ──
+  useEffect(() => {
+    if (step >= TOTAL_STAGES) {
+      // Completion transition
       setIsVisible(false);
       if (onComplete) {
-        const timer = setTimeout(() => {
-          onComplete();
+        const exitTimer = setTimeout(() => {
+          if (isMounted.current) onComplete();
         }, 850);
-        return () => clearTimeout(timer);
+        return () => clearTimeout(exitTimer);
       }
       return;
     }
 
-    const intervalTime = 30;
-    const ticker = setInterval(() => {
-      if (isPaused) return;
+    // Clear any existing timer
+    if (autoAdvanceTimer.current) {
+      clearTimeout(autoAdvanceTimer.current);
+    }
 
-      setProgress((prev) => {
+    // Set a new auto-advance timer for the current step
+    autoAdvanceTimer.current = setTimeout(() => {
+      if (isMounted.current) {
+        navigateToStep(step + 1);
+      }
+    }, STEP_DURATIONS[step]);
+
+    return () => {
+      if (autoAdvanceTimer.current) {
+        clearTimeout(autoAdvanceTimer.current);
+        autoAdvanceTimer.current = null;
+      }
+    };
+  }, [step, animKey, onComplete, navigateToStep]);
+
+  // ── Progress calculation for the segment bar ──
+  const [progress, setProgress] = useState(0);
+  const progressInterval = useRef(null);
+
+  useEffect(() => {
+    if (step >= TOTAL_STAGES) return;
+
+    setProgress(0);
+    const intervalTime = 30;
+    progressInterval.current = setInterval(() => {
+      setProgress(prev => {
         const next = prev + (intervalTime / STEP_DURATIONS[step]) * 100;
-        if (next >= 100) {
-          setStep((s) => s + 1);
-          return 0;
-        }
-        return next;
+        return next >= 100 ? 100 : next;
       });
     }, intervalTime);
 
-    return () => clearInterval(ticker);
-  }, [step, isPaused, onComplete]);
+    return () => {
+      if (progressInterval.current) clearInterval(progressInterval.current);
+    };
+  }, [step, animKey]);
 
-  // Pointer Down triggers pause
-  const handlePointerDown = (e) => {
-    if (e.target.closest('.skip-btn')) return;
-    touchStartRef.current = Date.now();
-    setIsPaused(true);
-  };
-
-  // Pointer Up releases pause
-  const handlePointerUp = (e) => {
-    if (e.target.closest('.skip-btn')) return;
-    setIsPaused(false);
-    touchStartRef.current = 0;
-  };
-
-  const handlePointerLeave = () => {
-    if (isPaused) {
-      setIsPaused(false);
-      touchStartRef.current = 0;
+  // ── Click zone handler ──
+  const handleZoneClick = useCallback((e) => {
+    // Don't trigger on skip button or other interactive elements
+    if (e.target.closest('.skip-btn') || e.target.closest('button') || e.target.closest('a') || e.target.closest('[role="button"]') || e.target.closest('input') || e.target.closest('video')) {
+      return;
     }
-  };
+
+    const viewportWidth = window.innerWidth;
+    const clickX = e.clientX ?? (e.touches?.[0]?.clientX ?? 0);
+    const isRightHalf = clickX > viewportWidth / 2;
+
+    if (isRightHalf) {
+      // Next chapter
+      navigateToStep(step + 1);
+    } else {
+      // Previous chapter (no action if already on first)
+      if (step > 0) {
+        navigateToStep(step - 1);
+      }
+    }
+  }, [step, navigateToStep]);
+
+
 
   // Skip the intro sequence instantly
   const handleSkip = (e) => {
     e.stopPropagation();
-    setStep(5);
+    if (autoAdvanceTimer.current) {
+      clearTimeout(autoAdvanceTimer.current);
+      autoAdvanceTimer.current = null;
+    }
+    setStep(TOTAL_STAGES);
     setIsVisible(false);
     if (onComplete) onComplete();
   };
@@ -206,13 +279,12 @@ export default function Preloader({ onComplete }) {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          onPointerDown={handlePointerDown}
-          onPointerUp={handlePointerUp}
-          onPointerLeave={handlePointerLeave}
+          onClick={handleZoneClick}
           className="fixed inset-0 text-white z-[99999] flex flex-col justify-center items-center select-none cursor-pointer overflow-hidden bg-[#0F2744]"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
+
           {/* Subtle Ambient Light Vignette & Background Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(15,39,68,0.8)_95%)] pointer-events-none z-10" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] aspect-square rounded-full bg-teal/5 blur-[130px] pointer-events-none z-0" />
@@ -223,7 +295,7 @@ export default function Preloader({ onComplete }) {
             exit={{ opacity: 0 }}
             className="flex justify-center gap-2 mt-4 mb-8 relative z-20 w-[200px] md:w-[320px]"
           >
-            {Array.from({ length: 5 }).map((_, idx) => {
+            {Array.from({ length: TOTAL_STAGES }).map((_, idx) => {
               const isActive = step === idx;
               const isPast = step > idx;
               const scaleValue = isPast ? 1 : isActive ? progress / 100 : 0;
@@ -249,9 +321,9 @@ export default function Preloader({ onComplete }) {
             {/* Left: Text Content (md:col-span-7) */}
             <div className="order-2 md:order-1 md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left w-full justify-center min-h-[220px] md:min-h-[350px]">
               <AnimatePresence mode="wait">
-                {step < 5 && (
+                {step < TOTAL_STAGES && (
                   <motion.div
-                    key={step}
+                    key={`text-${step}-${animKey}`}
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
@@ -308,13 +380,13 @@ export default function Preloader({ onComplete }) {
             <div className="order-1 md:order-2 md:col-span-5 flex justify-center items-center w-full">
               <div className="w-[220px] h-[300px] md:w-[340px] md:h-[460px] shrink-0 rounded-[28px] overflow-hidden border border-white/10 shadow-2xl relative bg-white/5 z-10">
                 <AnimatePresence mode="popLayout">
-                  {step < 5 && (
+                  {step < TOTAL_STAGES && (
                     <motion.div
-                      key={step}
+                      key={`portrait-${step}-${animKey}`}
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.04 }}
-                      transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
+                      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
                       className="absolute inset-0 w-full h-full"
                     >
                       <img
@@ -344,7 +416,8 @@ export default function Preloader({ onComplete }) {
             exit={{ y: 15, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={handleSkip}
-            className="absolute bottom-6 right-6 md:bottom-10 md:right-10 px-6 py-2.5 border border-white/20 hover:border-teal/40 bg-white/5 hover:bg-teal/10 text-white/80 hover:text-white rounded-full text-xs md:text-sm tracking-wider uppercase font-semibold transition-all duration-300 flex items-center gap-2 cursor-pointer z-30 skip-btn shadow-lg backdrop-blur-sm active:scale-95"
+            className="absolute bottom-6 right-6 md:bottom-10 md:right-10 px-6 py-2.5 border border-white/20 hover:border-teal/40 bg-white/5 hover:bg-teal/10 text-white/80 hover:text-white rounded-full text-xs md:text-sm tracking-wider uppercase font-semibold transition-all duration-300 flex items-center gap-2 z-30 skip-btn shadow-lg backdrop-blur-sm active:scale-95"
+            style={{ cursor: 'pointer' }}
           >
             <span>Skip Intro</span>
             <span className="text-[10px] md:text-xs opacity-60">✕</span>
