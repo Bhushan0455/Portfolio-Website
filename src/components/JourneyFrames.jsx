@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { RiLeafLine, RiUserLine, RiBuildingLine, RiCompassLine } from 'react-icons/ri';
+import frame1Img from '../assets/frame1.jpg';
+import frame2Img from '../assets/frame2.jpg';
 import frame4Img from '../assets/frame4.png';
 import frame3Img from '../assets/frame3.png';
 
@@ -9,13 +11,15 @@ export default function JourneyFrames() {
       title: 'Agriculture & Rural Impact',
       caption: 'Working alongside farming communities taught me that meaningful change starts with understanding people.',
       icon: RiLeafLine,
-      gradient: 'from-sage/60 via-sage to-accent/10'
+      gradient: 'from-sage/60 via-sage to-accent/10',
+      image: frame1Img
     },
     {
       title: 'Learning Through Industry',
       caption: 'Experiences across healthcare, research, and consumer businesses shaped how I think and build.',
       icon: RiUserLine,
-      gradient: 'from-sage via-white to-accent/20'
+      gradient: 'from-sage via-white to-accent/20',
+      image: frame2Img
     },
     {
       title: 'Entrepreneurship',

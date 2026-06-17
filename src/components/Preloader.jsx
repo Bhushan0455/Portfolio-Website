@@ -6,7 +6,7 @@ import homeImg from '../assets/home.png';
 import aboutImg from '../assets/about.png';
 import journeyImg from '../assets/journey.png';
 import visionImg from '../assets/vision.png';
-import connectImg from '../assets/connect.png';
+import connectImg from '../assets/connect.jpeg';
 
 // Reusable character-by-character StaggeredText component
 function StaggeredText({ text, delayOffset = 0, className = "", alignClass = "justify-center" }) {
