@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { RiLeafLine, RiPulseLine } from 'react-icons/ri';
+import beyondboundImg from '../assets/beyondbound.jpg';
+import glycomicsImg from '../assets/glycomics.png';
 
 export default function WhatImBuilding() {
   const cards = [
@@ -10,7 +12,7 @@ export default function WhatImBuilding() {
       icon: RiLeafLine,
       gradient: 'from-sage/40 via-sage to-teal/10',
       status: 'Current Focus',
-      image: '/beyondbound.jpg'
+      image: beyondboundImg
     },
     {
       title: 'Glycomics',
@@ -19,7 +21,7 @@ export default function WhatImBuilding() {
       icon: RiPulseLine,
       gradient: 'from-sage/20 via-accent/5 to-accent/20',
       status: 'Initiative',
-      image: '/glycomics.png'
+      image: glycomicsImg
     }
   ];
 

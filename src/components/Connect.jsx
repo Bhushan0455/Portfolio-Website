@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { RiMailLine, RiPhoneLine, RiLinkedinBoxFill, RiGlobalLine } from 'react-icons/ri';
+import founderHeroImg from '../assets/founder_hero.png';
 
 export default function Connect() {
   const fadeUp = {
@@ -35,7 +36,7 @@ export default function Connect() {
           {/* Small Rounded Image Thumbnail */}
           <div className="w-20 h-20 rounded-full overflow-hidden border border-white/20 mb-4 bg-white/5 shadow-inner">
             <img
-              src="/founder_hero.png"
+              src={founderHeroImg}
               alt="Priyanshu Chauhan"
               className="w-full h-full object-cover"
             />

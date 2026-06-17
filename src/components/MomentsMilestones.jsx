@@ -1,21 +1,18 @@
 import { motion } from 'framer-motion';
 import {
   RiGraduationCapLine,
-  RiLeafLine,
   RiBriefcaseLine,
   RiHeartPulseLine,
-  RiTeamLine,
-  RiCompassLine
 } from 'react-icons/ri';
+import mbaJourneyImg from '../assets/mba_journey.jpg';
+import corporateLearningImg from '../assets/corporate_learning.png';
+import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.jpg';
 
 export default function MomentsMilestones() {
   const items = [
-    { label: 'MBA Journey', icon: RiGraduationCapLine, gradient: 'from-sage/40 to-teal/10', image: '/mba_journey.png' },
-    { label: 'Rural Impact', icon: RiLeafLine, gradient: 'from-sage/60 to-accent/15' },
-    { label: 'Corporate Learning', icon: RiBriefcaseLine, gradient: 'from-sage/20 to-accent/10', image: '/corporate_learning.png' },
-    { label: 'Healthcare Entrepreneurship', icon: RiHeartPulseLine, gradient: 'from-teal/5 to-sage/40' },
-    { label: 'Building Teams', icon: RiTeamLine, gradient: 'from-sage/40 to-accent/20' },
-    { label: 'The Road Ahead', icon: RiCompassLine, gradient: 'from-accent/5 to-teal/10' }
+    { label: 'MBA Journey', icon: RiGraduationCapLine, gradient: 'from-sage/40 to-teal/10', image: mbaJourneyImg },
+    { label: 'Corporate Learning', icon: RiBriefcaseLine, gradient: 'from-sage/20 to-accent/10', image: corporateLearningImg },
+    { label: 'Healthcare Entrepreneurship', icon: RiHeartPulseLine, gradient: 'from-teal/5 to-sage/40', image: healthcareEntrepreneurshipImg },
   ];
 
   const revealVariants = {
