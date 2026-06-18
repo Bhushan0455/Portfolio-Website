@@ -13,7 +13,8 @@ import Marquee from './components/Marquee';
 import Preloader from './components/Preloader';
 
 function App() {
-  const [preloaderActive, setPreloaderActive] = useState(true);
+  const [preloaderActive, setPreloaderActive] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
@@ -69,6 +70,16 @@ function App() {
     // Stagger detection to ensure React has fully rendered the DOM
     const timer = setTimeout(addHoverListeners, 800);
 
+    // ── Defer Preloader Mount to Avoid Hydration Mismatch & Bypass for react-snap ──
+    const isReactSnap = typeof navigator !== 'undefined' && /ReactSnap/i.test(navigator.userAgent);
+    if (!isReactSnap) {
+      const hasSeen = sessionStorage.getItem('seen-preloader');
+      if (!hasSeen) {
+        setShowPreloader(true);
+        setPreloaderActive(true);
+      }
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkMobile);
@@ -79,7 +90,15 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-white text-navy font-body antialiased selection:bg-teal selection:text-white relative ${!isMobile ? 'lg:cursor-none' : ''}`}>
-      <Preloader onComplete={() => setPreloaderActive(false)} />
+      {showPreloader && (
+        <Preloader 
+          onComplete={() => {
+            setPreloaderActive(false);
+            sessionStorage.setItem('seen-preloader', 'true');
+            setShowPreloader(false);
+          }} 
+        />
+      )}
       
       {/* ── Scroll Progress Bar ── */}
       <div
