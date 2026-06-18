@@ -5,7 +5,6 @@ import QuoteInterstitial from './components/QuoteInterstitial';
 import FounderStory from './components/FounderStory';
 import JourneyFrames from './components/JourneyFrames';
 import HealthcareGap from './components/HealthcareGap';
-import BuildingBeyondBound from './components/BuildingBeyondBound';
 import WhatImBuilding from './components/WhatImBuilding';
 import FounderPhilosophy from './components/FounderPhilosophy';
 import LessonsLearned from './components/LessonsLearned';
@@ -138,7 +137,6 @@ function App() {
         <FounderStory />
         <JourneyFrames />
         <HealthcareGap />
-        <BuildingBeyondBound />
         <WhatImBuilding />
         <FounderPhilosophy />
         <LessonsLearned />

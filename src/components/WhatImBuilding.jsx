@@ -1,9 +1,20 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { RiArrowRightUpLine, RiAmazonLine } from 'react-icons/ri';
 import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.jpg';
+import beyondboundImg from '../assets/beyondbound.jpg';
 import beyondboundLogo from '../assets/beyondbound_logo.png';
 
 export default function WhatImBuilding() {
+  const cgmContainerRef = useRef(null);
+  
+  // Parallax for the CGM photo
+  const { scrollYProgress } = useScroll({
+    target: cgmContainerRef,
+    offset: ["start end", "end start"]
+  });
+  const yParallax = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+
   const milestones = [
     'Somaiya MBA — Healthcare Management',
     'B2B Sales & Pharma Research Experience',
@@ -139,7 +150,61 @@ export default function WhatImBuilding() {
           </div>
         </motion.div>
 
-        {/* ── PART 2 — THE JOURNEY TO BEYOND BOUND ── */}
+        {/* ── PART 2 — FIRST-HAND EFFICACY ── */}
+        <motion.div 
+          ref={cgmContainerRef}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={sectionVariants}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28"
+        >
+          {/* LEFT: Story Narrative (5/12 width) */}
+          <div className="lg:col-span-5 text-left space-y-6">
+            <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal block">
+              First-Hand Efficacy
+            </span>
+            
+            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy tracking-tight leading-snug">
+              Proving Efficacy on the Founder First
+            </h3>
+
+            <div className="space-y-4 font-body text-navy/80 text-sm sm:text-base leading-relaxed">
+              <p>
+                To build a health brand that people can trust with their lives, I had to start with myself. I strapped a continuous glucose monitor (CGM) to my own arm for months. I needed to witness the real-time metabolic impact of ingredients, diet, and lifestyle choices first-hand.
+              </p>
+              <p>
+                It wasn't about relying on standard marketing literature; it was about generating direct, objective proof. This empirical baseline is what drove the formulation of Beyond Bound® Glycomics. If we cannot measure and prove the efficacy of our wellness solutions on ourselves, we have no right to offer them to anyone else.
+              </p>
+            </div>
+          </div>
+
+          {/* RIGHT: Continuous Glucose Monitor Photo (7/12 width) */}
+          <div className="lg:col-span-7 relative w-full">
+            <motion.div 
+              className="relative overflow-hidden rounded-[2.5rem] aspect-[16/10] sm:aspect-[16/9] md:aspect-[16/10] shadow-xl border border-accent/10"
+              whileHover={{ scale: 1.015 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <motion.img 
+                style={{ y: yParallax }}
+                src={beyondboundImg} 
+                alt="Priyanshu Chauhan showing Continuous Glucose Monitor (CGM) on his arm" 
+                className="absolute -top-[10%] w-full h-[120%] object-cover object-center brightness-[0.95] contrast-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent pointer-events-none" />
+            </motion.div>
+            
+            {/* Small pull quote overlapping photo block */}
+            <div className="absolute -bottom-6 -right-2 md:bottom-6 md:right-6 bg-accent text-white px-5 py-3 rounded-2xl shadow-lg border border-accent/20 z-20">
+              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95">
+                "The data is the product."
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* ── PART 3 — THE JOURNEY TO BEYOND BOUND ── */}
         <div className="mb-28 max-w-4xl mx-auto">
           <div className="text-left mb-12">
             <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy tracking-tight">
@@ -191,7 +256,7 @@ export default function WhatImBuilding() {
           </motion.div>
         </div>
 
-        {/* ── PART 3 — BEYOND BOUND TODAY ── */}
+        {/* ── PART 4 — BEYOND BOUND TODAY ── */}
         <div className="mb-28 max-w-4xl mx-auto">
           <div className="bg-[#FAF9F5] border border-accent/20 rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
             {/* Soft inner glow decorator */}
@@ -233,7 +298,7 @@ export default function WhatImBuilding() {
           </div>
         </div>
 
-        {/* ── PART 4 — EXPLORE BEYOND BOUND ── */}
+        {/* ── PART 5 — EXPLORE BEYOND BOUND ── */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
