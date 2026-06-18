@@ -11,7 +11,6 @@ import LessonsLearned from './components/LessonsLearned';
 import MomentsMilestones from './components/MomentsMilestones';
 import Vision from './components/Vision';
 import Connect from './components/Connect';
-import Marquee from './components/Marquee';
 import Preloader from './components/Preloader';
 
 function App() {
@@ -21,6 +20,31 @@ function App() {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+  
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        return savedTheme;
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   useEffect(() => {
     // Lock scrolling while preloader is active
@@ -130,9 +154,8 @@ function App() {
       <div className={`transition-opacity duration-1000 ease-[0.16,1,0.3,1] ${
         preloaderActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
-        <Navbar />
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
         <Hero preloaderActive={preloaderActive} />
-        <Marquee text="METABOLIC HEALTH • PREVENTIVE WELLNESS • AYURVEDIC SCIENCE • CONSUMER INSIGHTS • STARTUP BUILDING" speedClass="animate-marquee" bgClass="bg-sage/40" />
         <QuoteInterstitial />
         <FounderStory />
         <JourneyFrames />
@@ -142,7 +165,6 @@ function App() {
         <LessonsLearned />
         <MomentsMilestones />
         <Vision />
-        <Marquee text="TRADITIONAL WISDOM • SCIENTIFIC VALIDATION • CONSUMER-CENTRIC INNOVATION • METABOLIC WELLNESS" speedClass="animate-marquee" bgClass="bg-white" />
         <Connect />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
+import { RiMenuLine, RiCloseLine, RiSunLine, RiMoonLine } from 'react-icons/ri';
 
 const NAV_LINKS = [
   { label: 'Story', id: 'story' },
@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: 'Vision', id: 'vision' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -81,11 +81,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/90 backdrop-blur-md border-b border-border py-4 shadow-sm'
-            : 'bg-transparent py-6'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 dark:bg-navy/90 backdrop-blur-md border-b border-border dark:border-white/10 py-4 shadow-sm"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
           {/* Logo */}
@@ -94,7 +90,7 @@ export default function Navbar() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
               setActiveSection('');
             }}
-            className="font-heading text-2xl tracking-tight text-navy cursor-pointer flex items-center gap-1 group font-light"
+            className="font-heading text-2xl tracking-tight text-navy dark:text-white cursor-pointer flex items-center gap-1 group font-light"
           >
             <span className="font-bold group-hover:font-medium transition-weight">Priyanshu</span>
             <span className="text-teal group-hover:translate-x-0.5 transition-transform duration-300">.</span>
@@ -109,7 +105,7 @@ export default function Navbar() {
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
                   className={`text-sm font-body font-medium transition-colors duration-300 cursor-pointer relative py-1 ${
-                    isActive ? 'text-teal font-semibold' : 'text-navy/70 hover:text-teal'
+                    isActive ? 'text-teal font-semibold' : 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal'
                   }`}
                 >
                   {link.label}
@@ -123,6 +119,16 @@ export default function Navbar() {
                 </button>
               );
             })}
+            
+            {/* Dark Mode Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full border border-border text-navy hover:text-teal hover:bg-sage/20 dark:border-white/10 dark:text-white dark:hover:text-teal-light dark:hover:bg-white/5 transition-all duration-300 cursor-pointer flex items-center justify-center w-9 h-9"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <RiSunLine size={18} /> : <RiMoonLine size={18} />}
+            </button>
+
             <button
               onClick={() => scrollTo('connect')}
               className={`bg-teal text-white hover:bg-teal-dark font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${
@@ -133,14 +139,26 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-navy hover:text-teal p-1.5 transition-colors cursor-pointer"
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
-          </button>
+          {/* Mobile Navigation controls */}
+          <div className="flex items-center gap-4 md:hidden">
+            {/* Mobile Dark Mode Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 rounded-full border border-border text-navy hover:text-teal dark:border-white/10 dark:text-white dark:hover:text-teal-light transition-all duration-300 cursor-pointer flex items-center justify-center w-8 h-8"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <RiSunLine size={16} /> : <RiMoonLine size={16} />}
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-navy dark:text-white hover:text-teal p-1.5 transition-colors cursor-pointer"
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -152,15 +170,15 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[72px] z-40 md:hidden bg-white border-b border-border shadow-lg"
+            className="fixed inset-x-0 top-[72px] z-40 md:hidden bg-white dark:bg-navy border-b border-border dark:border-white/10 shadow-lg"
           >
             <div className="px-6 py-8 flex flex-col gap-5">
               {NAV_LINKS.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className={`text-left font-body font-medium py-2 border-b border-border/40 last:border-0 cursor-pointer ${
-                    activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80'
+                  className={`text-left font-body font-medium py-2 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer ${
+                    activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
                   }`}
                 >
                   {link.label}

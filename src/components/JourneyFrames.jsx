@@ -95,15 +95,15 @@ export default function JourneyFrames() {
   };
 
   return (
-    <section id="journey" className="py-24 bg-white relative">
+    <section id="journey" className="py-24 bg-white dark:bg-[#081220] relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-xs font-heading font-semibold uppercase tracking-wider text-teal">
+          <span className="text-xs font-heading font-semibold uppercase tracking-wider text-teal dark:text-teal-light">
             Storytelling
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-navy tracking-tight mt-2">
+          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-navy dark:text-white tracking-tight mt-2">
             The Journey
           </h2>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-4"></div>
@@ -128,7 +128,7 @@ export default function JourneyFrames() {
                   whileInView="visible"
                   viewport={{ once: true, margin: '-100px' }}
                   variants={imageScale}
-                  className="w-full md:w-3/5 aspect-[16/10] rounded-3xl border border-accent/20 p-2.5 bg-white shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden relative"
+                  className="w-full md:w-3/5 aspect-[16/10] rounded-3xl border border-accent/20 dark:border-white/10 p-2.5 bg-white dark:bg-[#0e1f35]/30 shadow-md dark:shadow-none hover:shadow-lg transition-shadow duration-300 overflow-hidden relative"
                 >
                   {card.image ? (
                     <div className="w-full h-full rounded-2xl relative overflow-hidden group">
@@ -163,7 +163,7 @@ export default function JourneyFrames() {
                     whileInView={{ x: isEven ? '100%' : '-100%' }}
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-                    className="absolute inset-0 bg-sage z-20 pointer-events-none"
+                    className="absolute inset-0 bg-sage dark:bg-navy-light/30 z-20 pointer-events-none"
                   />
                 </motion.div>
 
@@ -175,17 +175,17 @@ export default function JourneyFrames() {
                   variants={isEven ? slideInRight : slideInLeft}
                   className="w-full md:w-2/5 text-left space-y-4"
                 >
-                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy tracking-tight leading-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy dark:text-white tracking-tight leading-tight">
                     {card.title}
                   </h3>
                   
                   {/* Badge Proof Point */}
-                  <div className="inline-block bg-teal/5 border border-teal/15 text-teal text-[10px] font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider font-heading">
+                  <div className="inline-block bg-teal/5 dark:bg-teal-light/10 border border-teal/15 dark:border-teal-light/20 text-teal dark:text-teal-light text-[10px] font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider font-heading">
                     {card.metric}
                   </div>
 
                   <div className="h-[1px] w-8 bg-accent mt-2"></div>
-                  <p className="font-body text-navy/70 text-sm sm:text-base leading-relaxed pt-1">
+                  <p className="font-body text-navy/70 dark:text-white/70 text-sm sm:text-base leading-relaxed pt-1">
                     {card.caption}
                   </p>
                 </motion.div>

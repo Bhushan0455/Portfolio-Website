@@ -130,19 +130,19 @@ export default function MomentsMilestones() {
   };
 
   return (
-    <section id="moments" className="py-24 bg-sage/15 relative">
+    <section id="moments" className="py-24 bg-sage/15 dark:bg-[#081220] relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-heading font-semibold uppercase tracking-wider text-teal">
+          <span className="text-xs font-heading font-semibold uppercase tracking-wider text-teal dark:text-teal-light">
             Gallery
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-navy tracking-tight mt-2">
+          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-navy dark:text-white tracking-tight mt-2">
             Moments & Milestones
           </h2>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-4"></div>
-          <p className="font-body text-xs text-navy/50 italic mt-6 max-w-xl mx-auto leading-relaxed">
+          <p className="font-body text-xs text-navy/50 dark:text-white/50 italic mt-6 max-w-xl mx-auto leading-relaxed">
             "There's a version of this section where I tell you about exponential growth curves..."
           </p>
         </div>
@@ -160,7 +160,7 @@ export default function MomentsMilestones() {
                 viewport={{ once: true, margin: '-50px' }}
                 variants={revealVariants}
                 onClick={() => setActiveIdx(idx)}
-                className="group border border-accent/20 rounded-3xl p-2.5 bg-white shadow-sm hover:shadow-xl transition-all duration-300 aspect-square overflow-hidden cursor-pointer"
+                className="group border border-accent/20 dark:border-white/10 rounded-3xl p-2.5 bg-white dark:bg-[#0e1f35]/30 shadow-sm dark:shadow-none hover:shadow-xl transition-all duration-300 aspect-square overflow-hidden cursor-pointer"
               >
                 <div className={`w-full h-full rounded-2xl bg-gradient-to-br ${item.gradient} flex flex-col justify-center items-center relative overflow-hidden`}>
                   
@@ -180,15 +180,15 @@ export default function MomentsMilestones() {
                       </div>
 
                       {/* Icon */}
-                      <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-sm border border-accent/20 flex items-center justify-center text-teal group-hover:scale-110 transition-transform duration-500 shadow-sm relative z-10">
+                      <div className="w-12 h-12 rounded-2xl bg-white/70 dark:bg-[#081220]/70 backdrop-blur-sm border border-accent/20 dark:border-white/10 flex items-center justify-center text-teal dark:text-teal-light group-hover:scale-110 transition-transform duration-500 shadow-sm relative z-10">
                         <Icon size={22} />
                       </div>
                     </>
                   )}
 
                   {/* Absolute Caption Overlay */}
-                  <div className="absolute inset-0 bg-navy/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center z-20 backdrop-blur-[2px]">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 border border-white/10 flex items-center justify-center text-white mb-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                  <div className="absolute inset-0 bg-navy/60 dark:bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center z-20 backdrop-blur-[2px]">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 dark:bg-white/10 border border-white/10 flex items-center justify-center text-white mb-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                       <Icon size={18} />
                     </div>
                     <span className="font-heading font-bold text-white text-base sm:text-lg uppercase tracking-wider translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out delay-[50ms]">
@@ -220,7 +220,7 @@ export default function MomentsMilestones() {
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white border border-accent/20 rounded-[32px] w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl flex flex-col scrollbar-thin scrollbar-thumb-teal scrollbar-track-sage"
+              className="bg-white dark:bg-[#0b1625] border border-accent/20 dark:border-white/10 rounded-[32px] w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl flex flex-col scrollbar-thin scrollbar-thumb-teal scrollbar-track-sage"
             >
               {/* Large Milestone Image / Header */}
               <div className="w-full h-48 sm:h-64 md:h-80 relative overflow-hidden bg-sage shrink-0">
@@ -255,25 +255,25 @@ export default function MomentsMilestones() {
               </div>
 
               {/* Modal Body Info */}
-              <div className="p-6 sm:p-10 flex-1 space-y-8 bg-[#FAF9F6] text-left">
+              <div className="p-6 sm:p-10 flex-1 space-y-8 bg-[#FAF9F6] dark:bg-[#0b1625] text-left">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
                   {/* Left Column: Story */}
                   <div className="md:col-span-7 space-y-6">
                     <div>
-                      <h4 className="text-xs uppercase tracking-wider text-teal font-semibold font-heading mb-3 border-b border-teal/10 pb-1.5">
+                      <h4 className="text-xs uppercase tracking-wider text-teal dark:text-teal-light font-semibold font-heading mb-3 border-b border-teal/10 dark:border-teal-light/10 pb-1.5">
                         The Story
                       </h4>
-                      <p className="text-navy/80 text-sm sm:text-base leading-relaxed font-body">
+                      <p className="text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed font-body">
                         {current.story}
                       </p>
                     </div>
 
                     {current.vision && (
-                      <div className="p-5 bg-teal/5 border-l-4 border-accent rounded-r-2xl space-y-2">
+                      <div className="p-5 bg-teal/5 dark:bg-teal-light/5 border-l-4 border-accent rounded-r-2xl space-y-2">
                         <span className="text-[10px] uppercase tracking-wider text-accent font-bold font-heading block">
                           Core Vision
                         </span>
-                        <p className="text-navy font-heading font-medium italic text-sm sm:text-base leading-relaxed">
+                        <p className="text-navy dark:text-white font-heading font-medium italic text-sm sm:text-base leading-relaxed">
                           "{current.vision}"
                         </p>
                       </div>
@@ -284,10 +284,10 @@ export default function MomentsMilestones() {
                   <div className="md:col-span-5 space-y-6">
                     {/* Key Learnings */}
                     <div>
-                      <h4 className="text-xs uppercase tracking-wider text-teal font-semibold font-heading mb-3 border-b border-teal/10 pb-1.5">
+                      <h4 className="text-xs uppercase tracking-wider text-teal dark:text-teal-light font-semibold font-heading mb-3 border-b border-teal/10 dark:border-teal-light/10 pb-1.5">
                         Key Learnings
                       </h4>
-                      <ul className="space-y-2.5 text-xs sm:text-sm text-navy/75 font-body">
+                      <ul className="space-y-2.5 text-xs sm:text-sm text-navy/75 dark:text-white/75 font-body">
                         {current.keyLearnings.map((learning, idx) => (
                           <li key={idx} className="flex items-start gap-2 leading-relaxed">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></span>
@@ -299,13 +299,13 @@ export default function MomentsMilestones() {
 
                     {/* Highlights */}
                     <div>
-                      <h4 className="text-xs uppercase tracking-wider text-teal font-semibold font-heading mb-3 border-b border-teal/10 pb-1.5">
+                      <h4 className="text-xs uppercase tracking-wider text-teal dark:text-teal-light font-semibold font-heading mb-3 border-b border-teal/10 dark:border-teal-light/10 pb-1.5">
                         Highlights & Impact
                       </h4>
-                      <ul className="space-y-2.5 text-xs sm:text-sm text-navy/75 font-body">
+                      <ul className="space-y-2.5 text-xs sm:text-sm text-navy/75 dark:text-white/75 font-body">
                         {current.highlights.map((highlight, idx) => (
                           <li key={idx} className="flex items-start gap-2 leading-relaxed">
-                            <span className="w-1.5 h-1.5 rounded-full bg-teal mt-2 shrink-0"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light mt-2 shrink-0"></span>
                             <span>{highlight}</span>
                           </li>
                         ))}
@@ -316,7 +316,7 @@ export default function MomentsMilestones() {
 
                 {/* Featured Video for Healthcare Entrepreneurship */}
                 {current.label === 'Healthcare Entrepreneurship' && (
-                  <div className="border-t border-border/60 pt-8 mt-2 text-left">
+                  <div className="border-t border-border/60 dark:border-white/10 pt-8 mt-2 text-left">
                     <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-bold font-heading block mb-3">
                       FEATURED FOUNDER MOMENT
                     </span>
@@ -369,23 +369,23 @@ export default function MomentsMilestones() {
               </div>
 
               {/* Navigation Footer */}
-              <div className="border-t border-border/40 bg-white p-4 px-6 sm:px-10 flex items-center justify-between sticky bottom-0 z-20">
+              <div className="border-t border-border/40 dark:border-white/10 bg-white dark:bg-[#0b1625] p-4 px-6 sm:px-10 flex items-center justify-between sticky bottom-0 z-20">
                 <button
                   onClick={handlePrev}
-                  className="flex items-center gap-1.5 sm:gap-2 text-xs uppercase tracking-wider text-navy/60 hover:text-teal font-semibold transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed group cursor-pointer"
+                  className="flex items-center gap-1.5 sm:gap-2 text-xs uppercase tracking-wider text-navy/60 dark:text-white/60 hover:text-teal dark:hover:text-teal-light font-semibold transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed group cursor-pointer"
                   disabled={activeIdx === 0}
                 >
                   <RiArrowLeftLine className="group-hover:-translate-x-1 transition-transform duration-200" size={14} />
                   <span>Previous</span>
                 </button>
 
-                <div className="text-xs font-heading font-bold text-navy/70 uppercase tracking-widest">
+                <div className="text-xs font-heading font-bold text-navy/70 dark:text-white/70 uppercase tracking-widest">
                   0{activeIdx + 1} / 0{items.length}
                 </div>
 
                 <button
                   onClick={handleNext}
-                  className="flex items-center gap-1.5 sm:gap-2 text-xs uppercase tracking-wider text-navy/60 hover:text-teal font-semibold transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed group cursor-pointer"
+                  className="flex items-center gap-1.5 sm:gap-2 text-xs uppercase tracking-wider text-navy/60 dark:text-white/60 hover:text-teal dark:hover:text-teal-light font-semibold transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed group cursor-pointer"
                   disabled={activeIdx === items.length - 1}
                 >
                   <span>Next</span>

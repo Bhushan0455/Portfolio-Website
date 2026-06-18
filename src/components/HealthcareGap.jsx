@@ -11,7 +11,7 @@ export default function HealthcareGap() {
   };
 
   return (
-    <section id="gap" className="py-24 bg-[#FAF9F6] relative overflow-hidden select-none">
+    <section id="gap" className="py-24 bg-[#FAF9F6] dark:bg-[#0b1625] relative overflow-hidden select-none">
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-left">
@@ -23,7 +23,7 @@ export default function HealthcareGap() {
           variants={fadeUp}
           className="flex items-center gap-4 mb-10"
         >
-          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal">
+          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light">
             The Insight
           </span>
           <div className="h-[1px] bg-gradient-to-r from-teal/30 to-transparent flex-1" />
@@ -37,11 +37,11 @@ export default function HealthcareGap() {
           variants={{
             visible: { transition: { staggerChildren: 0.15 } }
           }}
-          className="space-y-8 max-w-3xl font-body text-navy/80 text-base sm:text-lg leading-[1.8]"
+          className="space-y-8 max-w-3xl font-body text-navy/80 dark:text-white/80 text-base sm:text-lg leading-[1.8]"
         >
           <motion.h3 
             variants={fadeUp}
-            className="text-3xl sm:text-4xl font-bold font-heading text-navy tracking-tight leading-tight"
+            className="text-3xl sm:text-4xl font-bold font-heading text-navy dark:text-white tracking-tight leading-tight"
           >
             Why hasn't someone already solved wellness in India?
           </motion.h3>
@@ -54,7 +54,7 @@ export default function HealthcareGap() {
             variants={fadeUp}
             className="pt-4"
           >
-            <p className="text-xl sm:text-2xl font-heading font-bold text-teal leading-normal">
+            <p className="text-xl sm:text-2xl font-heading font-bold text-teal dark:text-teal-light leading-normal">
               "The gap wasn't a product gap. It was a credibility gap."
             </p>
           </motion.div>

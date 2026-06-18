@@ -56,7 +56,7 @@ function Typewriter() {
         className={`transition-all duration-500 ease-out font-heading font-medium tracking-wide ${
           showGlow 
             ? 'text-teal drop-shadow-[0_0_10px_rgba(13,115,119,0.5)] font-semibold' 
-            : 'text-navy/80'
+            : 'text-navy/80 dark:text-white/80'
         }`}
       >
         {displayedText}
@@ -127,7 +127,7 @@ export default function Hero({ preloaderActive }) {
   return (
     <section
       id="home"
-      className="min-h-screen pt-28 pb-16 flex items-center bg-gradient-to-b from-sage/20 via-white to-white overflow-hidden"
+      className="min-h-screen pt-28 pb-16 flex items-center bg-gradient-to-b from-sage/20 via-white to-white dark:from-navy-light/10 dark:via-[#081220] dark:to-[#081220] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -143,7 +143,7 @@ export default function Hero({ preloaderActive }) {
             <div className="overflow-hidden mb-2">
               <motion.span
                 variants={clipVariants}
-                className="text-xs font-heading font-semibold tracking-wider text-teal uppercase block"
+                className="text-xs font-heading font-semibold tracking-wider text-teal dark:text-teal-light uppercase block"
               >
                 Priyanshu Chauhan
               </motion.span>
@@ -153,7 +153,7 @@ export default function Hero({ preloaderActive }) {
             <div className="overflow-hidden mb-6">
               <motion.span
                 variants={clipVariants}
-                className="text-sm font-heading font-medium tracking-wide text-navy/60 uppercase block"
+                className="text-sm font-heading font-medium tracking-wide text-navy/60 dark:text-white/60 uppercase block"
               >
                 Founder & CEO, Beyond Bound®
               </motion.span>
@@ -163,7 +163,7 @@ export default function Hero({ preloaderActive }) {
             <div className="overflow-hidden mb-6 py-1">
               <motion.h1
                 variants={clipVariants}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy leading-[1.15] block"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block"
               >
                 Healthcare India can actually trust.
               </motion.h1>
@@ -172,12 +172,12 @@ export default function Hero({ preloaderActive }) {
             {/* Two lines of narrative body copy */}
             <motion.div
               variants={fadeUpVariants}
-              className="space-y-4 text-navy/70 font-body text-base sm:text-lg leading-relaxed max-w-xl mb-8"
+              className="space-y-4 text-navy/70 dark:text-white/70 font-body text-base sm:text-lg leading-relaxed max-w-xl mb-8"
             >
               <p>
                 I came to this work through agriculture, corporate sales, an MBA, and a glucose monitor strapped to my own arm.
               </p>
-              <p className="font-semibold text-navy/90">
+              <p className="font-semibold text-navy/90 dark:text-white/90">
                 This isn't a portfolio. It's a working record of a founder still in the middle of the build.
               </p>
             </motion.div>
@@ -193,10 +193,10 @@ export default function Hero({ preloaderActive }) {
             {/* Understated Scroll Cue instead of buttons & quote block */}
             <motion.div
               variants={fadeUpVariants}
-              className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal/70 flex items-center gap-2 select-none"
+              className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal/70 dark:text-teal-light/70 flex items-center gap-2 select-none"
             >
               <span>Scroll to explore</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light animate-pulse" />
             </motion.div>
           </motion.div>
 
@@ -207,7 +207,7 @@ export default function Hero({ preloaderActive }) {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={preloaderActive ? { opacity: 0 } : { opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-[385px] aspect-[4/5] p-3 border border-accent/20 rounded-3xl bg-white shadow-xl shadow-navy/5 relative"
+              className="w-full max-w-[385px] aspect-[4/5] p-3 border border-accent/20 dark:border-white/10 rounded-3xl bg-white dark:bg-[#0e1f35]/50 shadow-xl shadow-navy/5 dark:shadow-none relative"
             >
               {/* Premium Blurred Ambient Glow Backdrop */}
               <motion.div 
@@ -226,7 +226,7 @@ export default function Hero({ preloaderActive }) {
                   duration: 6,
                   ease: 'easeInOut'
                 }}
-                className="w-full h-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-teal/20 transition-shadow duration-500 border border-transparent hover:border-teal/20 group relative cursor-pointer"
+                className="w-full h-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-teal/20 dark:hover:shadow-teal-light/20 transition-shadow duration-500 border border-transparent hover:border-teal/20 dark:hover:border-teal-light/20 group relative cursor-pointer"
               >
                 {/* Founder Image */}
                 <motion.img
@@ -243,10 +243,10 @@ export default function Hero({ preloaderActive }) {
               </motion.div>
 
               {/* Decorative Corner Accents */}
-              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-teal rounded-tl-3xl -translate-x-[1px] -translate-y-[1px]"></div>
-              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-teal rounded-tr-3xl translate-x-[1px] -translate-y-[1px]"></div>
-              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-teal rounded-bl-3xl -translate-x-[1px] translate-y-[1px]"></div>
-              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-teal rounded-br-3xl translate-x-[1px] translate-y-[1px]"></div>
+              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-teal dark:border-teal-light rounded-tl-3xl -translate-x-[1px] -translate-y-[1px]"></div>
+              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-teal dark:border-teal-light rounded-tr-3xl translate-x-[1px] -translate-y-[1px]"></div>
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-teal dark:border-teal-light rounded-bl-3xl -translate-x-[1px] translate-y-[1px]"></div>
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-teal dark:border-teal-light rounded-br-3xl translate-x-[1px] translate-y-[1px]"></div>
             </motion.div>
           </div>
 

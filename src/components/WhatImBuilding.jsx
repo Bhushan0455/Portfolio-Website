@@ -68,22 +68,22 @@ export default function WhatImBuilding() {
   };
 
   return (
-    <section id="building" className="py-24 md:py-32 bg-white relative overflow-hidden select-none">
+    <section id="building" className="py-24 md:py-32 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
       {/* Subtle background ambient decorations */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sage/30 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sage/30 dark:bg-teal-dark/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 lg:px-32 relative z-10">
         
         {/* ── SECTION HEADER ── */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal">
+          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light">
             My Focus
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-navy mt-3 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-navy dark:text-white mt-3 tracking-tight">
             What I'm Building
           </h2>
-          <p className="text-navy/60 font-body text-base sm:text-lg mt-4 max-w-xl mx-auto leading-relaxed">
+          <p className="text-navy/60 dark:text-white/60 font-body text-base sm:text-lg mt-4 max-w-xl mx-auto leading-relaxed">
             My thesis for metabolic wellness and preventive healthcare.
           </p>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-6" />
@@ -100,7 +100,7 @@ export default function WhatImBuilding() {
           {/* LEFT: Photo */}
           <div className="lg:col-span-5">
             <motion.div 
-              className="relative overflow-hidden rounded-[2rem] aspect-[4/3] sm:aspect-[16/11] lg:aspect-square shadow-xl group border border-accent/10"
+              className="relative overflow-hidden rounded-[2rem] aspect-[4/3] sm:aspect-[16/11] lg:aspect-square shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
               whileHover={{ scale: 1.015 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -115,33 +115,33 @@ export default function WhatImBuilding() {
 
           {/* RIGHT: Story content */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
               Why I Started
             </h3>
-            <div className="space-y-4 font-body text-navy/80 text-sm sm:text-base leading-relaxed">
+            <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
               <p>
                 I started Beyond Bound® with a simple observation: while lifestyle diseases were rising rapidly, preventive healthcare remained fragmented, confusing, and difficult to trust.
               </p>
               <p>
                 My experience across corporate sales and pharmaceutical market research showed me that consumers do not need more products. They need clinical validation, transparency, and genuine proof.
               </p>
-              <p className="font-semibold text-navy">
+              <p className="font-semibold text-navy dark:text-white">
                 That is the insight that drove me to build Beyond Bound®.
               </p>
             </div>
 
             {/* Milestone Chips */}
             <div className="pt-4">
-              <span className="text-[10px] font-heading font-bold text-navy/40 uppercase tracking-widest block mb-3">
+              <span className="text-[10px] font-heading font-bold text-navy/40 dark:text-white/40 uppercase tracking-widest block mb-3">
                 My Experience Scaffolding
               </span>
               <div className="flex flex-wrap gap-2.5">
                 {milestones.map((milestone, idx) => (
                   <span 
                     key={idx} 
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-sage/40 border border-teal/10 rounded-full text-xs font-heading font-medium text-teal"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-sage/40 dark:bg-[#0e1f35]/50 border border-teal/10 dark:border-teal-light/20 rounded-full text-xs font-heading font-medium text-teal dark:text-teal-light"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light" />
                     {milestone}
                   </span>
                 ))}
@@ -161,15 +161,15 @@ export default function WhatImBuilding() {
         >
           {/* LEFT: Story Narrative (5/12 width) */}
           <div className="lg:col-span-5 text-left space-y-6">
-            <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal block">
+            <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
               First-Hand Efficacy
             </span>
             
-            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy tracking-tight leading-snug">
+            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight leading-snug">
               Proving Efficacy on the Founder First
             </h3>
 
-            <div className="space-y-4 font-body text-navy/80 text-sm sm:text-base leading-relaxed">
+            <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
               <p>
                 To build a health brand that people can trust with their lives, I had to start with myself. I strapped a continuous glucose monitor (CGM) to my own arm for months. I needed to witness the real-time metabolic impact of ingredients, diet, and lifestyle choices first-hand.
               </p>
@@ -182,7 +182,7 @@ export default function WhatImBuilding() {
           {/* RIGHT: Continuous Glucose Monitor Photo (7/12 width) */}
           <div className="lg:col-span-7 relative w-full">
             <motion.div 
-              className="relative overflow-hidden rounded-[2.5rem] aspect-[16/10] sm:aspect-[16/9] md:aspect-[16/10] shadow-xl border border-accent/10"
+              className="relative overflow-hidden rounded-[2.5rem] aspect-[16/10] sm:aspect-[16/9] md:aspect-[16/10] shadow-xl dark:shadow-none border border-accent/10 dark:border-white/10"
               whileHover={{ scale: 1.015 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -207,7 +207,7 @@ export default function WhatImBuilding() {
         {/* ── PART 3 — THE JOURNEY TO BEYOND BOUND ── */}
         <div className="mb-28 max-w-4xl mx-auto">
           <div className="text-left mb-12">
-            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
               The Journey to Beyond Bound®
             </h3>
           </div>
@@ -218,7 +218,7 @@ export default function WhatImBuilding() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="relative pl-8 sm:pl-12 border-l border-teal/15 space-y-12 py-4 text-left"
+            className="relative pl-8 sm:pl-12 border-l border-teal/15 dark:border-teal-light/20 space-y-12 py-4 text-left"
           >
             {journeySteps.map((step, idx) => (
               <motion.div 
@@ -230,23 +230,23 @@ export default function WhatImBuilding() {
                 className="relative"
               >
                 {/* Timeline Circle Node */}
-                <div className="absolute -left-[37px] sm:-left-[53px] top-2.5 w-4.5 h-4.5 rounded-full bg-white border-2 border-teal flex items-center justify-center shadow-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-teal" />
+                <div className="absolute -left-[37px] sm:-left-[53px] top-2.5 w-4.5 h-4.5 rounded-full bg-white dark:bg-[#081220] border-2 border-teal dark:border-teal-light flex items-center justify-center shadow-sm">
+                  <div className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light" />
                 </div>
                 
                 {/* Flex layout for serif number & step description */}
                 <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
                   {/* Big elegant serif number */}
-                  <span className="font-serif text-5xl font-light text-accent/80 leading-none select-none tracking-tighter sm:w-16">
+                  <span className="font-serif text-5xl font-light text-accent/80 dark:text-accent-light/80 leading-none select-none tracking-tighter sm:w-16">
                     {step.num}
                   </span>
                   
                   {/* Step Title & Details */}
                   <div className="space-y-1">
-                    <h4 className="font-heading font-bold text-lg text-navy tracking-tight">
+                    <h4 className="font-heading font-bold text-lg text-navy dark:text-white tracking-tight">
                       {step.label}
                     </h4>
-                    <p className="font-body text-navy/70 text-sm sm:text-base leading-relaxed max-w-2xl">
+                    <p className="font-body text-navy/70 dark:text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl">
                       {step.desc}
                     </p>
                   </div>
@@ -258,7 +258,7 @@ export default function WhatImBuilding() {
 
         {/* ── PART 4 — BEYOND BOUND TODAY ── */}
         <div className="mb-28 max-w-4xl mx-auto">
-          <div className="bg-[#FAF9F5] border border-accent/20 rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
+          <div className="bg-[#FAF9F5] dark:bg-[#0e1f35]/40 border border-accent/20 dark:border-white/10 rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
             {/* Soft inner glow decorator */}
             <div className="absolute -right-16 -top-16 w-32 h-32 bg-teal/5 rounded-full blur-2xl pointer-events-none" />
             
@@ -272,12 +272,12 @@ export default function WhatImBuilding() {
             </div>
 
             {/* Brand Logo Typo */}
-            <div className="font-heading font-extrabold text-2xl sm:text-3xl tracking-[0.2em] text-navy uppercase select-none">
-              BEYOND <span className="text-teal">BOUND®</span>
+            <div className="font-heading font-extrabold text-2xl sm:text-3xl tracking-[0.2em] text-navy dark:text-white uppercase select-none">
+              BEYOND <span className="text-teal dark:text-teal-light">BOUND®</span>
             </div>
 
             {/* Tagline */}
-            <h4 className="font-serif italic text-lg sm:text-xl text-navy/90 mt-4 leading-relaxed max-w-lg mx-auto">
+            <h4 className="font-serif italic text-lg sm:text-xl text-navy/90 dark:text-white/95 mt-4 leading-relaxed max-w-lg mx-auto">
               "Wellness that survives measurement."
             </h4>
 
@@ -289,7 +289,7 @@ export default function WhatImBuilding() {
               {focusAreas.map((area, idx) => (
                 <span 
                   key={idx} 
-                  className="px-4 py-2 bg-white border border-border/80 rounded-full text-xs font-heading font-semibold text-navy/85 hover:border-teal/20 transition-all duration-300 shadow-sm"
+                  className="px-4 py-2 bg-white dark:bg-[#081220] border border-border/80 dark:border-white/10 rounded-full text-xs font-heading font-semibold text-navy/85 dark:text-white/85 hover:border-teal/20 dark:hover:border-teal-light/20 transition-all duration-300 shadow-sm"
                 >
                   {area}
                 </span>
@@ -307,7 +307,7 @@ export default function WhatImBuilding() {
           className="text-center space-y-6 max-w-xl mx-auto"
         >
           <div className="text-center">
-            <h3 className="text-xl sm:text-2xl font-heading font-bold text-navy tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-heading font-bold text-navy dark:text-white tracking-tight">
               Explore Beyond Bound®
             </h3>
           </div>
@@ -329,7 +329,7 @@ export default function WhatImBuilding() {
               href="https://www.amazon.in/Beyond-Bound-Glycomics-Metabolism-Capsules/dp/B0GFP3VFPT"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-accent/40 hover:border-accent hover:bg-accent/5 text-navy font-heading font-semibold rounded-full shadow-sm transition-all duration-300 text-xs tracking-widest uppercase cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-[#0e1f35]/50 border border-accent/40 hover:border-accent hover:bg-accent/5 dark:hover:bg-white/5 text-navy dark:text-white font-heading font-semibold rounded-full shadow-sm transition-all duration-300 text-xs tracking-widest uppercase cursor-pointer"
             >
               <RiAmazonLine size={16} className="text-[#FF9900]" />
               <span>View on Amazon</span>
