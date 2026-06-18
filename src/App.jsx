@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import JourneyFrames from './components/JourneyFrames';
 import DrivesMe from './components/DrivesMe';
+import FounderPhilosophy from './components/FounderPhilosophy';
+import LessonsLearned from './components/LessonsLearned';
 import WhatImBuilding from './components/WhatImBuilding';
 import MomentsMilestones from './components/MomentsMilestones';
 import Vision from './components/Vision';
@@ -112,6 +114,8 @@ function App() {
         <Marquee text="METABOLIC HEALTH • PREVENTIVE WELLNESS • AYURVEDIC SCIENCE • CONSUMER INSIGHTS • STARTUP BUILDING" speedClass="animate-marquee" bgClass="bg-sage/40" />
         <JourneyFrames />
         <DrivesMe />
+        <FounderPhilosophy />
+        <LessonsLearned />
         <WhatImBuilding />
         <MomentsMilestones />
         <Vision />

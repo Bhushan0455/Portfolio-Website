@@ -22,7 +22,7 @@ export default function MomentsMilestones() {
       gradient: 'from-sage/40 to-teal/10',
       image: mbaJourneyImg,
       tagline: 'K J Somaiya Institute of Management',
-      story: 'My MBA journey at KJ Somaiya Institute of Management helped me build a strong foundation in strategy, healthcare management, marketing, and business development. During this phase, I explored entrepreneurship, collaborated on industry projects, and developed the mindset required to solve real-world business challenges.',
+      story: 'My MBA journey at K J Somaiya Institute of Management was the crucible where my business acumen met healthcare strategy. Immersed in healthcare management, market analysis, and consumer behavior, I developed structured frameworks to dissect complex industry challenges. I realized that the future of healthcare lies in prevention rather than cure, and this academic foundation gave me the tools to design, validate, and launch solutions from first principles.',
       keyLearnings: [
         'Healthcare Management Strategy',
         'Corporate & Business Strategy',
@@ -32,8 +32,8 @@ export default function MomentsMilestones() {
       ],
       highlights: [
         'MBA Specialization in Healthcare Management',
-        'Direct exposure to healthcare and consumer-facing sectors',
-        'Collaboration on active industry consulting and strategic planning cases'
+        'Direct exposure to healthcare strategy and consumer-facing business frameworks',
+        'Collaborated on strategic planning cases, winning management presentations'
       ],
       skills: ['Strategy', 'Leadership', 'Problem Solving', 'Market Research', 'Teamwork']
     },
@@ -43,7 +43,7 @@ export default function MomentsMilestones() {
       gradient: 'from-sage/20 to-accent/10',
       image: corporateLearningImg,
       tagline: 'Execution & Industry Insights',
-      story: 'My professional tenure in corporate settings—ranging from Patanjali Ayurveda to Allied Market Research and Britannia Industries—has been a masterclass in market execution and commercial operations. I managed distributor relations, conducted in-depth healthcare market analysis, and drove significant sales growth.',
+      story: 'My tenure across Patanjali Ayurveda, Allied Market Research, and Britannia Industries was an intensive immersion in commercial operations and market research. At Patanjali, I spearheaded B2B sales and channel management, driving ₹14 million in revenue by streamlining distributor networks. At Allied Market Research, I curated secondary healthcare databases and analyzed pharmaceutical pipelines. This corporate phase taught me how to scale supply chains, identify consumer demands, and back decisions with hard market intelligence.',
       keyLearnings: [
         'B2B Sales Operations & Channel Management',
         'Regional Market Penetration & Expansion Planning',
@@ -51,9 +51,9 @@ export default function MomentsMilestones() {
         'Consumer Goods Sales Execution & Auditing'
       ],
       highlights: [
-        'Achieved sales worth approximately ₹14 million at Patanjali Ayurveda',
-        'Led primary database curation and pharmaceutical market forecasting',
-        'Supported energy bar product launches and retail field operations'
+        'Managed distributor relationships and achieved ₹14 million in sales at Patanjali Ayurveda',
+        'Spearheaded healthcare database curation and pharmaceutical market forecasting at Allied Market Research',
+        'Supported energy bar product launches and retail field operations at Britannia Industries'
       ],
       skills: ['Sales Strategy', 'B2B Relationships', 'Market Intelligence', 'Distributor Channels', 'Healthcare Research']
     },
@@ -63,7 +63,7 @@ export default function MomentsMilestones() {
       gradient: 'from-teal/5 to-sage/40',
       image: healthcareEntrepreneurshipImg,
       tagline: 'Beyond Bound Wellness Venture',
-      story: 'Founding Beyond Bound has been the ultimate test of translating vision into execution. I established a nutraceutical and Ayurvedic wellness venture from the ground up, navigating regulatory requirements, product formulation, e-commerce operations, and brand strategy. Today, we are transitioning to a metabolic wellness-focused brand.',
+      story: 'Building Beyond Bound from the ground up has been a profound journey of translating founder philosophy into tangible execution. Navigating FSSAI regulatory compliance, securing trademark protection, and directing product formulation taught me the meticulousness required to build user trust in wellness. I identified the deep problem of metabolic dysfunction and prediabetes in India, realizing that consumers deserve clean, scientifically validated wellness. The venture represents my hands-on leadership—from supply chain setup to e-commerce and brand strategy.',
       keyLearnings: [
         'Metabolic Health & Preventive Innovation',
         'Regulatory Pathways (FSSAI, MSME, Trademark)',
@@ -71,9 +71,9 @@ export default function MomentsMilestones() {
         'Ayurvedic and Nutraceutical Product Formulation'
       ],
       highlights: [
-        'Founded Beyond Bound and secured MSME & GST registrations',
-        'Successfully completed FSSAI certifications and Trademark protections',
-        'Designed metabolic wellness product lines addressing prediabetes'
+        'Founded Beyond Bound, securing MSME, GST, and FSSAI certifications',
+        'Designed and registered trademarks, protecting brand IP and core assets',
+        'Transitioning to a metabolic wellness model with custom product lines addressing prediabetes'
       ],
       vision: "To build India's most trusted metabolic wellness company by combining traditional wisdom, scientific validation, and consumer-centric innovation.",
       skills: ['Entrepreneurship', 'Leadership', 'Product Strategy', 'Brand Building', 'Healthcare Innovation']
@@ -314,6 +314,59 @@ export default function MomentsMilestones() {
                     </div>
                   </div>
                 </div>
+
+                {/* Featured Video for Healthcare Entrepreneurship */}
+                {current.label === 'Healthcare Entrepreneurship' && (
+                  <div className="border-t border-border/60 pt-8 mt-2 text-left">
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-bold font-heading block mb-3">
+                      FEATURED FOUNDER MOMENT
+                    </span>
+                    <div className="w-full aspect-[16/9] rounded-2xl bg-[#0F2744] border border-white/10 relative overflow-hidden group shadow-lg">
+                      <img 
+                        src={current.image}
+                        alt="Pitching video thumbnail"
+                        className="absolute inset-0 w-full h-full object-cover opacity-40 blur-xs transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/40" />
+                      <div className="absolute inset-0 flex flex-col justify-between p-6 z-10 text-white select-none">
+                        <div className="flex justify-between items-start">
+                          <span className="bg-black/60 backdrop-blur-md text-[10px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full border border-white/10">
+                            Startup Exhibition & Investor Pitch
+                          </span>
+                          <span className="bg-teal text-[10px] font-semibold px-2 py-0.5 rounded uppercase tracking-wider animate-pulse">
+                            Live Recording
+                          </span>
+                        </div>
+                        <div className="flex justify-center items-center">
+                          <div className="w-14 h-14 rounded-full bg-white text-[#0F2744] flex items-center justify-center shadow-xl border border-white/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-teal group-hover:text-white cursor-pointer relative">
+                            <div className="absolute inset-0 rounded-full bg-white/20 animate-ping group-hover:bg-teal/20" />
+                            <svg className="w-5 h-5 fill-current ml-1" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="w-full h-1 bg-white/30 rounded-full overflow-hidden relative">
+                            <div className="absolute top-0 left-0 w-1/3 h-full bg-teal" />
+                          </div>
+                          <div className="flex justify-between items-center text-xs text-white/80">
+                            <div className="flex items-center gap-4">
+                              <span className="cursor-pointer hover:text-teal transition-colors">
+                                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                </svg>
+                              </span>
+                              <span>01:42 / 05:00</span>
+                            </div>
+                            <span className="text-[10px] uppercase tracking-widest opacity-60">
+                              (Video frame placeholder - to be added)
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* Skills Section */}
                 <div className="border-t border-border/60 pt-6">

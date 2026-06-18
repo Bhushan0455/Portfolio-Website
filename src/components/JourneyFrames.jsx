@@ -1,39 +1,69 @@
 import { motion } from 'framer-motion';
-import { RiLeafLine, RiUserLine, RiBuildingLine, RiCompassLine } from 'react-icons/ri';
-import frame1Img from '../assets/frame1.jpg';
-import frame2Img from '../assets/frame2.jpg';
-import frame4Img from '../assets/frame4.png';
-import frame3Img from '../assets/frame3.png';
+import {
+  RiGraduationCapLine,
+  RiBriefcaseLine,
+  RiPulseLine,
+  RiLeafLine,
+  RiLineChartLine,
+  RiCompassLine
+} from 'react-icons/ri';
+
+import mbaJourneyImg from '../assets/mba_journey.jpg';
+import corporateLearningImg from '../assets/corporate_learning.png';
+import aboutImg from '../assets/about.png';
+import beyondboundImg from '../assets/beyondbound.jpg';
+import glycomicsImg from '../assets/glycomics.png';
+import visionImg from '../assets/vision.png';
 
 export default function JourneyFrames() {
   const cards = [
     {
-      title: 'Agriculture & Rural Impact',
-      caption: 'Working alongside farming communities taught me that meaningful change starts with understanding people.',
-      icon: RiLeafLine,
+      title: 'MBA Foundation',
+      metric: 'K J Somaiya Institute of Management',
+      caption: 'Strategizing at the intersection of business principles and healthcare management, building structured leadership frameworks.',
+      icon: RiGraduationCapLine,
       gradient: 'from-sage/60 via-sage to-accent/10',
-      image: frame1Img
+      image: mbaJourneyImg
     },
     {
-      title: 'Learning Through Industry',
-      caption: 'Experiences across healthcare, research, and consumer businesses shaped how I think and build.',
-      icon: RiUserLine,
+      title: 'Corporate Learning',
+      metric: '₹14M+ Sales Contribution',
+      caption: 'Executing scale sales strategy and distributor operations across Patanjali, Britannia, and Allied Market Research.',
+      icon: RiBriefcaseLine,
       gradient: 'from-sage via-white to-accent/20',
-      image: frame2Img
+      image: corporateLearningImg
     },
     {
-      title: 'Entrepreneurship',
-      caption: 'Beyond Bound emerged from a desire to make preventive wellness more trustworthy and accessible.',
-      icon: RiBuildingLine,
+      title: 'Discovering the Healthcare Gap',
+      metric: 'Research Across Consumer & Healthcare Markets',
+      caption: 'Observing the core disconnect between standard wellness products and the clinical validation required for real metabolic solutions.',
+      icon: RiPulseLine,
       gradient: 'from-teal/5 via-sage/40 to-accent/10',
-      image: frame3Img
+      image: aboutImg
     },
     {
-      title: 'Building The Future',
-      caption: 'Continuing to learn, experiment, and create with purpose.',
-      icon: RiCompassLine,
+      title: 'Building Beyond Bound',
+      metric: 'MSME • GST • FSSAI • Trademark',
+      caption: 'Formulating the foundational blocks of a trustworthy, scientific wellness brand centered on preventive metabolic care.',
+      icon: RiLeafLine,
       gradient: 'from-sage/20 via-accent/5 to-teal/10',
-      image: frame4Img
+      image: beyondboundImg
+    },
+    {
+      title: 'Scaling the Vision',
+      metric: 'Metabolic Wellness Focus',
+      caption: 'Expanding distribution channels, designing product offerings for prediabetes, and scaling trust-first consumer engagement.',
+      icon: RiLineChartLine,
+      gradient: 'from-teal/10 via-sage to-accent/5',
+      image: glycomicsImg
+    },
+    {
+      title: 'Future Vision',
+      metric: 'Building India\'s Most Trusted Wellness Ecosystem',
+      caption: 'Pursuing the mission to make metabolic wellness accessible, science-backed, and integral to daily life.',
+      icon: RiCompassLine,
+      gradient: 'from-sage/40 via-accent/10 to-teal/20',
+      image: visionImg
     }
   ];
 
@@ -100,7 +130,6 @@ export default function JourneyFrames() {
                   variants={imageScale}
                   className="w-full md:w-3/5 aspect-[16/10] rounded-3xl border border-accent/20 p-2.5 bg-white shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden relative"
                 >
-                  {/* Soft Gradient Placeholder Grid */}
                   {card.image ? (
                     <div className="w-full h-full rounded-2xl relative overflow-hidden group">
                       <img
@@ -112,8 +141,6 @@ export default function JourneyFrames() {
                     </div>
                   ) : (
                     <div className={`w-full h-full rounded-2xl bg-gradient-to-br ${card.gradient} flex flex-col justify-center items-center p-8 relative overflow-hidden group`}>
-                      
-                      {/* Subtle grid lines for editorial feel */}
                       <div className="absolute inset-0 grid grid-cols-6 grid-rows-4 opacity-[0.08] pointer-events-none">
                         {Array(24).fill(0).map((_, gridIdx) => (
                           <div key={gridIdx} className="border-t border-l border-navy"></div>
@@ -151,11 +178,17 @@ export default function JourneyFrames() {
                   <span className="text-teal text-xs font-heading font-semibold uppercase tracking-widest block">
                     Frame 0{idx + 1}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy tracking-tight leading-tight">
                     {card.title}
                   </h3>
-                  <div className="h-[1px] w-8 bg-accent"></div>
-                  <p className="font-body text-navy/70 text-sm sm:text-base leading-relaxed pt-2">
+                  
+                  {/* Badge Proof Point */}
+                  <div className="inline-block bg-teal/5 border border-teal/15 text-teal text-[10px] font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider font-heading">
+                    {card.metric}
+                  </div>
+
+                  <div className="h-[1px] w-8 bg-accent mt-2"></div>
+                  <p className="font-body text-navy/70 text-sm sm:text-base leading-relaxed pt-1">
                     {card.caption}
                   </p>
                 </motion.div>

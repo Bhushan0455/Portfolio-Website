@@ -8,7 +8,7 @@ function Typewriter() {
     "Founder & CEO, Beyond Bound",
     "Building India's Future in Metabolic Wellness",
     "Healthcare Entrepreneur",
-    "From Rural Impact to Consumer Healthcare",
+    "From Strategy to Healthcare Innovation",
     "Combining Ayurveda, Science & Business",
     "Creating Trust-First Health Brands",
     "Healthcare Strategy • Innovation • Growth",

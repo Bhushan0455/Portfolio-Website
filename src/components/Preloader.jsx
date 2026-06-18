@@ -105,15 +105,15 @@ const INTRO_STAGES = [
     label: 'ABOUT',
     headline: 'Entrepreneur. MBA from KJ Somaiya. Healthcare strategist.',
     subHeadline: '',
-    description: 'A journey shaped by agriculture, consumer insights, and the pursuit of meaningful impact.',
+    description: 'A journey shaped by healthcare strategy, consumer insights, and the pursuit of meaningful impact.',
     image: aboutImg
   },
   {
     id: 'journey',
     label: 'JOURNEY',
-    headline: 'From rural field projects to healthcare strategy...',
+    headline: 'From strategic insights to healthcare execution...',
     subHeadline: '',
-    description: 'Every experience contributed to building a founder who values execution, resilience, and learning.',
+    description: 'Backgrounds in healthcare, consumer businesses, and rural field projects helped shape my understanding of real-world challenges.',
     image: journeyImg
   },
   {

@@ -35,7 +35,7 @@ export default function AboutMe() {
               {/* Highlight Quote Box */}
               <div className="bg-sage/30 border-l-4 border-teal p-5 rounded-r-xl mt-8">
                 <p className="font-heading font-medium text-navy text-sm italic leading-relaxed">
-                  "Understanding health starts at the soil — bridging agriculture, strategy, and modern healthcare is the key to creating wellness solutions that actually work."
+                  "Bridging strategic intelligence, consumer insights, and clinical validation is the key to creating wellness solutions that actually work."
                 </p>
               </div>
             </motion.div>
@@ -63,7 +63,7 @@ export default function AboutMe() {
                 variants={fadeUp}
                 className="font-body text-navy/70 text-base leading-relaxed"
               >
-                My journey started in agriculture, where I worked closely with rural farming communities and assessed the impact of agricultural interventions across more than <strong className="font-medium text-navy">2,000 farmers</strong>. This experience helped generate significant value creation and exposed me to the gap between production, consumer demand, and healthcare outcomes.
+                Backgrounds in healthcare, consumer businesses, and rural field projects helped shape my understanding of real-world challenges. This journey exposed me to the critical gaps between distributor supply chains, consumer expectations, and preventive wellness outcomes.
               </motion.p>
 
               <motion.p

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { RiUserSharedLine, RiCoinsLine, RiBriefcaseFill, RiShieldStarLine } from 'react-icons/ri';
+import { RiGraduationCapLine, RiLineChartLine, RiBriefcaseFill, RiShieldStarLine } from 'react-icons/ri';
 
 export default function Achievements() {
   const fadeUp = {
@@ -13,31 +13,31 @@ export default function Achievements() {
 
   const metrics = [
     {
-      value: '2,000+',
-      label: 'Farmers Supported',
-      icon: RiUserSharedLine,
-      desc: 'Assessed and supported rural farming communities, validating local agricultural interventions.',
+      value: 'MBA',
+      label: 'Healthcare Strategy',
+      icon: RiGraduationCapLine,
+      desc: 'Specialized in Healthcare Management from K J Somaiya, building foundational strategy and leadership frameworks.',
       bg: 'bg-sage/40'
     },
     {
-      value: '₹40 Cr',
-      label: 'Farmer Economic Impact',
-      icon: RiCoinsLine,
-      desc: 'Contributed to regional initiatives that generated incremental earnings for farmers.',
+      value: '100+',
+      label: 'Market Entry Profiles',
+      icon: RiLineChartLine,
+      desc: 'Curated comprehensive industry intelligence reports, detailing global pharmaceutical and consumer wellness market sizes.',
       bg: 'bg-accent/15'
     },
     {
       value: '₹14 M',
-      label: 'Sales contribution',
+      label: 'Sales Contribution',
       icon: RiBriefcaseFill,
-      desc: 'Successfully generated during engagement as a B2B Sales Strategist at Patanjali.',
+      desc: 'Successfully generated during B2B distributor engagement as a Sales Strategist at Patanjali Ayurveda.',
       bg: 'bg-sage/40'
     },
     {
       value: 'Founder',
       label: 'Beyond Bound',
       icon: RiShieldStarLine,
-      desc: 'Founded, licensed, and registered a nutraceutical startup built on scientific Ayurvedic principles.',
+      desc: 'Formulated and registered a metabolic wellness initiative built on scientific Ayurvedic principles.',
       bg: 'bg-accent/15'
     }
   ];
@@ -60,7 +60,7 @@ export default function Achievements() {
           </h2>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-4 mb-4"></div>
           <p className="font-body text-sm sm:text-base text-navy/60">
-            Measurable contributions across rural agriculture, B2B sales development, and wellness entrepreneurship.
+            Measurable contributions across MBA strategy, corporate sales operations, and metabolic wellness entrepreneurship.
           </p>
         </div>
 

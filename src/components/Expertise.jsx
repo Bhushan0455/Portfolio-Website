@@ -33,7 +33,7 @@ export default function Expertise() {
     { name: 'D2C Growth', icon: RiArrowRightUpLine },
     { name: 'Market Research', icon: RiDatabaseLine },
     { name: 'Business Development', icon: RiPresentationLine },
-    { name: 'Rural Agriculture Impact', icon: RiMapPinRangeLine },
+    { name: 'Healthcare Market Analysis', icon: RiMapPinRangeLine },
     { name: 'Startup Building', icon: RiHammerLine }
   ];
 

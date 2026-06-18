@@ -27,7 +27,7 @@ export default function Speaking() {
     { title: 'Metabolic Health', desc: 'Addressing key public health concerns like prediabetes through preventive lifestyle interventions.', icon: RiHeartPulseLine },
     { title: 'Consumer Healthcare', desc: 'Understanding consumer health demands and building everyday, accessible wellness solutions.', icon: RiUserHeartLine },
     { title: 'D2C Brand Growth', desc: 'E-commerce channel optimization, marketplace strategy, brand building, and customer trust.', icon: RiLineChartLine },
-    { title: 'Rural Dev & Agriculture', desc: 'Value creation in rural farming, production gaps, and agricultural support.', icon: RiPlantLine },
+    { title: 'Healthcare Strategy & Market Research', desc: 'Forecasting pharmaceutical trends, curating healthcare databases, and identifying consumer wellness demands.', icon: RiPlantLine },
     { title: 'MBA to Startup Journey', desc: 'Translating academic frameworks into real-world business execution and entrepreneurship.', icon: RiRoadMapLine }
   ];
 
@@ -45,7 +45,7 @@ export default function Speaking() {
           </h2>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-4 mb-4"></div>
           <p className="font-body text-sm sm:text-base text-navy/60">
-            Insights and discussions on startup building, metabolic health, consumer brands, and rural development.
+            Insights and discussions on startup building, metabolic health, consumer brands, and healthcare strategy.
           </p>
         </div>
 
