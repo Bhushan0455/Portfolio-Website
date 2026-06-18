@@ -99,11 +99,8 @@ function App() {
     // ── Defer Preloader Mount to Avoid Hydration Mismatch & Bypass for react-snap ──
     const isReactSnap = typeof navigator !== 'undefined' && /ReactSnap/i.test(navigator.userAgent);
     if (!isReactSnap) {
-      const hasSeen = sessionStorage.getItem('seen-preloader');
-      if (!hasSeen) {
-        setShowPreloader(true);
-        setPreloaderActive(true);
-      }
+      setShowPreloader(true);
+      setPreloaderActive(true);
     }
 
     return () => {
@@ -120,7 +117,6 @@ function App() {
         <Preloader 
           onComplete={() => {
             setPreloaderActive(false);
-            sessionStorage.setItem('seen-preloader', 'true');
             setShowPreloader(false);
           }} 
         />
