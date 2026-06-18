@@ -5,14 +5,8 @@ import homeImg from '../assets/home.png';
 
 function Typewriter() {
   const phrases = [
-    "Founder & CEO, Beyond Bound",
-    "Building India's Future in Metabolic Wellness",
-    "Healthcare Entrepreneur",
-    "From Strategy to Healthcare Innovation",
-    "Combining Ayurveda, Science & Business",
-    "Creating Trust-First Health Brands",
-    "Healthcare Strategy • Innovation • Growth",
-    "Building Solutions That Improve Everyday Health"
+    "Founder & CEO, Beyond Bound®",
+    "Building India's Future in Metabolic Wellness"
   ];
 
   const [phraseIdx, setPhraseIdx] = useState(0);
@@ -161,7 +155,7 @@ export default function Hero({ preloaderActive }) {
                 variants={clipVariants}
                 className="text-sm font-heading font-medium tracking-wide text-navy/60 uppercase block"
               >
-                Founder & CEO, Beyond Bound
+                Founder & CEO, Beyond Bound®
               </motion.span>
             </div>
 
@@ -171,9 +165,22 @@ export default function Hero({ preloaderActive }) {
                 variants={clipVariants}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy leading-[1.15] block"
               >
-                Building modern metabolic health solutions through purpose, curiosity, and trust.
+                Healthcare India can actually trust.
               </motion.h1>
             </div>
+
+            {/* Two lines of narrative body copy */}
+            <motion.div
+              variants={fadeUpVariants}
+              className="space-y-4 text-navy/70 font-body text-base sm:text-lg leading-relaxed max-w-xl mb-8"
+            >
+              <p>
+                I came to this work through agriculture, corporate sales, an MBA, and a glucose monitor strapped to my own arm.
+              </p>
+              <p className="font-semibold text-navy/90">
+                This isn't a portfolio. It's a working record of a founder still in the middle of the build.
+              </p>
+            </motion.div>
 
             {/* Subheadline Typewriter */}
             <motion.div
@@ -183,37 +190,13 @@ export default function Hero({ preloaderActive }) {
               <Typewriter />
             </motion.div>
 
-            {/* Buttons Fade Up */}
+            {/* Understated Scroll Cue instead of buttons & quote block */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center mb-10"
+              className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal/70 flex items-center gap-2 select-none"
             >
-              <button
-                onClick={() => scrollTo('journey')}
-                className="bg-teal hover:bg-teal-dark text-white font-body text-sm font-semibold tracking-wide px-8 py-3.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center gap-2 group active:scale-95"
-              >
-                <span>Explore My Journey</span>
-                <RiArrowRightLine className="group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-              <button
-                onClick={() => scrollTo('building')}
-                className="border border-teal/40 hover:border-teal text-teal hover:bg-teal/5 font-body text-sm font-semibold tracking-wide px-8 py-3.5 rounded-full transition-all duration-300 cursor-pointer text-center active:scale-95"
-              >
-                What I'm Building
-              </button>
-            </motion.div>
-
-            {/* Quote Block Fade Up */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="relative p-6 bg-sage/30 rounded-2xl border border-teal/5 max-w-lg"
-            >
-              <div className="absolute -top-3 -left-3 text-teal/15">
-                <RiDoubleQuotesL size={48} />
-              </div>
-              <p className="font-heading font-medium text-navy text-base sm:text-lg italic leading-relaxed pl-6">
-                "People deserve health solutions they can truly trust."
-              </p>
+              <span>Scroll to explore</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
             </motion.div>
           </motion.div>
 

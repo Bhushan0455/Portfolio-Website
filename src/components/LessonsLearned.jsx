@@ -4,13 +4,13 @@ export default function LessonsLearned() {
   const lessons = [
     {
       category: 'MBA Foundation',
-      lesson: 'Great businesses are built on understanding people, not just markets.',
+      lesson: 'My MBA taught me how businesses scale, but more importantly, how people make decisions.',
       borderClass: 'border-teal/20',
       badgeBg: 'bg-teal/5 text-teal border-teal/10'
     },
     {
       category: 'Corporate Learning',
-      lesson: 'Execution matters more than strategy without action.',
+      lesson: 'Corporate roles taught me that execution matters far more than strategy without action.',
       borderClass: 'border-accent/30',
       badgeBg: 'bg-accent/5 text-accent border-accent/15'
     },

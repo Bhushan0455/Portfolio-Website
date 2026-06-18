@@ -22,20 +22,18 @@ export default function MomentsMilestones() {
       gradient: 'from-sage/40 to-teal/10',
       image: mbaJourneyImg,
       tagline: 'K J Somaiya Institute of Management',
-      story: 'My MBA journey at K J Somaiya Institute of Management was the crucible where my business acumen met healthcare strategy. Immersed in healthcare management, market analysis, and consumer behavior, I developed structured frameworks to dissect complex industry challenges. I realized that the future of healthcare lies in prevention rather than cure, and this academic foundation gave me the tools to design, validate, and launch solutions from first principles.',
+      story: 'My MBA at K J Somaiya was where my strategic thinking took structure. Immersed in healthcare management and consumer behavior, I worked on frameworks to dissect complex commercial challenges. It was here I realized that the future of wellness lies in prevention rather than cure, and this academic foundation gave me the tools to build health solutions from first principles.',
       keyLearnings: [
-        'Healthcare Management Strategy',
-        'Corporate & Business Strategy',
-        'Consumer Marketing & Branding',
-        'Leadership & Cross-Functional Teamwork',
-        'Secondary Market Research Methods'
+        'Structuring healthcare business models',
+        'Analyzing consumer buying behavior',
+        'Designing corporate strategies',
+        'Managing cross-functional operations'
       ],
       highlights: [
-        'MBA Specialization in Healthcare Management',
-        'Direct exposure to healthcare strategy and consumer-facing business frameworks',
-        'Collaborated on strategic planning cases, winning management presentations'
-      ],
-      skills: ['Strategy', 'Leadership', 'Problem Solving', 'Market Research', 'Teamwork']
+        'Specialized in Healthcare Management at KJ Somaiya',
+        'Co-created strategic blueprints for commercial planning cases',
+        'Validated consumer health frameworks during management competitions'
+      ]
     },
     {
       label: 'Corporate Learning',
@@ -43,40 +41,38 @@ export default function MomentsMilestones() {
       gradient: 'from-sage/20 to-accent/10',
       image: corporateLearningImg,
       tagline: 'Execution & Industry Insights',
-      story: 'My tenure across Patanjali Ayurveda, Allied Market Research, and Britannia Industries was an intensive immersion in commercial operations and market research. At Patanjali, I spearheaded B2B sales and channel management, driving ₹14 million in revenue by streamlining distributor networks. At Allied Market Research, I curated secondary healthcare databases and analyzed pharmaceutical pipelines. This corporate phase taught me how to scale supply chains, identify consumer demands, and back decisions with hard market intelligence.',
+      story: 'My corporate experience across Patanjali Ayurveda, Allied Market Research, and Britannia Industries was an intensive study of execution. At Patanjali, I directed sales operations and distributor networks, learning how product flows at scale. At Allied Research, I forecast pharmaceutical pipelines and analyzed healthcare databases, learning how to back business strategy with rigorous market intelligence.',
       keyLearnings: [
-        'B2B Sales Operations & Channel Management',
-        'Regional Market Penetration & Expansion Planning',
-        'Secondary Healthcare & Pharma Market Analysis',
-        'Consumer Goods Sales Execution & Auditing'
+        'Executing B2B distributor channel sales',
+        'Analyzing pharmaceutical market intelligence',
+        'Managing regional product supply chains',
+        'Auditing retail brand execution'
       ],
       highlights: [
-        'Managed distributor relationships and achieved ₹14 million in sales at Patanjali Ayurveda',
-        'Spearheaded healthcare database curation and pharmaceutical market forecasting at Allied Market Research',
-        'Supported energy bar product launches and retail field operations at Britannia Industries'
-      ],
-      skills: ['Sales Strategy', 'B2B Relationships', 'Market Intelligence', 'Distributor Channels', 'Healthcare Research']
+        'Managed regional distributor channels for Patanjali Ayurveda',
+        'Curated global pharmaceutical and healthcare market pipeline reports',
+        'Audited retail sales operations for Britannia Industries'
+      ]
     },
     {
       label: 'Healthcare Entrepreneurship',
       icon: RiHeartPulseLine,
       gradient: 'from-teal/5 to-sage/40',
       image: healthcareEntrepreneurshipImg,
-      tagline: 'Beyond Bound Wellness Venture',
-      story: 'Building Beyond Bound from the ground up has been a profound journey of translating founder philosophy into tangible execution. Navigating FSSAI regulatory compliance, securing trademark protection, and directing product formulation taught me the meticulousness required to build user trust in wellness. I identified the deep problem of metabolic dysfunction and prediabetes in India, realizing that consumers deserve clean, scientifically validated wellness. The venture represents my hands-on leadership—from supply chain setup to e-commerce and brand strategy.',
+      tagline: 'Beyond Bound® Wellness Venture',
+      story: 'Building Beyond Bound® has been my hands-on lesson in founder execution. I navigated FSSAI licensing, secured trademark protection, and set up the supply chain from scratch. The centerpiece of this journey was presenting and pitching our metabolic wellness thesis at the startup exhibition, defending our prediabetes solutions to investors. This experience proved that credibility is earned through data and execution, not marketing.',
       keyLearnings: [
-        'Metabolic Health & Preventive Innovation',
-        'Regulatory Pathways (FSSAI, MSME, Trademark)',
-        'D2C Brand Building & E-commerce Operations',
-        'Ayurvedic and Nutraceutical Product Formulation'
+        'Securing FSSAI, MSME, and Trademark registrations',
+        'Formulating metabolic wellness product lines',
+        'Directing D2C and e-commerce channel operations',
+        'Pitching and presenting wellness innovation to investors'
       ],
       highlights: [
-        'Founded Beyond Bound, securing MSME, GST, and FSSAI certifications',
-        'Designed and registered trademarks, protecting brand IP and core assets',
-        'Transitioning to a metabolic wellness model with custom product lines addressing prediabetes'
+        'Presented Beyond Bound® at the national startup exhibition',
+        'Secured all regulatory and intellectual property certifications',
+        'Transitioned product line to a data-backed metabolic health model'
       ],
-      vision: "To build India's most trusted metabolic wellness company by combining traditional wisdom, scientific validation, and consumer-centric innovation.",
-      skills: ['Entrepreneurship', 'Leadership', 'Product Strategy', 'Brand Building', 'Healthcare Innovation']
+      vision: "To build India's most trusted metabolic wellness company by combining traditional wisdom, scientific validation, and consumer-centric innovation."
     },
   ];
 
@@ -146,6 +142,9 @@ export default function MomentsMilestones() {
             Moments & Milestones
           </h2>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-4"></div>
+          <p className="font-body text-xs text-navy/50 italic mt-6 max-w-xl mx-auto leading-relaxed">
+            "There's a version of this section where I tell you about exponential growth curves..."
+          </p>
         </div>
 
         {/* Gallery Grid */}
@@ -367,29 +366,6 @@ export default function MomentsMilestones() {
                     </div>
                   </div>
                 )}
-
-                {/* Skills Section */}
-                <div className="border-t border-border/60 pt-6">
-                  <h4 className="text-xs uppercase tracking-wider text-teal font-semibold font-heading mb-3.5">
-                    Skills Gained
-                  </h4>
-                  <div className="flex flex-wrap gap-2.5">
-                    {current.skills.map((skill, idx) => (
-                      <motion.span
-                        key={idx}
-                        whileHover={{
-                          scale: 1.05,
-                          boxShadow: '0 0 12px rgba(13, 115, 119, 0.25)',
-                          borderColor: 'rgba(13, 115, 119, 0.5)'
-                        }}
-                        transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                        className="bg-white border border-teal/20 text-teal-dark px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide shadow-sm transition-colors duration-200 cursor-default"
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
               </div>
 
               {/* Navigation Footer */}
@@ -423,4 +399,3 @@ export default function MomentsMilestones() {
     </section>
   );
 }
-

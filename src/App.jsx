@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import QuoteInterstitial from './components/QuoteInterstitial';
+import FounderStory from './components/FounderStory';
 import JourneyFrames from './components/JourneyFrames';
-import DrivesMe from './components/DrivesMe';
+import HealthcareGap from './components/HealthcareGap';
+import BuildingBeyondBound from './components/BuildingBeyondBound';
+import WhatImBuilding from './components/WhatImBuilding';
 import FounderPhilosophy from './components/FounderPhilosophy';
 import LessonsLearned from './components/LessonsLearned';
-import WhatImBuilding from './components/WhatImBuilding';
 import MomentsMilestones from './components/MomentsMilestones';
 import Vision from './components/Vision';
 import Connect from './components/Connect';
@@ -131,11 +134,14 @@ function App() {
         <Navbar />
         <Hero preloaderActive={preloaderActive} />
         <Marquee text="METABOLIC HEALTH • PREVENTIVE WELLNESS • AYURVEDIC SCIENCE • CONSUMER INSIGHTS • STARTUP BUILDING" speedClass="animate-marquee" bgClass="bg-sage/40" />
+        <QuoteInterstitial />
+        <FounderStory />
         <JourneyFrames />
-        <DrivesMe />
+        <HealthcareGap />
+        <BuildingBeyondBound />
+        <WhatImBuilding />
         <FounderPhilosophy />
         <LessonsLearned />
-        <WhatImBuilding />
         <MomentsMilestones />
         <Vision />
         <Marquee text="TRADITIONAL WISDOM • SCIENTIFIC VALIDATION • CONSUMER-CENTRIC INNOVATION • METABOLIC WELLNESS" speedClass="animate-marquee" bgClass="bg-white" />

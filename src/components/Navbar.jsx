@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 
 const NAV_LINKS = [
+  { label: 'Story', id: 'story' },
   { label: 'Journey', id: 'journey' },
-  { label: 'Philosophy', id: 'philosophy' },
-  { label: 'Lessons', id: 'lessons' },
+  { label: 'Insight', id: 'gap' },
   { label: "What I'm Building", id: 'building' },
-  { label: 'Moments', id: 'moments' },
+  { label: 'Philosophy', id: 'philosophy' },
+  { label: 'Milestones', id: 'moments' },
   { label: 'Vision', id: 'vision' },
-  { label: 'Connect', id: 'connect' },
 ];
 
 export default function Navbar() {

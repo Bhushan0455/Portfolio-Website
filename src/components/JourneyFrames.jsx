@@ -19,48 +19,48 @@ export default function JourneyFrames() {
   const cards = [
     {
       title: 'MBA Foundation',
-      metric: 'K J Somaiya Institute of Management',
-      caption: 'Strategizing at the intersection of business principles and healthcare management, building structured leadership frameworks.',
+      metric: 'K J Somaiya — Healthcare Strategy',
+      caption: 'I entered management studies to understand how systems scale. It taught me the frameworks of commercial strategy, but more importantly, it helped me understand how people make decisions about their health.',
       icon: RiGraduationCapLine,
       gradient: 'from-sage/60 via-sage to-accent/10',
       image: mbaJourneyImg
     },
     {
-      title: 'Corporate Learning',
-      metric: '₹14M+ Sales Contribution',
-      caption: 'Executing scale sales strategy and distributor operations across Patanjali, Britannia, and Allied Market Research.',
+      title: 'Corporate Execution',
+      metric: 'Patanjali • Britannia • Allied Research',
+      caption: 'My time in sales and research operations was an intensive lesson in scale. I spearheaded distribution channels and analyzed pharma pipeline data, learning that strategy is meaningless without action.',
       icon: RiBriefcaseLine,
       gradient: 'from-sage via-white to-accent/20',
       image: corporateLearningImg
     },
     {
-      title: 'Discovering the Healthcare Gap',
-      metric: 'Research Across Consumer & Healthcare Markets',
-      caption: 'Observing the core disconnect between standard wellness products and the clinical validation required for real metabolic solutions.',
+      title: 'Healthcare Insights',
+      metric: 'Identifying the Credibility Deficit',
+      caption: 'Reviewing pharmaceutical trends and speaking to consumers exposed a massive gap: people were not looking for more generic supplements. They were searching for transparency, education, and genuine proof.',
       icon: RiPulseLine,
       gradient: 'from-teal/5 via-sage/40 to-accent/10',
       image: aboutImg
     },
     {
-      title: 'Building Beyond Bound',
-      metric: 'MSME • GST • FSSAI • Trademark',
-      caption: 'Formulating the foundational blocks of a trustworthy, scientific wellness brand centered on preventive metabolic care.',
+      title: 'Building Beyond Bound®',
+      metric: 'Foundational Proof of Efficacy',
+      caption: 'I launched my own nutraceutical venture to bridge this gap, handling product formulation, MSME/FSSAI licensing, and brand IP myself. If I could not verify a product’s impact on myself, I would not offer it to others.',
       icon: RiLeafLine,
       gradient: 'from-sage/20 via-accent/5 to-teal/10',
       image: beyondboundImg
     },
     {
-      title: 'Scaling the Vision',
-      metric: 'Metabolic Wellness Focus',
-      caption: 'Expanding distribution channels, designing product offerings for prediabetes, and scaling trust-first consumer engagement.',
+      title: 'Venture Growth',
+      metric: 'Glycomics & Prediabetes Focus',
+      caption: 'Transitioning my venture to focus directly on prediabetes prevention and metabolic health. I began designing Custom Ayurvedic formulations validated by continuous data streams.',
       icon: RiLineChartLine,
       gradient: 'from-teal/10 via-sage to-accent/5',
       image: glycomicsImg
     },
     {
       title: 'Future Vision',
-      metric: 'Building India\'s Most Trusted Wellness Ecosystem',
-      caption: 'Pursuing the mission to make metabolic wellness accessible, science-backed, and integral to daily life.',
+      metric: 'India\'s Verifiable Health Ecosystem',
+      caption: 'My goal is clear: establishing Beyond Bound® as the most trusted preventative health ecosystem in India, where traditional wellness is proven, validated, and accessible.',
       icon: RiCompassLine,
       gradient: 'from-sage/40 via-accent/10 to-teal/20',
       image: visionImg
@@ -175,9 +175,6 @@ export default function JourneyFrames() {
                   variants={isEven ? slideInRight : slideInLeft}
                   className="w-full md:w-2/5 text-left space-y-4"
                 >
-                  <span className="text-teal text-xs font-heading font-semibold uppercase tracking-widest block">
-                    Frame 0{idx + 1}
-                  </span>
                   <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy tracking-tight leading-tight">
                     {card.title}
                   </h3>

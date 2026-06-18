@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { RiLeafLine, RiPulseLine } from 'react-icons/ri';
+import { RiLeafLine } from 'react-icons/ri';
 
 export default function FounderStory() {
   const fadeUp = {
@@ -11,32 +11,37 @@ export default function FounderStory() {
     }
   };
 
-  return (
-    <section id="story" className="py-24 bg-sage/20 relative overflow-hidden">
-      {/* Decorative background shapes */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute top-12 right-12 w-48 h-48 bg-teal/5 rounded-full blur-2xl pointer-events-none"></div>
+  const timelineStops = [
+    { era: 'Soil', label: 'The Roots' },
+    { era: 'Corporate', label: 'Commercial Scale' },
+    { era: 'Founder', label: 'Beyond Bound®' }
+  ];
 
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+  return (
+    <section id="story" className="py-28 bg-white relative overflow-hidden select-none">
+      {/* Decorative ambient gradients */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-sage/20 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-12 right-12 w-64 h-64 bg-teal/5 rounded-full blur-[100px] pointer-events-none z-0" />
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10 text-left">
+        {/* Editorial Heading */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={fadeUp}
-          className="flex flex-col items-center mb-8"
+          className="flex items-center gap-4 mb-12"
         >
-          <div className="w-12 h-12 rounded-full bg-teal/10 flex items-center justify-center text-teal mb-4">
-            <RiLeafLine size={20} />
+          <div className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center text-teal">
+            <RiLeafLine size={18} />
           </div>
-          <span className="text-xs font-heading font-semibold uppercase tracking-wider text-teal">
-            The Spark
+          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal">
+            Founder Story
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-navy tracking-tight mt-2">
-            Why I Started
-          </h2>
-          <div className="h-0.5 w-16 bg-accent mt-4"></div>
+          <div className="h-[1px] bg-gradient-to-r from-teal/30 to-transparent flex-1" />
         </motion.div>
 
+        {/* Narrative Columns / Typography */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -44,38 +49,54 @@ export default function FounderStory() {
           variants={{
             visible: { transition: { staggerChildren: 0.15 } }
           }}
-          className="space-y-8 text-navy/80 text-base sm:text-lg font-body leading-relaxed max-w-3xl mx-auto"
+          className="space-y-8 max-w-3xl font-body text-navy/85 text-base sm:text-lg leading-[1.75]"
         >
-          <motion.p variants={fadeUp} className="text-lg sm:text-xl font-light italic text-navy/90">
-            "While working across agriculture, healthcare, and consumer businesses, I noticed a recurring challenge: consumers wanted preventive health solutions that were effective, trustworthy, and easy to adopt."
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="flex justify-center items-center py-2">
-            <RiPulseLine className="text-accent w-6 h-6" />
-          </motion.div>
+          <motion.h3 
+            variants={fadeUp} 
+            className="text-2xl sm:text-3xl font-heading font-bold text-navy leading-snug tracking-tight"
+          >
+            Most healthcare founders arrive from medicine or pharma. I arrived from the soil.
+          </motion.h3>
 
           <motion.p variants={fadeUp}>
-            This simple but profound insight led me to establish <strong className="font-semibold text-teal text-lg">Beyond Bound</strong>.
+            Growing up around agricultural projects, I watched how direct human health is linked to the land and what we consume. Later, as I moved into commercial sales and B2B pharmaceutical research, I observed a profound disconnect between the wellness products on store shelves and the clinical credibility consumers deserved. 
           </motion.p>
 
-          <motion.div
-            variants={fadeUp}
-            className="p-6 bg-white rounded-2xl shadow-sm border border-border/60 max-w-2xl mx-auto text-left relative"
+          <motion.p variants={fadeUp}>
+            Experiences across healthcare, consumer businesses, and rural field projects shaped my understanding of real-world challenges. It became clear that the industry did not need more marketing—it needed absolute validation.
+          </motion.p>
+
+          <motion.p 
+            variants={fadeUp} 
+            className="text-lg sm:text-xl font-heading font-bold text-navy border-l-2 border-accent pl-5 my-8 italic"
           >
-            <div className="absolute top-4 right-4 text-xs font-heading font-semibold text-accent/60 tracking-wider uppercase">
-              The Mission
-            </div>
-            <h4 className="font-heading font-bold text-navy text-base uppercase tracking-wider mb-2">
-              The Vision Was Simple
-            </h4>
-            <p className="text-navy/70 text-sm sm:text-base leading-relaxed">
-              Build modern wellness products that bridge the gap between traditional Ayurvedic knowledge and contemporary consumer needs.
-            </p>
-          </motion.div>
-
-          <motion.p variants={fadeUp} className="text-sm sm:text-base text-navy/70 max-w-2xl mx-auto">
-            What began as a supplement venture has evolved into a metabolic health-focused brand developing solutions for blood sugar management, energy, digestion, sleep, and overall wellness.
+            I wasn't going to work in healthcare. I was going to build in it.
           </motion.p>
+        </motion.div>
+
+        {/* 3-Stop Journey Timeline Footnote */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeUp}
+          className="mt-16 pt-8 border-t border-border/50 max-w-3xl flex items-center justify-between"
+        >
+          <span className="text-[10px] font-heading font-bold text-navy/40 uppercase tracking-widest">
+            The Path:
+          </span>
+          <div className="flex gap-4 sm:gap-12">
+            {timelineStops.map((stop, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <span className="text-[10px] font-heading font-bold text-teal bg-teal/5 border border-teal/10 px-2 py-0.5 rounded">
+                  0{idx + 1}
+                </span>
+                <span className="text-xs font-heading font-medium text-navy/70 uppercase tracking-wider">
+                  {stop.era}
+                </span>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

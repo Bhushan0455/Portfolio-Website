@@ -46,7 +46,7 @@ export default function Connect() {
     },
     {
       href: 'https://beyondbound.co/',
-      label: 'Beyond Bound',
+      label: 'Beyond Bound®',
       sub: 'Metabolic Wellness Venture',
       icon: RiGlobalLine,
       accent: 'hover:border-teal/30 hover:shadow-[0_0_12px_rgba(13,115,119,0.1)]'
@@ -62,7 +62,7 @@ export default function Connect() {
       <div className="absolute bottom-5 left-10 w-48 h-48 bg-accent/5 rounded-full blur-3xl pointer-events-none z-0" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
-        
+
         {/* Section 1 – Final Call to Action */}
         <div className="max-w-xl mx-auto mb-8">
           <motion.h2
@@ -74,7 +74,7 @@ export default function Connect() {
           >
             Let's Build Healthier Futures Together
           </motion.h2>
-          
+
           <motion.p
             initial="hidden"
             whileInView="visible"
@@ -163,11 +163,11 @@ export default function Connect() {
             <h3 className="font-heading font-bold text-xl sm:text-2xl !text-white tracking-tight">
               Priyanshu Chauhan
             </h3>
-            
+
             <p className="font-heading text-[10px] text-accent uppercase tracking-widest font-semibold">
-              Founder & CEO, Beyond Bound
+              Founder & CEO, Beyond Bound®
             </p>
-            
+
             <div className="flex flex-wrap justify-center gap-1 pt-0.5">
               {tags.map((tag, idx) => (
                 <span

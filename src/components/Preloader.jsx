@@ -96,7 +96,7 @@ const INTRO_STAGES = [
     id: 'home',
     label: 'HOME',
     headline: 'PRIYANSHU CHAUHAN',
-    subHeadline: 'Founder & CEO, Beyond Bound',
+    subHeadline: 'Founder & CEO, Beyond Bound®',
     description: 'Building modern metabolic health solutions through Ayurvedic wisdom, scientific thinking, and entrepreneurial execution.',
     image: homeImg
   },

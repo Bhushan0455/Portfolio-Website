@@ -5,32 +5,31 @@ import beyondboundLogo from '../assets/beyondbound_logo.png';
 
 export default function WhatImBuilding() {
   const milestones = [
-    'MBA — K J Somaiya Institute of Management',
-    '₹14M+ Sales Exposure',
-    'Healthcare & Consumer Business Experience',
-    'Founder of Beyond Bound'
+    'Somaiya MBA — Healthcare Management',
+    'B2B Sales & Pharma Research Experience',
+    'Founder of Beyond Bound®'
   ];
 
   const journeySteps = [
     {
       num: '01',
       label: 'What I Observed',
-      desc: 'Metabolic disorders and lifestyle diseases were increasing, yet consumers struggled to identify trustworthy preventive solutions.'
+      desc: 'I saw a sharp rise in metabolic disorders and prediabetes across India, coupled with deep consumer confusion trying to find trustworthy preventive wellness.'
     },
     {
       num: '02',
       label: 'What I Learned',
-      desc: 'Consumers do not need more products. They need transparency, education, and evidence.'
+      desc: 'Consumers do not need more products. They need clinical validation, transparency, and products that prove their efficacy on the founder first.'
     },
     {
       num: '03',
-      label: 'What I Decided To Build',
-      desc: 'A wellness brand focused on proactive health, metabolic wellness, and science-backed trust.'
+      label: 'What I\'m Building',
+      desc: 'Beyond Bound® is a proactive consumer health company focused on prediabetes prevention, combining Ayurvedic principles with rigorous scientific validation.'
     },
     {
       num: '04',
       label: 'Where We\'re Going',
-      desc: 'Building one of India\'s most trusted preventive healthcare ecosystems.'
+      desc: 'Building India\'s most trusted preventive health ecosystem—making metabolic wellness verifiable, transparent, and accessible.'
     }
   ];
 
@@ -58,7 +57,7 @@ export default function WhatImBuilding() {
   };
 
   return (
-    <section id="building" className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section id="building" className="py-24 md:py-32 bg-white relative overflow-hidden select-none">
       {/* Subtle background ambient decorations */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-sage/30 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
@@ -74,7 +73,7 @@ export default function WhatImBuilding() {
             What I'm Building
           </h2>
           <p className="text-navy/60 font-body text-base sm:text-lg mt-4 max-w-xl mx-auto leading-relaxed">
-            Building the future of preventive healthcare in India.
+            My thesis for metabolic wellness and preventive healthcare.
           </p>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-6" />
         </div>
@@ -96,7 +95,7 @@ export default function WhatImBuilding() {
             >
               <img 
                 src={healthcareEntrepreneurshipImg} 
-                alt="Priyanshu Chauhan presenting and pitching Beyond Bound at startup exhibition" 
+                alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition" 
                 className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-[0.16,1,0.3,1] brightness-[0.93] contrast-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-navy/5 to-transparent pointer-events-none" />
@@ -110,20 +109,20 @@ export default function WhatImBuilding() {
             </h3>
             <div className="space-y-4 font-body text-navy/80 text-sm sm:text-base leading-relaxed">
               <p>
-                The idea behind Beyond Bound started with a simple observation: while lifestyle diseases were rising rapidly, preventive healthcare remained fragmented, confusing, and difficult to trust.
+                I started Beyond Bound® with a simple observation: while lifestyle diseases were rising rapidly, preventive healthcare remained fragmented, confusing, and difficult to trust.
               </p>
               <p>
-                My experiences across business, healthcare, and consumer markets revealed a deeper problem — people needed transparency, education, and scientifically validated wellness solutions.
+                My experience across corporate sales and pharmaceutical market research showed me that consumers do not need more products. They need clinical validation, transparency, and genuine proof.
               </p>
               <p className="font-semibold text-navy">
-                That insight eventually became Beyond Bound.
+                That is the insight that drove me to build Beyond Bound®.
               </p>
             </div>
 
             {/* Milestone Chips */}
             <div className="pt-4">
               <span className="text-[10px] font-heading font-bold text-navy/40 uppercase tracking-widest block mb-3">
-                Key Milestones & Experience
+                My Experience Scaffolding
               </span>
               <div className="flex flex-wrap gap-2.5">
                 {milestones.map((milestone, idx) => (
@@ -144,7 +143,7 @@ export default function WhatImBuilding() {
         <div className="mb-28 max-w-4xl mx-auto">
           <div className="text-left mb-12">
             <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy tracking-tight">
-              The Journey to Beyond Bound
+              The Journey to Beyond Bound®
             </h3>
           </div>
 
@@ -193,13 +192,7 @@ export default function WhatImBuilding() {
         </div>
 
         {/* ── PART 3 — BEYOND BOUND TODAY ── */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={sectionVariants}
-          className="mb-28 max-w-4xl mx-auto"
-        >
+        <div className="mb-28 max-w-4xl mx-auto">
           <div className="bg-[#FAF9F5] border border-accent/20 rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
             {/* Soft inner glow decorator */}
             <div className="absolute -right-16 -top-16 w-32 h-32 bg-teal/5 rounded-full blur-2xl pointer-events-none" />
@@ -208,19 +201,19 @@ export default function WhatImBuilding() {
             <div className="flex justify-center mb-4">
               <img 
                 src={beyondboundLogo} 
-                alt="Beyond Bound Logo" 
+                alt="Beyond Bound® Logo" 
                 className="h-20 sm:h-24 w-auto object-contain"
               />
             </div>
 
             {/* Brand Logo Typo */}
             <div className="font-heading font-extrabold text-2xl sm:text-3xl tracking-[0.2em] text-navy uppercase select-none">
-              BEYOND <span className="text-teal">BOUND</span>
+              BEYOND <span className="text-teal">BOUND®</span>
             </div>
 
             {/* Tagline */}
             <h4 className="font-serif italic text-lg sm:text-xl text-navy/90 mt-4 leading-relaxed max-w-lg mx-auto">
-              "Modern Wellness Rooted In Trust."
+              "Wellness that survives measurement."
             </h4>
 
             {/* Accent divider line */}
@@ -238,40 +231,9 @@ export default function WhatImBuilding() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* ── PART 4 — FOUNDER'S NOTE ── */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={sectionVariants}
-          className="mb-28 max-w-4xl mx-auto"
-        >
-          <div className="bg-[#FCFAF7] border border-accent/20 rounded-[2.5rem] p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden shadow-sm">
-            {/* Hollow layout double quotes */}
-            <div className="absolute top-6 left-8 text-accent/15 font-serif text-8xl leading-none select-none pointer-events-none">
-              “
-            </div>
-
-            {/* Hero Note quote */}
-            <h3 className="font-serif italic text-2xl sm:text-3xl text-navy font-semibold max-w-2xl mx-auto leading-relaxed relative z-10">
-              "Trust is the foundation of every healthcare brand."
-            </h3>
-
-            {/* Supporting description */}
-            <p className="font-body text-navy/70 text-sm sm:text-base max-w-2xl mx-auto mt-6 leading-relaxed relative z-10">
-              "Healthcare isn't just about products. It's about helping people make better decisions for themselves and their families. Every product we create starts with that responsibility."
-            </p>
-
-            {/* Signature */}
-            <div className="font-heading text-xs sm:text-sm text-accent font-bold uppercase tracking-widest mt-8 leading-none relative z-10">
-              — Priyanshu Chauhan
-            </div>
-          </div>
-        </motion.div>
-
-        {/* ── PART 5 — EXPLORE BEYOND BOUND ── */}
+        {/* ── PART 4 — EXPLORE BEYOND BOUND ── */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -281,7 +243,7 @@ export default function WhatImBuilding() {
         >
           <div className="text-center">
             <h3 className="text-xl sm:text-2xl font-heading font-bold text-navy tracking-tight">
-              Explore Beyond Bound
+              Explore Beyond Bound®
             </h3>
           </div>
 
@@ -291,9 +253,9 @@ export default function WhatImBuilding() {
               href="https://beyondbound.co/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal hover:bg-teal-dark text-white font-heading font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-xs tracking-widest uppercase"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal hover:bg-teal-dark text-white font-heading font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-xs tracking-widest uppercase cursor-pointer"
             >
-              <span>Visit Beyond Bound</span>
+              <span>Visit Beyond Bound®</span>
               <RiArrowRightUpLine size={16} />
             </a>
 
@@ -302,7 +264,7 @@ export default function WhatImBuilding() {
               href="https://www.amazon.in/Beyond-Bound-Glycomics-Metabolism-Capsules/dp/B0GFP3VFPT"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-accent/40 hover:border-accent hover:bg-accent/5 text-navy font-heading font-semibold rounded-full shadow-sm transition-all duration-300 text-xs tracking-widest uppercase"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-accent/40 hover:border-accent hover:bg-accent/5 text-navy font-heading font-semibold rounded-full shadow-sm transition-all duration-300 text-xs tracking-widest uppercase cursor-pointer"
             >
               <RiAmazonLine size={16} className="text-[#FF9900]" />
               <span>View on Amazon</span>
