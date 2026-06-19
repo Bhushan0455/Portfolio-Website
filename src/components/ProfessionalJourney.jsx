@@ -22,7 +22,7 @@ export default function ProfessionalJourney() {
         'Launched health products through D2C channels and e-commerce marketplaces.',
         'Led product strategy, branding, marketing, and business development.',
         'Transitioning Beyond Bound into a metabolic wellness-focused consumer brand.',
-        'Working on Glycomics, a prediabetes and metabolic health initiative.'
+        'Working on Glycomics, a metabolic wellness and preventive health initiative.'
       ]
     },
     {

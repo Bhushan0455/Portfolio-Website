@@ -47,7 +47,7 @@ export default function HealthcareGap() {
           </motion.h3>
 
           <motion.p variants={fadeUp}>
-            The Indian market is flooded with supplements making massive health promises. Yet, metabolic disorders and lifestyle diseases continue to climb rapidly. When I spoke directly to consumers, I realized they weren't suffering from a shortage of health products. They were suffering from a complete lack of transparency, education, and validation. They didn't know what to believe.
+            The Indian market is flooded with supplements making massive health promises. Yet, metabolic disorders continue to climb. When I spoke directly to consumers, I realized they weren't suffering from a shortage of health products. They were suffering from a complete lack of transparency, education, and validation. They didn't know what to believe.
           </motion.p>
 
           <motion.div 

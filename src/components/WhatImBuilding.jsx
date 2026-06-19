@@ -15,39 +15,45 @@ export default function WhatImBuilding() {
   });
   const yParallax = useTransform(scrollYProgress, [0, 1], [-40, 40]);
 
-  const milestones = [
-    'Somaiya MBA — Healthcare Management',
-    'B2B Sales & Pharma Research Experience',
-    'Founder of Beyond Bound®'
-  ];
-
   const journeySteps = [
     {
       num: '01',
       label: 'What I Observed',
-      desc: 'I saw a sharp rise in metabolic disorders and prediabetes across India, coupled with deep consumer confusion trying to find trustworthy preventive wellness.'
+      desc: 'I saw a sharp rise in metabolic disorders across India, coupled with deep consumer confusion trying to find trustworthy preventive wellness.',
+      cellClass: 'bg-[#F8F6F1] dark:bg-[#0e1f35]',
+      titleClass: 'text-navy dark:text-white',
+      descClass: 'text-navy/70 dark:text-white/70'
     },
     {
       num: '02',
       label: 'What I Learned',
-      desc: 'Consumers do not need more products. They need clinical validation, transparency, and products that prove their efficacy on the founder first.'
+      desc: 'Consumers do not need more products. They need clinical validation, transparency, and products that prove their efficacy on the founder first.',
+      cellClass: 'bg-[#F5F0E8] dark:bg-[#152942]',
+      titleClass: 'text-navy dark:text-white',
+      descClass: 'text-navy/70 dark:text-white/70'
     },
     {
       num: '03',
       label: 'What I\'m Building',
-      desc: 'Beyond Bound® is a proactive consumer health company focused on prediabetes prevention, combining Ayurvedic principles with rigorous scientific validation.'
+      desc: 'Beyond Bound® is a proactive consumer health company focused on metabolic wellness, combining natural ingredients with rigorous scientific validation.',
+      cellClass: 'bg-[#EDF5F4] dark:bg-[#0b2c2a]',
+      titleClass: 'text-navy dark:text-white',
+      descClass: 'text-navy/70 dark:text-white/70'
     },
     {
       num: '04',
       label: 'Where We\'re Going',
-      desc: 'Building India\'s most trusted preventive health ecosystem—making metabolic wellness verifiable, transparent, and accessible.'
+      desc: 'Building India\'s most trusted preventive health ecosystem—making metabolic wellness verifiable, transparent, and accessible.',
+      cellClass: 'bg-[#0D4A47] dark:bg-[#0D4A47]',
+      titleClass: 'text-white',
+      descClass: 'text-white/85'
     }
   ];
 
   const focusAreas = [
-    'Prediabetes Prevention',
+    'Preventive Healthcare',
     'Metabolic Wellness',
-    'Science-backed Ayurveda',
+    'Science-backed Natural Ingredients',
     'Consumer Education'
   ];
 
@@ -120,32 +126,14 @@ export default function WhatImBuilding() {
             </h3>
             <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
               <p>
-                I started Beyond Bound® with a simple observation: while lifestyle diseases were rising rapidly, preventive healthcare remained fragmented, confusing, and difficult to trust.
+                I started Beyond Bound® with one observation: India had no brand built exclusively for metabolism. Not one.
               </p>
               <p>
-                My experience across corporate sales and pharmaceutical market research showed me that consumers do not need more products. They need clinical validation, transparency, and genuine proof.
+                The market had hundreds of wellness products making broad health promises. None of them were dedicated, specific, or honest enough to be verified. Consumers weren't confused because they had too few options. They were confused because nothing they found gave them a reason to trust it.
               </p>
               <p className="font-semibold text-navy dark:text-white">
-                That is the insight that drove me to build Beyond Bound®.
+                That absence — a dedicated metabolism brand with nothing to hide — is what I built Beyond Bound® to fill.
               </p>
-            </div>
-
-            {/* Milestone Chips */}
-            <div className="pt-4">
-              <span className="text-[10px] font-heading font-bold text-navy/40 dark:text-white/40 uppercase tracking-widest block mb-3">
-                My Experience Scaffolding
-              </span>
-              <div className="flex flex-wrap gap-2.5">
-                {milestones.map((milestone, idx) => (
-                  <span 
-                    key={idx} 
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-sage/40 dark:bg-[#0e1f35]/50 border border-teal/10 dark:border-teal-light/20 rounded-full text-xs font-heading font-medium text-teal dark:text-teal-light"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light" />
-                    {milestone}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         </motion.div>
@@ -212,45 +200,47 @@ export default function WhatImBuilding() {
             </h3>
           </div>
 
-          {/* Timeline Wrapper */}
+          {/* Grid Wrapper */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="relative pl-8 sm:pl-12 border-l border-teal/15 dark:border-teal-light/20 space-y-12 py-4 text-left"
+            className="grid grid-cols-1 md:grid-cols-2 w-full items-stretch gap-[2px] bg-white dark:bg-[#081220] rounded-3xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800"
           >
             {journeySteps.map((step, idx) => (
               <motion.div 
                 key={idx}
                 variants={{
-                  hidden: { opacity: 0, x: -25 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="relative"
+                className={`flex flex-col text-left items-start justify-start ${step.cellClass}`}
+                style={{ padding: '48px' }}
               >
-                {/* Timeline Circle Node */}
-                <div className="absolute -left-[37px] sm:-left-[53px] top-2.5 w-4.5 h-4.5 rounded-full bg-white dark:bg-[#081220] border-2 border-teal dark:border-teal-light flex items-center justify-center shadow-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light" />
-                </div>
+                {/* Step number in 48px muted tan top-left */}
+                <span 
+                  className="font-heading font-bold leading-none select-none tracking-tight mb-6"
+                  style={{ fontSize: '48px', color: '#C9A87C' }}
+                >
+                  {step.num}
+                </span>
                 
-                {/* Flex layout for serif number & step description */}
-                <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
-                  {/* Big elegant serif number */}
-                  <span className="font-serif text-5xl font-light text-accent/80 dark:text-accent-light/80 leading-none select-none tracking-tighter sm:w-16">
-                    {step.num}
-                  </span>
-                  
-                  {/* Step Title & Details */}
-                  <div className="space-y-1">
-                    <h4 className="font-heading font-bold text-lg text-navy dark:text-white tracking-tight">
-                      {step.label}
-                    </h4>
-                    <p className="font-body text-navy/70 dark:text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
+                {/* Bold title in 18px below it */}
+                <h4 
+                  className={`font-heading font-bold tracking-tight mb-2 ${step.titleClass}`}
+                  style={{ fontSize: '18px' }}
+                >
+                  {step.label}
+                </h4>
+                
+                {/* Body text in 14px below that */}
+                <p 
+                  className={`font-body leading-relaxed ${step.descClass}`}
+                  style={{ fontSize: '14px' }}
+                >
+                  {step.desc}
+                </p>
               </motion.div>
             ))}
           </motion.div>

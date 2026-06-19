@@ -29,7 +29,7 @@ export default function Vision() {
           </span>
           <p className="font-serif italic text-2xl sm:text-3xl md:text-4xl leading-relaxed text-white tracking-tight">
             "Natural" will have to mean "proven." <br />
-            "Ayurvedic" will have to survive a glucose monitor.
+            Every natural ingredient will have to survive a glucose monitor.
           </p>
         </motion.div>
 

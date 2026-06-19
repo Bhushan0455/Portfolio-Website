@@ -72,7 +72,7 @@ export default function Connect() {
             variants={fadeUp}
             className="text-2xl sm:text-3xl font-bold font-heading !text-white tracking-tight mb-2"
           >
-            Let's Build Healthier Futures Together
+            Let's build something worth trusting.
           </motion.h2>
 
           <motion.p
@@ -82,7 +82,7 @@ export default function Connect() {
             variants={fadeUp}
             className="text-white/60 font-body text-xs sm:text-sm leading-relaxed mb-4 max-w-lg mx-auto"
           >
-            Whether you're an investor, operator, healthcare professional, entrepreneur, or someone passionate about building meaningful solutions, I'd love to connect and exchange ideas.
+            I'm not interested in fast conversations about slow problems. But if you're thinking seriously about metabolic wellness, preventive health, or honest brand-building in India — I usually write back the same day.
           </motion.p>
 
           <motion.div

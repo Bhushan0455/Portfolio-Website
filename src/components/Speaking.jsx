@@ -24,7 +24,7 @@ export default function Speaking() {
     { title: 'Entrepreneurship', desc: 'Core principles of ideation, product development, strategy, and business scaling.', icon: RiLightbulbLine },
     { title: 'Startup Building in India', desc: 'Navigating GST, trademark registration, MSME systems, and local regulations.', icon: RiFlagLine },
     { title: 'Ayurveda & Modern Wellness', desc: 'Synthesizing age-old herbal wisdom with modern scientific and clinical validation.', icon: RiLeafLine },
-    { title: 'Metabolic Health', desc: 'Addressing key public health concerns like prediabetes through preventive lifestyle interventions.', icon: RiHeartPulseLine },
+    { title: 'Metabolic Health', desc: 'Addressing key public health concerns in metabolic health through preventive lifestyle interventions.', icon: RiHeartPulseLine },
     { title: 'Consumer Healthcare', desc: 'Understanding consumer health demands and building everyday, accessible wellness solutions.', icon: RiUserHeartLine },
     { title: 'D2C Brand Growth', desc: 'E-commerce channel optimization, marketplace strategy, brand building, and customer trust.', icon: RiLineChartLine },
     { title: 'Healthcare Strategy & Market Research', desc: 'Forecasting pharmaceutical trends, curating healthcare databases, and identifying consumer wellness demands.', icon: RiPlantLine },

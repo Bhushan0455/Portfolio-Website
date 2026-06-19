@@ -34,8 +34,8 @@ export default function JourneyFrames() {
       image: corporateLearningImg
     },
     {
-      title: 'Healthcare Insights',
-      metric: 'Identifying the Credibility Deficit',
+      title: 'The Market Gap',
+      metric: 'No dedicated metabolism brand existed in India.',
       caption: 'Reviewing pharmaceutical trends and speaking to consumers exposed a massive gap: people were not looking for more generic supplements. They were searching for transparency, education, and genuine proof.',
       icon: RiPulseLine,
       gradient: 'from-teal/5 via-sage/40 to-accent/10',
@@ -44,15 +44,15 @@ export default function JourneyFrames() {
     {
       title: 'Building Beyond Bound®',
       metric: 'Foundational Proof of Efficacy',
-      caption: 'I launched my own nutraceutical venture to bridge this gap, handling product formulation, MSME/FSSAI licensing, and brand IP myself. If I could not verify a product’s impact on myself, I would not offer it to others.',
+      caption: 'I launched my own nutraceutical venture to bridge this gap, handling product formulation and brand IP myself. If I could not verify a product’s impact on myself, I would not offer it to others.',
       icon: RiLeafLine,
       gradient: 'from-sage/20 via-accent/5 to-teal/10',
       image: beyondboundImg
     },
     {
       title: 'Venture Growth',
-      metric: 'Glycomics & Prediabetes Focus',
-      caption: 'Transitioning my venture to focus directly on prediabetes prevention and metabolic health. I began designing Custom Ayurvedic formulations validated by continuous data streams.',
+      metric: 'Glycomics & Metabolic Focus',
+      caption: 'Transitioning my venture to focus directly on metabolic health and wellness. I began designing natural metabolic formulations validated by continuous data streams.',
       icon: RiLineChartLine,
       gradient: 'from-teal/10 via-sage to-accent/5',
       image: glycomicsImg
@@ -60,7 +60,7 @@ export default function JourneyFrames() {
     {
       title: 'Future Vision',
       metric: 'India\'s Verifiable Health Ecosystem',
-      caption: 'My goal is clear: establishing Beyond Bound® as the most trusted preventative health ecosystem in India, where traditional wellness is proven, validated, and accessible.',
+      caption: 'My goal is clear: establishing Beyond Bound® as the most trusted preventative health ecosystem in India, where natural metabolic wellness is proven, validated, and accessible.',
       icon: RiCompassLine,
       gradient: 'from-sage/40 via-accent/10 to-teal/20',
       image: visionImg

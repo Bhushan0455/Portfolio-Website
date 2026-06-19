@@ -36,7 +36,7 @@ export default function FounderStory() {
             <RiLeafLine size={18} />
           </div>
           <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light">
-            Founder Story
+            My Story
           </span>
           <div className="h-[1px] bg-gradient-to-r from-teal/30 to-transparent flex-1" />
         </motion.div>
@@ -51,23 +51,23 @@ export default function FounderStory() {
           }}
           className="space-y-8 max-w-3xl font-body text-navy/85 dark:text-white/85 text-base sm:text-lg leading-[1.75]"
         >
-          <motion.h3 
-            variants={fadeUp} 
+          <motion.h3
+            variants={fadeUp}
             className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white leading-snug tracking-tight"
           >
             Most healthcare founders arrive from medicine or pharma. I arrived from the soil.
           </motion.h3>
 
           <motion.p variants={fadeUp}>
-            Growing up around agricultural projects, I watched how direct human health is linked to the land and what we consume. Later, as I moved into commercial sales and B2B pharmaceutical research, I observed a profound disconnect between the wellness products on store shelves and the clinical credibility consumers deserved. 
+            Growing up around agricultural projects, I watched how direct human health is linked to the land and what we consume. Later, as I moved into commercial sales and B2B sales and market research, I observed a profound disconnect between the wellness products on store shelves and the clinical credibility consumers deserved.
           </motion.p>
 
           <motion.p variants={fadeUp}>
-            Experiences across healthcare, consumer businesses, and rural field projects shaped my understanding of real-world challenges. It became clear that the industry did not need more marketing—it needed absolute validation.
+            Experiences across healthcare, consumer businesses, and commercial field projects shaped my understanding of real-world challenges. It became clear that the industry did not need more marketing—it needed absolute validation.
           </motion.p>
 
-          <motion.p 
-            variants={fadeUp} 
+          <motion.p
+            variants={fadeUp}
             className="text-lg sm:text-xl font-heading font-bold text-navy dark:text-white border-l-2 border-accent pl-5 my-8 italic"
           >
             I wasn't going to work in healthcare. I was going to build in it.

@@ -60,7 +60,7 @@ export default function MomentsMilestones() {
       gradient: 'from-teal/5 to-sage/40',
       image: healthcareEntrepreneurshipImg,
       tagline: 'Beyond Bound® Wellness Venture',
-      story: 'Building Beyond Bound® has been my hands-on lesson in founder execution. I navigated FSSAI licensing, secured trademark protection, and set up the supply chain from scratch. The centerpiece of this journey was presenting and pitching our metabolic wellness thesis at the startup exhibition, defending our prediabetes solutions to investors. This experience proved that credibility is earned through data and execution, not marketing.',
+      story: 'Building Beyond Bound® has been my hands-on lesson in founder execution. I navigated FSSAI licensing, secured trademark protection, and set up the supply chain from scratch. The centerpiece of this journey was presenting and pitching our metabolic wellness thesis at the startup exhibition, defending our metabolic health solutions to investors. This experience proved that credibility is earned through data and execution, not marketing.',
       keyLearnings: [
         'Securing FSSAI, MSME, and Trademark registrations',
         'Formulating metabolic wellness product lines',
