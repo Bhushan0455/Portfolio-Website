@@ -133,12 +133,12 @@ function App() {
         <>
           {/* Inner Dot */}
           <div
-            className="fixed pointer-events-none z-[9999] rounded-full bg-teal w-2 h-2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"
+            className="fixed pointer-events-none z-[9999] rounded-full bg-teal w-2 h-2 -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
           />
           {/* Outer Ring */}
           <div
-            className={`fixed pointer-events-none z-[9998] rounded-full border border-teal/40 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+            className={`fixed pointer-events-none z-[9998] rounded-full border border-teal/40 -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border-color] duration-300 ease-out ${
               isHoveringInteractive ? 'w-12 h-12 bg-teal/5 border-teal/60' : 'w-6 h-6'
             }`}
             style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
