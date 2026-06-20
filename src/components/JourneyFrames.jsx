@@ -52,7 +52,7 @@ export default function JourneyFrames() {
     {
       title: 'Venture Growth',
       metric: 'FROM THESIS TO FORMULATION',
-      caption: "Instead of building another broad wellness brand, I chose to focus Beyond Bound entirely on metabolic health. That led to Glycomics™, our first glucose-metabolism formulation. Before introducing it to anyone else, I spent months tracking my own metabolic responses through continuous glucose monitoring. The goal wasn't marketing validation—it was personal proof. Beyond Bound was built on the belief that trust should be earned through evidence.",
+      caption: 'I chose depth over breadth. Rather than building another generic wellness brand, I focused Beyond Bound entirely on metabolic health. That focus led to Glycomics™, our first formulation. Before asking anyone else to trust it, I spent months studying my own metabolic responses through continuous glucose monitoring. The lesson was simple: trust should be built on evidence, not promises.',
       icon: RiLineChartLine,
       gradient: 'from-teal/10 via-sage to-accent/5',
       image: glycomicsImg
@@ -97,7 +97,7 @@ export default function JourneyFrames() {
   return (
     <section id="journey" className="py-24 bg-white dark:bg-[#081220] relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-heading font-semibold uppercase tracking-wider text-teal dark:text-teal-light">
@@ -118,9 +118,8 @@ export default function JourneyFrames() {
             return (
               <div
                 key={idx}
-                className={`flex flex-col md:flex-row items-center gap-10 lg:gap-16 ${
-                  isEven ? '' : 'md:flex-row-reverse'
-                }`}
+                className={`flex flex-col md:flex-row items-center gap-10 lg:gap-16 ${isEven ? '' : 'md:flex-row-reverse'
+                  }`}
               >
                 {/* Visual Image Frame (70%) */}
                 <motion.div
@@ -178,7 +177,7 @@ export default function JourneyFrames() {
                   <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy dark:text-white tracking-tight leading-tight">
                     {card.title}
                   </h3>
-                  
+
                   {/* Badge Proof Point */}
                   <div className="inline-block bg-teal/5 dark:bg-teal-light/10 border border-teal/15 dark:border-teal-light/20 text-teal dark:text-teal-light text-[10px] font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider font-heading">
                     {card.metric}
