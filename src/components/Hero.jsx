@@ -126,10 +126,10 @@ export default function Hero({ preloaderActive }) {
   return (
     <section
       id="home"
-      className="min-h-screen pt-28 pb-16 flex items-center bg-gradient-to-b from-sage/20 via-white to-white dark:from-navy-light/10 dark:via-[#081220] dark:to-[#081220] overflow-hidden"
+      className="min-h-screen pt-24 pb-12 md:pt-28 md:pb-16 flex items-center bg-gradient-to-b from-sage/20 via-white to-white dark:from-navy-light/10 dark:via-[#081220] dark:to-[#081220] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
           {/* Left Column: Text & Quote */}
           <motion.div
@@ -162,7 +162,7 @@ export default function Hero({ preloaderActive }) {
             <div className="overflow-hidden mb-6 py-1">
               <motion.h1
                 variants={clipVariants}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block"
+                className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block max-w-2xl"
               >
                 Building a metabolic health brand that earns trust through proof.
               </motion.h1>

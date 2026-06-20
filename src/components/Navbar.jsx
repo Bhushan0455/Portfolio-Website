@@ -160,40 +160,39 @@ export default function Navbar({ theme, toggleTheme }) {
             </button>
           </div>
         </div>
-      </nav>
-
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[72px] z-40 md:hidden bg-white dark:bg-navy border-b border-border dark:border-white/10 shadow-lg"
-          >
-            <div className="px-6 py-8 flex flex-col gap-5">
-              {NAV_LINKS.map((link) => (
+        {/* Mobile Drawer */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-x-0 top-full z-40 md:hidden bg-white dark:bg-navy border-b border-border dark:border-white/10 shadow-lg"
+            >
+              <div className="px-6 py-8 flex flex-col gap-5">
+                {NAV_LINKS.map((link) => (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollTo(link.id)}
+                    className={`text-left font-body font-medium py-3 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer ${
+                      activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                ))}
                 <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className={`text-left font-body font-medium py-2 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer ${
-                    activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
-                  }`}
+                  onClick={() => scrollTo('connect')}
+                  className="bg-teal text-white hover:bg-teal-dark font-body text-sm font-semibold text-center py-3 rounded-full mt-2 cursor-pointer shadow-sm"
                 >
-                  {link.label}
+                  Connect
                 </button>
-              ))}
-              <button
-                onClick={() => scrollTo('connect')}
-                className="bg-teal text-white hover:bg-teal-dark font-body text-sm font-semibold text-center py-3 rounded-full mt-2 cursor-pointer shadow-sm"
-              >
-                Connect
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
     </>
   );
 }

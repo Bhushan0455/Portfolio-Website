@@ -95,7 +95,7 @@ export default function JourneyFrames() {
   };
 
   return (
-    <section id="journey" className="py-24 bg-white dark:bg-[#081220] relative">
+    <section id="journey" className="py-16 md:py-24 bg-white dark:bg-[#081220] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Section Header */}
@@ -110,7 +110,7 @@ export default function JourneyFrames() {
         </div>
 
         {/* Story Cards List */}
-        <div className="space-y-20 max-w-5xl mx-auto">
+        <div className="space-y-12 md:space-y-20 max-w-5xl mx-auto">
           {cards.map((card, idx) => {
             const Icon = card.icon;
             const isEven = idx % 2 === 0;
@@ -118,7 +118,7 @@ export default function JourneyFrames() {
             return (
               <div
                 key={idx}
-                className={`flex flex-col md:flex-row items-center gap-10 lg:gap-16 ${isEven ? '' : 'md:flex-row-reverse'
+                className={`flex flex-col md:flex-row items-center gap-6 md:gap-10 lg:gap-16 ${isEven ? '' : 'md:flex-row-reverse'
                   }`}
               >
                 {/* Visual Image Frame (70%) */}

@@ -18,7 +18,7 @@ export default function QuoteInterstitial() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={reveal}
-          className="font-serif italic text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.3] text-navy/90 dark:text-white/90 tracking-tight"
+          className="font-serif italic text-2xl sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.3] text-navy/90 dark:text-white/90 tracking-tight max-w-2xl mx-auto"
         >
           "Health advice is easy to give. <br className="hidden sm:inline" /> Trust is harder to earn."
         </motion.p>

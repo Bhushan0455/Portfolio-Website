@@ -43,7 +43,7 @@ export default function MomentsMilestones() {
   };
 
   return (
-    <section id="moments" className="py-24 md:py-32 bg-white dark:bg-[#081220] relative overflow-hidden select-none border-t border-b border-border/20 dark:border-white/5">
+    <section id="moments" className="py-16 md:py-24 bg-white dark:bg-[#081220] relative overflow-hidden select-none border-t border-b border-border/20 dark:border-white/5">
       {/* Subtle ambient gradients */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-teal/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
@@ -56,7 +56,7 @@ export default function MomentsMilestones() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-left max-w-3xl mb-16 md:mb-20"
+          className="text-left max-w-3xl mb-10 md:mb-20"
         >
           {/* Label with teal horizontal line */}
           <div className="flex items-center gap-3 mb-4">
@@ -92,7 +92,7 @@ export default function MomentsMilestones() {
                 borderColor: 'rgba(13, 107, 99, 0.3)' // Subtle teal glow
               }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#FAF9F6] dark:bg-[#0e1f35]/25 border border-accent/15 dark:border-white/5 rounded-[1.75rem] p-8 md:p-10 flex flex-col justify-between text-left relative overflow-hidden transition-colors duration-300"
+              className="bg-[#FAF9F6] dark:bg-[#0e1f35]/25 border border-accent/15 dark:border-white/5 rounded-[1.75rem] p-6 sm:p-8 md:p-10 flex flex-col justify-between text-left relative overflow-hidden transition-colors duration-300"
             >
               {/* Subtle inner grid lines or ambient background card decorator */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-teal/5 rounded-bl-[1.75rem] pointer-events-none z-0" />

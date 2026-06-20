@@ -18,7 +18,7 @@ export default function FounderStory() {
   ];
 
   return (
-    <section id="story" className="py-28 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
+    <section id="story" className="py-20 md:py-28 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
       {/* Decorative ambient gradients */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-sage/20 dark:bg-teal-dark/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-12 right-12 w-64 h-64 bg-teal/5 rounded-full blur-[100px] pointer-events-none z-0" />
@@ -49,7 +49,7 @@ export default function FounderStory() {
           variants={{
             visible: { transition: { staggerChildren: 0.15 } }
           }}
-          className="space-y-8 max-w-3xl font-body text-navy/85 dark:text-white/85 text-base sm:text-lg leading-[1.75]"
+          className="space-y-6 md:space-y-8 max-w-3xl font-body text-navy/85 dark:text-white/85 text-base sm:text-lg leading-[1.75]"
         >
           <motion.h3
             variants={fadeUp}
@@ -84,12 +84,12 @@ export default function FounderStory() {
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={fadeUp}
-          className="mt-16 pt-8 border-t border-border/50 dark:border-white/10 max-w-3xl flex items-center justify-between"
+          className="mt-16 pt-8 border-t border-border/50 dark:border-white/10 max-w-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4"
         >
           <span className="text-[10px] font-heading font-bold text-navy/40 dark:text-white/40 uppercase tracking-widest">
             The Path:
           </span>
-          <div className="flex gap-4 sm:gap-12">
+          <div className="flex flex-wrap gap-x-6 gap-y-3 sm:gap-12">
             {timelineStops.map((stop, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 <span className="text-[10px] font-heading font-bold text-teal dark:text-teal-light bg-teal/5 dark:bg-teal-light/10 border border-teal/10 dark:border-teal-light/20 px-2 py-0.5 rounded">

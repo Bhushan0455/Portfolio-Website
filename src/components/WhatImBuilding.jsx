@@ -107,12 +107,12 @@ export default function WhatImBuilding() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={sectionVariants}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-28"
         >
           {/* LEFT: Photo */}
           <div className="lg:col-span-5">
             <motion.div 
-              className="relative overflow-hidden rounded-[2rem] aspect-[4/3] sm:aspect-[16/11] lg:aspect-square shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
+              className="relative overflow-hidden rounded-[2rem] aspect-[16/10] sm:aspect-[16/11] lg:aspect-square shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
               whileHover={{ scale: 1.015 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -157,7 +157,7 @@ export default function WhatImBuilding() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={sectionVariants}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-28"
         >
           {/* LEFT: Story Narrative (5/12 width) */}
           <div className="lg:col-span-5 text-left space-y-6">
@@ -202,8 +202,8 @@ export default function WhatImBuilding() {
             </motion.div>
             
             {/* Small pull quote overlapping photo block */}
-            <div className="absolute -bottom-6 -right-2 md:bottom-6 md:right-6 bg-accent text-white px-5 py-3 rounded-2xl shadow-lg border border-accent/20 z-20">
-              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center max-w-xs md:max-w-sm">
+            <div className="absolute -bottom-6 left-6 right-6 md:left-auto md:right-6 md:bottom-6 bg-accent text-white px-5 py-3 rounded-2xl shadow-lg border border-accent/20 z-20 text-center">
+              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center max-w-xs md:max-w-sm mx-auto">
                 "What I won't test on myself, I will never ask anyone else to trust."
               </span>
             </div>
@@ -211,7 +211,7 @@ export default function WhatImBuilding() {
         </motion.div>
 
         {/* ── PART 3 — THE JOURNEY TO BEYOND BOUND ── */}
-        <div className="mb-28 max-w-4xl mx-auto">
+        <div className="mb-16 md:mb-28 max-w-4xl mx-auto">
           <div className="text-left mb-12">
             <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
               The Journey to Beyond Bound®
@@ -233,8 +233,7 @@ export default function WhatImBuilding() {
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className={`flex flex-col text-left items-start justify-start ${step.cellClass}`}
-                style={{ padding: '48px' }}
+                className={`flex flex-col text-left items-start justify-start p-6 sm:p-8 md:p-12 ${step.cellClass}`}
               >
                 {/* Step number in 48px top-left */}
                 <span 
@@ -275,7 +274,7 @@ export default function WhatImBuilding() {
         </div>
 
         {/* ── PART 4 — BEYOND BOUND TODAY ── */}
-        <div className="mb-28 max-w-4xl mx-auto">
+        <div className="mb-16 md:mb-28 max-w-4xl mx-auto">
           <div className="bg-[#FAF9F5] dark:bg-[#0e1f35]/40 border border-accent/20 dark:border-white/10 rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
             {/* Soft inner glow decorator */}
             <div className="absolute -right-16 -top-16 w-32 h-32 bg-teal/5 rounded-full blur-2xl pointer-events-none" />
