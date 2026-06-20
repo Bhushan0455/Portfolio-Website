@@ -20,7 +20,7 @@ export default function QuoteInterstitial() {
           variants={reveal}
           className="font-serif italic text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.3] text-navy/90 dark:text-white/90 tracking-tight"
         >
-          "Most health brands sell you a feeling. <br className="hidden sm:inline" /> I'm trying to sell you a fact."
+          "The future of wellness belongs to brands <br className="hidden sm:inline" /> that can earn trust."
         </motion.p>
       </div>
     </section>

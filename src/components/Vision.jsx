@@ -11,10 +11,10 @@ export default function Vision() {
   };
 
   return (
-    <section id="vision" className="w-full bg-[#07162c] text-white py-32 relative overflow-hidden flex items-center justify-center select-none">
+    <section id="vision" className="w-full bg-white dark:bg-[#07162c] py-32 relative overflow-hidden flex items-center justify-center select-none border-b border-border/20 dark:border-white/5">
       {/* Subtle background circles */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-white/5 rounded-full pointer-events-none"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/10 rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-navy/5 dark:border-white/5 rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-navy/10 dark:border-white/10 rounded-full pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-12">
         <motion.div
@@ -24,10 +24,10 @@ export default function Vision() {
           variants={reveal}
           className="space-y-6"
         >
-          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal block">
+          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
             The Vision
           </span>
-          <p className="font-serif italic text-2xl sm:text-3xl md:text-4xl leading-relaxed text-white tracking-tight">
+          <p className="font-serif italic text-2xl sm:text-3xl md:text-4xl leading-relaxed text-navy dark:text-white tracking-tight">
             "Natural" will have to mean "proven." <br />
             Every natural ingredient will have to survive a glucose monitor.
           </p>
@@ -40,7 +40,7 @@ export default function Vision() {
           variants={reveal}
           className="pt-12"
         >
-          <span className="font-heading text-xs sm:text-sm text-accent font-semibold uppercase tracking-[0.3em]">
+          <span className="font-heading text-xs sm:text-sm text-navy/60 dark:text-accent font-semibold uppercase tracking-[0.3em]">
             The direction is fixed.
           </span>
         </motion.div>

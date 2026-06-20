@@ -55,22 +55,27 @@ export default function FounderStory() {
             variants={fadeUp}
             className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white leading-snug tracking-tight"
           >
-            Most healthcare founders arrive from medicine or pharma. I arrived from the soil.
+            From Agriculture to Healthcare — Building Brands That Matter.
           </motion.h3>
 
           <motion.p variants={fadeUp}>
-            Growing up around agricultural projects, I watched how direct human health is linked to the land and what we consume. Later, as I moved into commercial sales and B2B sales and market research, I observed a profound disconnect between the wellness products on store shelves and the clinical credibility consumers deserved.
+            My journey into healthcare didn't begin in a hospital or a pharmaceutical company. It began with a B.Sc. in Agriculture, where I developed a deep appreciation for the relationship between food, health, and human wellbeing.
           </motion.p>
 
           <motion.p variants={fadeUp}>
-            Experiences across healthcare, consumer businesses, and commercial field projects shaped my understanding of real-world challenges. It became clear that the industry did not need more marketing—it needed absolute validation.
+            That foundation led me to pursue an MBA in Healthcare Management at K J Somaiya Institute of Management, where I became increasingly interested in how healthcare businesses are built, how consumers make decisions, and why trust remains the most valuable asset any health brand can earn.
+          </motion.p>
+
+          <motion.p variants={fadeUp}>
+            Along the way, I gained exposure to consumer businesses, market intelligence, and brand-building. Each experience reinforced the same belief: India's next generation of healthcare brands must be built on credibility, transparency, and long-term trust.
+            Today, that belief drives everything I am building through Beyond Bound.
           </motion.p>
 
           <motion.p
             variants={fadeUp}
             className="text-lg sm:text-xl font-heading font-bold text-navy dark:text-white border-l-2 border-accent pl-5 my-8 italic"
           >
-            I wasn't going to work in healthcare. I was going to build in it.
+            I wasn't going to work in healthcare. I am going to build in it.
           </motion.p>
         </motion.div>
 

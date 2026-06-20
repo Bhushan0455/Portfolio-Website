@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { RiArrowRightUpLine, RiAmazonLine } from 'react-icons/ri';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.jpg';
 import beyondboundImg from '../assets/beyondbound.jpg';
 import beyondboundLogo from '../assets/beyondbound_logo.png';
@@ -19,7 +19,8 @@ export default function WhatImBuilding() {
     {
       num: '01',
       label: 'What I Observed',
-      desc: 'I saw a sharp rise in metabolic disorders across India, coupled with deep consumer confusion trying to find trustworthy preventive wellness.',
+      desc: 'I observed that while metabolic disorders are rising rapidly across India, consumer understanding remains shallow. People are constantly overwhelmed by conflicting advice, shifting wellness trends, and information overload. They want to take control of their health, but they do not know who to trust.',
+      quote: 'Information overload breeds inaction; what we need today is not more products, but absolute clarity.',
       cellClass: 'bg-[#F8F6F1] dark:bg-[#0e1f35]',
       titleClass: 'text-navy dark:text-white',
       descClass: 'text-navy/70 dark:text-white/70'
@@ -27,7 +28,8 @@ export default function WhatImBuilding() {
     {
       num: '02',
       label: 'What I Learned',
-      desc: 'Consumers do not need more products. They need clinical validation, transparency, and products that prove their efficacy on the founder first.',
+      desc: 'My journey from agriculture to healthcare management taught me that wellness must be built from the soil up. Agriculture showed me where health begins, sales showed me how trust is earned, and managing healthcare showed me how systems scale.',
+      quote: 'Trust cannot be manufactured through marketing alone; it is the compound interest of transparency.',
       cellClass: 'bg-[#F5F0E8] dark:bg-[#152942]',
       titleClass: 'text-navy dark:text-white',
       descClass: 'text-navy/70 dark:text-white/70'
@@ -35,7 +37,8 @@ export default function WhatImBuilding() {
     {
       num: '03',
       label: 'What I\'m Building',
-      desc: 'Beyond Bound® is a proactive consumer health company focused on metabolic wellness, combining natural ingredients with rigorous scientific validation.',
+      desc: 'Through Beyond Bound, I\'m building a company focused on one of the most important health challenges of our generation: metabolic wellness. My goal isn\'t simply to create products. It\'s to build a brand that helps people better understand their health, make informed decisions, and trust the solutions they choose.',
+      quote: 'For me, the opportunity isn\'t just in wellness. It\'s in creating a healthcare brand that people can genuinely believe in.',
       cellClass: 'bg-[#EDF5F4] dark:bg-[#0b2c2a]',
       titleClass: 'text-navy dark:text-white',
       descClass: 'text-navy/70 dark:text-white/70'
@@ -43,7 +46,8 @@ export default function WhatImBuilding() {
     {
       num: '04',
       label: 'Where We\'re Going',
-      desc: 'Building India\'s most trusted preventive health ecosystem—making metabolic wellness verifiable, transparent, and accessible.',
+      desc: 'Our vision is to define the metabolic wellness category in India. I believe the future of health will be built in the everyday choices people make before disease ever arrives. Beyond Bound is here to guide those choices for the next decade.',
+      quote: 'The future of healthcare begins at the table, not in the hospital.',
       cellClass: 'bg-[#0D4A47] dark:bg-[#0D4A47]',
       titleClass: 'text-white',
       descClass: 'text-white/85'
@@ -51,7 +55,7 @@ export default function WhatImBuilding() {
   ];
 
   const focusAreas = [
-    'Preventive Healthcare',
+    'Metabolic Health',
     'Metabolic Wellness',
     'Science-backed Natural Ingredients',
     'Consumer Education'
@@ -90,7 +94,9 @@ export default function WhatImBuilding() {
             What I'm Building
           </h2>
           <p className="text-navy/60 dark:text-white/60 font-body text-base sm:text-lg mt-4 max-w-xl mx-auto leading-relaxed">
-            My thesis for metabolic wellness and preventive healthcare.
+            Beyond Bound began with a simple observation: India doesn't need more health products. It needs health brands people can genuinely trust.
+            <br /><br />
+            My focus is metabolic health — one of the most important yet overlooked challenges facing millions of Indians today. Everything I'm building starts from that belief.
           </p>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-6" />
         </div>
@@ -126,13 +132,19 @@ export default function WhatImBuilding() {
             </h3>
             <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
               <p>
-                I started Beyond Bound® with one observation: India had no brand built exclusively for metabolism. Not one.
+                The idea behind Beyond Bound began with a question that stayed with me for years:
+              </p>
+              <p className="font-semibold text-navy dark:text-white italic">
+                "Why do we wait for health problems to become serious before we start paying attention to them?"
               </p>
               <p>
-                The market had hundreds of wellness products making broad health promises. None of them were dedicated, specific, or honest enough to be verified. Consumers weren't confused because they had too few options. They were confused because nothing they found gave them a reason to trust it.
+                Through my studies, industry exposure, and conversations with consumers, I became increasingly interested in metabolic health — the systems that quietly influence energy, blood sugar, weight, and long-term wellbeing.
               </p>
-              <p className="font-semibold text-navy dark:text-white">
-                That absence — a dedicated metabolism brand with nothing to hide — is what I built Beyond Bound® to fill.
+              <p>
+                The challenge wasn't a lack of products. It was a lack of clarity, trust, and meaningful education.
+              </p>
+              <p>
+                That realization eventually became Beyond Bound.
               </p>
             </div>
           </div>
@@ -154,15 +166,21 @@ export default function WhatImBuilding() {
             </span>
             
             <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight leading-snug">
-              Proving Efficacy on the Founder First
+              Proving It on Myself First
             </h3>
 
             <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
               <p>
-                To build a health brand that people can trust with their lives, I had to start with myself. I strapped a continuous glucose monitor (CGM) to my own arm for months. I needed to witness the real-time metabolic impact of ingredients, diet, and lifestyle choices first-hand.
+                Before asking anyone to trust Beyond Bound, I felt a responsibility to understand the problem more deeply myself.
               </p>
               <p>
-                It wasn't about relying on standard marketing literature; it was about generating direct, objective proof. This empirical baseline is what drove the formulation of Beyond Bound® Glycomics. If we cannot measure and prove the efficacy of our wellness solutions on ourselves, we have no right to offer them to anyone else.
+                I spent months wearing a continuous glucose monitor, tracking how everyday decisions — food, sleep, movement, and stress — influenced my own metabolic health. What began as curiosity quickly became conviction.
+              </p>
+              <p>
+                The experience changed the way I thought about wellness. It reminded me that health isn't built through claims or advertising. It's built through understanding, consistency, and measurable change.
+              </p>
+              <p>
+                That perspective continues to shape everything we build at Beyond Bound today.
               </p>
             </div>
           </div>
@@ -185,8 +203,8 @@ export default function WhatImBuilding() {
             
             {/* Small pull quote overlapping photo block */}
             <div className="absolute -bottom-6 -right-2 md:bottom-6 md:right-6 bg-accent text-white px-5 py-3 rounded-2xl shadow-lg border border-accent/20 z-20">
-              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95">
-                "The data is the product."
+              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center max-w-xs md:max-w-sm">
+                "What I won't test on myself, I will never ask anyone else to trust."
               </span>
             </div>
           </div>
@@ -218,7 +236,7 @@ export default function WhatImBuilding() {
                 className={`flex flex-col text-left items-start justify-start ${step.cellClass}`}
                 style={{ padding: '48px' }}
               >
-                {/* Step number in 48px muted tan top-left */}
+                {/* Step number in 48px top-left */}
                 <span 
                   className="font-heading font-bold leading-none select-none tracking-tight mb-6"
                   style={{ fontSize: '48px', color: '#C9A87C' }}
@@ -241,6 +259,16 @@ export default function WhatImBuilding() {
                 >
                   {step.desc}
                 </p>
+
+                {/* Memorable line quote */}
+                {step.quote && (
+                  <p 
+                    className={`font-body italic font-semibold mt-4 leading-relaxed ${step.descClass}`}
+                    style={{ fontSize: '13px' }}
+                  >
+                    "{step.quote}"
+                  </p>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -312,17 +340,6 @@ export default function WhatImBuilding() {
             >
               <span>Visit Beyond Bound®</span>
               <RiArrowRightUpLine size={16} />
-            </a>
-
-            {/* Amazon CTA */}
-            <a 
-              href="https://www.amazon.in/Beyond-Bound-Glycomics-Metabolism-Capsules/dp/B0GFP3VFPT"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-[#0e1f35]/50 border border-accent/40 hover:border-accent hover:bg-accent/5 dark:hover:bg-white/5 text-navy dark:text-white font-heading font-semibold rounded-full shadow-sm transition-all duration-300 text-xs tracking-widest uppercase cursor-pointer"
-            >
-              <RiAmazonLine size={16} className="text-[#FF9900]" />
-              <span>View on Amazon</span>
             </a>
           </div>
         </motion.div>

@@ -53,11 +53,10 @@ function Typewriter() {
   return (
     <span className="inline-block relative">
       <span
-        className={`transition-all duration-500 ease-out font-heading font-medium tracking-wide ${
-          showGlow 
-            ? 'text-teal drop-shadow-[0_0_10px_rgba(13,115,119,0.5)] font-semibold' 
+        className={`transition-all duration-500 ease-out font-heading font-medium tracking-wide ${showGlow
+            ? 'text-teal drop-shadow-[0_0_10px_rgba(13,115,119,0.5)] font-semibold'
             : 'text-navy/80 dark:text-white/80'
-        }`}
+          }`}
       >
         {displayedText}
       </span>
@@ -131,7 +130,7 @@ export default function Hero({ preloaderActive }) {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left Column: Text & Quote */}
           <motion.div
             variants={containerVariants}
@@ -165,7 +164,7 @@ export default function Hero({ preloaderActive }) {
                 variants={clipVariants}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block"
               >
-                Healthcare India can actually trust.
+                Building India's most trusted metabolic health brand.
               </motion.h1>
             </div>
 
@@ -210,7 +209,7 @@ export default function Hero({ preloaderActive }) {
               className="w-full max-w-[385px] aspect-[4/5] p-3 border border-accent/20 dark:border-white/10 rounded-3xl bg-white dark:bg-[#0e1f35]/50 shadow-xl shadow-navy/5 dark:shadow-none relative"
             >
               {/* Premium Blurred Ambient Glow Backdrop */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={preloaderActive ? { opacity: 0 } : { opacity: 0.35 }}
                 transition={{ delay: 0.8, duration: 1.0 }}
