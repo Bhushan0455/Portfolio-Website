@@ -52,7 +52,7 @@ export default function JourneyFrames() {
     {
       title: 'Venture Growth',
       metric: 'FROM THESIS TO FORMULATION',
-      caption: 'Instead of launching another broad supplement line, I chose to focus Beyond Bound entirely on metabolic health. Our first step was developing Glycomics™, a glucose-metabolism support formulation. But before introducing it to anyone else, I needed proof. I spent months wearing a continuous glucose monitor, tracking my own real-world glycemic responses to the formulation. This empirical self-observation became the foundation of Beyond Bound. By letting data guide our formulation rather than marketing trends, we built a product—and a brand—that values evidence over claims.',
+      caption: "Instead of building another broad wellness brand, I chose to focus Beyond Bound entirely on metabolic health. That led to Glycomics™, our first glucose-metabolism formulation. Before introducing it to anyone else, I spent months tracking my own metabolic responses through continuous glucose monitoring. The goal wasn't marketing validation—it was personal proof. Beyond Bound was built on the belief that trust should be earned through evidence.",
       icon: RiLineChartLine,
       gradient: 'from-teal/10 via-sage to-accent/5',
       image: glycomicsImg
