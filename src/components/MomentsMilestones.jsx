@@ -15,7 +15,7 @@ export default function MomentsMilestones() {
     {
       label: 'CONVERSATIONS',
       title: 'Founder & Industry Dialogue',
-      description: "Engaged with founders, healthcare professionals, researchers, and operators across the wellness ecosystem to challenge ideas, validate assumptions, and refine long-term direction."
+      description: "Engaged with founders, healthcare professionals, researchers, and operators across the wellness landscape to challenge ideas, validate assumptions, and refine long-term direction."
     },
     {
       label: 'BUILDING',

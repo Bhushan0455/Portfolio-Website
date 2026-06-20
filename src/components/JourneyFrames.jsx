@@ -35,32 +35,32 @@ export default function JourneyFrames() {
     },
     {
       title: 'The Market Gap',
-      metric: 'No dedicated metabolism brand existed in India.',
-      caption: 'Reviewing pharmaceutical trends and speaking to consumers exposed a massive gap: people were not looking for more generic supplements. They were searching for transparency, education, and genuine proof.',
+      metric: "The problem wasn't a lack of products. It was a lack of clarity.",
+      caption: 'Reviewing market data and speaking to consumers showed me that wellness brands were trying to solve everything. Few focused deeply on metabolism. People were left overwhelmed by conflicting advice, with no trusted destination for metabolic health.',
       icon: RiPulseLine,
       gradient: 'from-teal/5 via-sage/40 to-accent/10',
       image: aboutImg
     },
     {
       title: 'Building Beyond Bound®',
-      metric: 'Foundational Proof of Efficacy',
-      caption: 'I launched my own nutraceutical venture to bridge this gap, handling product formulation and brand IP myself. If I could not verify a product’s impact on myself, I would not offer it to others.',
+      metric: 'Testing Assumptions First',
+      caption: "I launched my nutraceutical venture to bridge this gap. To test my assumptions, I spent months wearing a continuous glucose monitor, tracking my own metabolic responses and learning directly from the data. If I could not verify a formulation's impact on myself, I would never ask anyone else to trust it.",
       icon: RiLeafLine,
       gradient: 'from-sage/20 via-accent/5 to-teal/10',
       image: beyondboundImg
     },
     {
       title: 'Venture Growth',
-      metric: 'Glycomics & Metabolic Focus',
-      caption: 'Transitioning my venture to focus directly on metabolic health and wellness. I began designing natural metabolic formulations validated by continuous data streams.',
+      metric: 'Choosing Depth Over Breadth',
+      caption: 'As I learned more about metabolic health, I realized that generic wellness brands were missing the point. I made a conscious choice to narrow my focus, deciding not to build another broad supplement brand. I wanted to dedicate Beyond Bound entirely to metabolic wellness.',
       icon: RiLineChartLine,
       gradient: 'from-teal/10 via-sage to-accent/5',
       image: glycomicsImg
     },
     {
       title: 'Future Vision',
-      metric: 'India\'s Verifiable Health Ecosystem',
-      caption: 'My goal is clear: establishing Beyond Bound® as the most trusted preventative health ecosystem in India, where natural metabolic wellness is proven, validated, and accessible.',
+      metric: 'Trust Before Marketing',
+      caption: "My goal isn't to build another supplement company. I want Beyond Bound to become a health brand where trust comes before marketing, evidence comes before claims, and people can turn to for absolute clarity about their metabolic health.",
       icon: RiCompassLine,
       gradient: 'from-sage/40 via-accent/10 to-teal/20',
       image: visionImg

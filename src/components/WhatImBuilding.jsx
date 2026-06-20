@@ -20,7 +20,7 @@ export default function WhatImBuilding() {
       num: '01',
       label: 'What I Observed',
       desc: 'I observed that while metabolic disorders are rising rapidly across India, consumer understanding remains shallow. People are constantly overwhelmed by conflicting advice, shifting wellness trends, and information overload. They want to take control of their health, but they do not know who to trust.',
-      quote: 'Information overload breeds inaction; what we need today is not more products, but absolute clarity.',
+      quote: 'Information overload breeds inaction; what we need today is not more products, but evidence we can actually verify.',
       cellClass: 'bg-[#F8F6F1] dark:bg-[#0e1f35]',
       titleClass: 'text-navy dark:text-white',
       descClass: 'text-navy/70 dark:text-white/70'
@@ -37,7 +37,7 @@ export default function WhatImBuilding() {
     {
       num: '03',
       label: 'What I\'m Building',
-      desc: 'Through Beyond Bound, I\'m building a company focused on one of the most important health challenges of our generation: metabolic wellness. My goal isn\'t simply to create products. It\'s to build a brand that helps people better understand their health, make informed decisions, and trust the solutions they choose.',
+      desc: 'Through Beyond Bound, I am building a brand focused on metabolic health. My goal isn\'t simply to create products, but to disclose exact formulations, substantiate every claim, and empower consumers with honest guidance so they can take control of their wellbeing.',
       quote: 'For me, the opportunity isn\'t just in wellness. It\'s in creating a healthcare brand that people can genuinely believe in.',
       cellClass: 'bg-[#EDF5F4] dark:bg-[#0b2c2a]',
       titleClass: 'text-navy dark:text-white',
@@ -46,7 +46,7 @@ export default function WhatImBuilding() {
     {
       num: '04',
       label: 'Where We\'re Going',
-      desc: 'Our vision is to define the metabolic wellness category in India. I believe the future of health will be built in the everyday choices people make before disease ever arrives. Beyond Bound is here to guide those choices for the next decade.',
+      desc: 'I want to establish Beyond Bound as a trusted name in metabolic health. I believe the future of wellness belongs in the choices people make before disease ever arrives, and we are building the framework to guide those choices.',
       quote: 'The future of healthcare begins at the table, not in the hospital.',
       cellClass: 'bg-[#0D4A47] dark:bg-[#0D4A47]',
       titleClass: 'text-white',

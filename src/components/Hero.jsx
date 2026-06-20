@@ -54,8 +54,8 @@ function Typewriter() {
     <span className="inline-block relative">
       <span
         className={`transition-all duration-500 ease-out font-heading font-medium tracking-wide ${showGlow
-            ? 'text-teal drop-shadow-[0_0_10px_rgba(13,115,119,0.5)] font-semibold'
-            : 'text-navy/80 dark:text-white/80'
+          ? 'text-teal drop-shadow-[0_0_10px_rgba(13,115,119,0.5)] font-semibold'
+          : 'text-navy/80 dark:text-white/80'
           }`}
       >
         {displayedText}
@@ -164,7 +164,7 @@ export default function Hero({ preloaderActive }) {
                 variants={clipVariants}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block"
               >
-                Building India's most trusted metabolic health brand.
+                Building a metabolic health brand that earns trust through proof.
               </motion.h1>
             </div>
 

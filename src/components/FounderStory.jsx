@@ -59,23 +59,22 @@ export default function FounderStory() {
           </motion.h3>
 
           <motion.p variants={fadeUp}>
-            My journey into healthcare didn't begin in a hospital or a pharmaceutical company. It began with a B.Sc. in Agriculture, where I developed a deep appreciation for the relationship between food, health, and human wellbeing.
+            My journey into healthcare didn't begin in a hospital. It began with a B.Sc. in Agriculture. Working with the soil taught me that health starts at the molecular level, in the food we grow and the nutrition we consume. It showed me that true wellbeing is systemic, and that in healthcare, just like in agriculture, you cannot shortcut the process if you want to build something that lasts.
           </motion.p>
 
           <motion.p variants={fadeUp}>
-            That foundation led me to pursue an MBA in Healthcare Management at K J Somaiya Institute of Management, where I became increasingly interested in how healthcare businesses are built, how consumers make decisions, and why trust remains the most valuable asset any health brand can earn.
+            To understand how these concepts scale, I pursued an MBA in Healthcare Management at K J Somaiya Institute of Management. I wanted to understand the systems behind patient care, how healthcare organizations operate, and how consumers make choices about their bodies. But the more I studied healthcare systems, the more I noticed a gap. The industry was designed to manage sickness, not to build health. We were waiting for people to become patients before giving them guidance.
           </motion.p>
 
           <motion.p variants={fadeUp}>
-            Along the way, I gained exposure to consumer businesses, market intelligence, and brand-building. Each experience reinforced the same belief: India's next generation of healthcare brands must be built on credibility, transparency, and long-term trust.
-            Today, that belief drives everything I am building through Beyond Bound.
+            After management studies, my work in sales and market research confirmed a deeper problem: the market was flooded with generic wellness products, but consumers had no way to verify their claims. There was a lack of focused metabolic brands built on real proof. That was the inevitable next step. Beyond Bound was built to bridge this gap—a brand where agricultural quality meets rigorous healthcare validation, designed for the one system that drives it all: our metabolism.
           </motion.p>
 
           <motion.p
             variants={fadeUp}
             className="text-lg sm:text-xl font-heading font-bold text-navy dark:text-white border-l-2 border-accent pl-5 my-8 italic"
           >
-            I wasn't going to work in healthcare. I am going to build in it.
+            I didn't want a career in healthcare. I wanted to build something for it.
           </motion.p>
         </motion.div>
 

@@ -20,7 +20,7 @@ export default function QuoteInterstitial() {
           variants={reveal}
           className="font-serif italic text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.3] text-navy/90 dark:text-white/90 tracking-tight"
         >
-          "The future of wellness belongs to brands <br className="hidden sm:inline" /> that can earn trust."
+          "Health advice is easy to give. <br className="hidden sm:inline" /> Trust is harder to earn."
         </motion.p>
       </div>
     </section>
