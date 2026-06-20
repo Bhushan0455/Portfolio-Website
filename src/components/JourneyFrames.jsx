@@ -51,8 +51,8 @@ export default function JourneyFrames() {
     },
     {
       title: 'Venture Growth',
-      metric: 'Choosing Depth Over Breadth',
-      caption: 'As I learned more about metabolic health, I realized that generic wellness brands were missing the point. I made a conscious choice to narrow my focus, deciding not to build another broad supplement brand. I wanted to dedicate Beyond Bound entirely to metabolic wellness.',
+      metric: 'FROM THESIS TO FORMULATION',
+      caption: 'Instead of launching another broad supplement line, I chose to focus Beyond Bound entirely on metabolic health. Our first step was developing Glycomics™, a glucose-metabolism support formulation. But before introducing it to anyone else, I needed proof. I spent months wearing a continuous glucose monitor, tracking my own real-world glycemic responses to the formulation. This empirical self-observation became the foundation of Beyond Bound. By letting data guide our formulation rather than marketing trends, we built a product—and a brand—that values evidence over claims.',
       icon: RiLineChartLine,
       gradient: 'from-teal/10 via-sage to-accent/5',
       image: glycomicsImg
