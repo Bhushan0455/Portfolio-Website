@@ -18,7 +18,7 @@ export default function FounderStory() {
   ];
 
   return (
-    <section id="story" className="py-20 md:py-28 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
+    <section id="story" className="pt-20 pb-0 md:pt-28 md:pb-0 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
       {/* Decorative ambient gradients */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-sage/20 dark:bg-teal-dark/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-12 right-12 w-64 h-64 bg-teal/5 rounded-full blur-[100px] pointer-events-none z-0" />
@@ -78,29 +78,132 @@ export default function FounderStory() {
           </motion.p>
         </motion.div>
 
-        {/* 3-Stop Journey Journey Footnote */}
+        {/* ── UPGRADED FOUNDER PATH TIMELINE (TRANSITION BRIDGE) ── */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: '-100px' }}
           variants={fadeUp}
-          className="mt-16 pt-8 border-t border-border/50 dark:border-white/10 max-w-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          className="mt-24 pt-16 border-t border-neutral-100 dark:border-white/10 relative w-full overflow-visible"
         >
-          <span className="text-[10px] font-heading font-bold text-navy/40 dark:text-white/40 uppercase tracking-widest">
-            The Path:
-          </span>
-          <div className="flex flex-wrap gap-x-6 gap-y-3 sm:gap-12">
-            {timelineStops.map((stop, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <span className="text-[10px] font-heading font-bold text-teal dark:text-teal-light bg-teal/5 dark:bg-teal-light/10 border border-teal/10 dark:border-teal-light/20 px-2 py-0.5 rounded">
-                  0{idx + 1}
-                </span>
-                <span className="text-xs font-heading font-medium text-navy/70 dark:text-white/70 uppercase tracking-wider">
-                  {stop.era}
-                </span>
-              </div>
-            ))}
+          {/* Huge Editorial Background Typography */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+            <span className="font-heading font-black text-navy/[0.03] dark:text-white/[0.02] tracking-[0.08em] uppercase leading-none select-none" style={{ fontSize: 'clamp(4rem, 14vw, 10rem)' }}>
+              JOURNEY
+            </span>
           </div>
+
+          {/* Ambient Radial Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-teal/[0.04] dark:bg-teal-light/[0.03] rounded-full blur-3xl pointer-events-none z-0" />
+
+          {/* Subtle Grid Lines simulation */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.015] pointer-events-none z-0 grid grid-cols-3 h-full">
+            <div className="border-r border-navy dark:border-white h-full" />
+            <div className="border-r border-navy dark:border-white h-full" />
+            <div className="h-full" />
+          </div>
+
+          {/* Section subtitle */}
+          <div className="text-center mb-12 relative z-10">
+            <span className="text-[10px] font-heading font-semibold uppercase tracking-[0.3em] text-teal/70 dark:text-teal-light/70 block">
+              Founder Evolution
+            </span>
+          </div>
+
+          {/* Connected timeline container */}
+          <div className="relative z-10 max-w-3xl mx-auto px-4">
+            
+            {/* Desktop Horizontal Connected Journey */}
+            <div className="hidden md:block relative py-12">
+              {/* Timeline Track Background Line */}
+              <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-neutral-100 dark:bg-white/5 -translate-y-1/2 z-0" />
+              {/* Timeline Track Progress Fill Line (Draws in on scroll) */}
+              <motion.div 
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute top-1/2 left-0 right-0 h-[2px] bg-teal dark:bg-teal-light -translate-y-1/2 z-0 origin-left"
+              />
+
+              {/* Three Nodes */}
+              <div className="flex justify-between items-center relative z-10">
+                {timelineStops.map((stop, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex flex-col items-center text-center group cursor-pointer w-48 relative"
+                  >
+                    {/* Node Circle */}
+                    <div className="relative flex items-center justify-center mb-4">
+                      {/* Node glow wrapper on hover */}
+                      <div className="absolute inset-0 bg-teal/20 dark:bg-teal-light/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 scale-150" />
+                      
+                      {/* Circle body */}
+                      <div className="w-10 h-10 rounded-full bg-white dark:bg-[#081220] border border-neutral-200 dark:border-white/10 group-hover:border-teal dark:group-hover:border-teal-light flex items-center justify-center transition-all duration-300 z-10 shadow-sm relative">
+                        <span className="text-[10px] font-heading font-bold text-navy/40 dark:text-white/40 group-hover:text-teal dark:group-hover:text-teal-light transition-colors duration-300">
+                          0{idx + 1}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Node texts */}
+                    <span className="text-xs font-heading font-bold uppercase tracking-wider text-navy dark:text-white group-hover:text-teal dark:group-hover:text-teal-light transition-colors duration-300">
+                      {stop.era}
+                    </span>
+                    <span className="text-[10px] font-heading font-medium text-navy/50 dark:text-white/50 uppercase tracking-widest mt-1 block max-w-[150px] mx-auto leading-relaxed">
+                      {stop.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Vertical Connected Journey */}
+            <div className="md:hidden relative pl-8 border-l border-neutral-100 dark:border-white/5 space-y-12 py-2">
+              {/* Mobile Timeline Track Progress Fill Line */}
+              <motion.div 
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute top-0 bottom-0 left-0 w-[1px] bg-teal dark:bg-teal-light origin-top z-0"
+              />
+
+              {timelineStops.map((stop, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative flex flex-col items-start text-left group"
+                >
+                  {/* Node Circle */}
+                  <div className="absolute -left-[37px] top-1.5 w-[18px] h-[18px] rounded-full bg-white dark:bg-[#081220] border border-neutral-300 dark:border-white/10 group-hover:border-teal dark:group-hover:border-teal-light flex items-center justify-center z-10 transition-colors duration-300 shadow-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-white/20 group-hover:bg-teal dark:group-hover:bg-teal-light transition-colors duration-300" />
+                  </div>
+
+                  <span className="text-[9px] font-heading font-bold text-teal dark:text-teal-light uppercase tracking-widest leading-none mb-1.5">
+                    0{idx + 1}
+                  </span>
+                  <span className="text-sm font-heading font-bold uppercase tracking-wider text-navy dark:text-white group-hover:text-teal dark:group-hover:text-teal-light transition-colors duration-300">
+                    {stop.era}
+                  </span>
+                  <span className="text-xs font-body text-navy/60 dark:text-white/60 mt-1 leading-normal">
+                    {stop.label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+          </div>
+
+          {/* Bottom fade line transition decoration */}
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-neutral-100 dark:via-white/5 to-transparent mt-8" />
         </motion.div>
       </div>
     </section>

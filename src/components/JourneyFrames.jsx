@@ -95,7 +95,7 @@ export default function JourneyFrames() {
   };
 
   return (
-    <section id="journey" className="py-16 md:py-24 bg-white dark:bg-[#081220] relative overflow-hidden">
+    <section id="journey" className="pt-8 pb-16 md:pt-10 md:pb-24 bg-white dark:bg-[#081220] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Section Header */}
