@@ -150,7 +150,7 @@ export default function WhatImBuilding() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-28"
         >
           {/* LEFT: Photo */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 order-2 lg:order-1">
             <motion.div 
               className="relative overflow-hidden rounded-[2rem] aspect-[16/10] sm:aspect-[16/11] lg:aspect-square shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
               whileHover={{ scale: 1.015 }}
@@ -166,7 +166,7 @@ export default function WhatImBuilding() {
           </div>
 
           {/* RIGHT: Story content */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left">
             <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
               Why I Started
             </h3>
@@ -198,8 +198,8 @@ export default function WhatImBuilding() {
           variants={sectionVariants}
           className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center mb-16 md:mb-28 w-full"
         >
-          {/* LEFT: Story Narrative (5.5/12 -> 4/12 width on desktop, order-2 on mobile) */}
-          <div className={`w-full lg:w-0 order-2 lg:order-1 text-left space-y-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          {/* LEFT: Story Narrative (5.5/12 -> 4/12 width on desktop, order-1 on mobile) */}
+          <div className={`w-full lg:w-0 order-1 lg:order-1 text-left space-y-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             isSectionInView ? 'lg:flex-[4]' : 'lg:flex-[5.5]'
           }`}>
             <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
@@ -226,8 +226,8 @@ export default function WhatImBuilding() {
             </div>
           </div>
 
-          {/* RIGHT: Video Player Column (6.5/12 -> 8/12 width on desktop, order-1 on mobile) */}
-          <div className={`w-full lg:w-0 order-1 lg:order-2 flex flex-col items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          {/* RIGHT: Video Player Column (6.5/12 -> 8/12 width on desktop, order-2 on mobile) */}
+          <div className={`w-full lg:w-0 order-2 lg:order-2 flex flex-col items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             isSectionInView ? 'lg:flex-[8]' : 'lg:flex-[6.5]'
           }`}>
             {/* Player Frame Card */}
