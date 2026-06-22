@@ -17,22 +17,22 @@ export default function WhatImBuilding() {
   const video2Ref = useRef(null);
   const video3Ref = useRef(null);
   const [isSectionInView, setIsSectionInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Intersection Observer to play videos when in view and pause when off-screen
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsSectionInView(entry.isIntersecting);
-        const videos = [video1Ref.current, video2Ref.current, video3Ref.current];
-        videos.forEach(video => {
-          if (video) {
-            if (entry.isIntersecting) {
-              video.play().catch(err => console.log("Autoplay on scroll prevented:", err));
-            } else {
-              video.pause();
-            }
-          }
-        });
       },
       { threshold: 0.15 }
     );
@@ -47,6 +47,20 @@ export default function WhatImBuilding() {
       }
     };
   }, []);
+
+  // Sync play/pause based on section view and mobile/desktop states
+  useEffect(() => {
+    const videos = [video1Ref.current, video2Ref.current, video3Ref.current];
+    videos.forEach(video => {
+      if (video) {
+        if (isSectionInView) {
+          video.play().catch(err => console.log("Autoplay check failed:", err));
+        } else {
+          video.pause();
+        }
+      }
+    });
+  }, [isMobile, isSectionInView]);
 
   // Parallax for the CGM photo
   const { scrollYProgress } = useScroll({
@@ -149,47 +163,95 @@ export default function WhatImBuilding() {
           variants={sectionVariants}
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-28"
         >
-          {/* LEFT: Photo */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
-            <motion.div 
-              className="relative overflow-hidden rounded-[2rem] aspect-[16/10] sm:aspect-[16/11] lg:aspect-square shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
-              whileHover={{ scale: 1.015 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <img 
-                src={healthcareEntrepreneurshipImg} 
-                alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition" 
-                className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-[0.16,1,0.3,1] brightness-[0.93] contrast-[1.02]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-navy/5 to-transparent pointer-events-none" />
-            </motion.div>
-          </div>
+          {isMobile ? (
+            /* Mobile Flow: Heading -> Image Frame -> Paragraphs */
+            <div className="space-y-6 text-left w-full">
+              <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
+                Why I Started
+              </h3>
 
-          {/* RIGHT: Story content */}
-          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left">
-            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
-              Why I Started
-            </h3>
-            <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
-              <p>
-                The idea behind Beyond Bound began with a question that stayed with me for years:
-              </p>
-              <p className="font-semibold text-navy dark:text-white italic">
-                "Why do we wait for health problems to become serious before we start paying attention to them?"
-              </p>
-              <p>
-                Through my studies, industry exposure, and conversations with consumers, I became increasingly interested in metabolic health — the systems that quietly influence energy, blood sugar, weight, and long-term wellbeing.
-              </p>
-              <p>
-                The challenge wasn't a lack of products. It was a lack of clarity, trust, and meaningful education.
-              </p>
-              <p>
-                That realization eventually became Beyond Bound.
-              </p>
+              {/* Photo Frame */}
+              <div className="w-full">
+                <motion.div 
+                  className="relative overflow-hidden rounded-[2rem] aspect-[16/10] sm:aspect-[16/11] shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
+                  whileHover={{ scale: 1.015 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <img 
+                    src={healthcareEntrepreneurshipImg} 
+                    alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition" 
+                    className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-[0.16,1,0.3,1] brightness-[0.93] contrast-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-navy/5 to-transparent pointer-events-none" />
+                </motion.div>
+              </div>
+
+              {/* All paragraphs */}
+              <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
+                <p>
+                  The idea behind Beyond Bound began with a question that stayed with me for years:
+                </p>
+                <p className="font-semibold text-navy dark:text-white italic">
+                  "Why do we wait for health problems to become serious before we start paying attention to them?"
+                </p>
+                <p>
+                  Through my studies, industry exposure, and conversations with consumers, I became increasingly interested in metabolic health — the systems that quietly influence energy, blood sugar, weight, and long-term wellbeing.
+                </p>
+                <p>
+                  The challenge wasn't a lack of products. It was a lack of clarity, trust, and meaningful education.
+                </p>
+                <p>
+                  That realization eventually became Beyond Bound.
+                </p>
+              </div>
             </div>
-          </div>
+          ) : (
+            /* Desktop Flow */
+            <>
+              {/* LEFT: Photo */}
+              <div className="lg:col-span-5 order-2 lg:order-1">
+                <motion.div 
+                  className="relative overflow-hidden rounded-[2rem] aspect-[16/10] sm:aspect-[16/11] lg:aspect-square shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
+                  whileHover={{ scale: 1.015 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <img 
+                    src={healthcareEntrepreneurshipImg} 
+                    alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition" 
+                    className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-[0.16,1,0.3,1] brightness-[0.93] contrast-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-navy/5 to-transparent pointer-events-none" />
+                </motion.div>
+              </div>
+
+              {/* RIGHT: Story content */}
+              <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left">
+                <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
+                  Why I Started
+                </h3>
+                <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    The idea behind Beyond Bound began with a question that stayed with me for years:
+                  </p>
+                  <p className="font-semibold text-navy dark:text-white italic">
+                    "Why do we wait for health problems to become serious before we start paying attention to them?"
+                  </p>
+                  <p>
+                    Through my studies, industry exposure, and conversations with consumers, I became increasingly interested in metabolic health — the systems that quietly influence energy, blood sugar, weight, and long-term wellbeing.
+                  </p>
+                  <p>
+                    The challenge wasn't a lack of products. It was a lack of clarity, trust, and meaningful education.
+                  </p>
+                  <p>
+                    That realization eventually became Beyond Bound.
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
         </motion.div>
 
+        {/* ── PART 2 — PROVING IT ON MYSELF FIRST ── */}
         <motion.div 
           ref={cgmContainerRef}
           initial="hidden"
@@ -198,87 +260,164 @@ export default function WhatImBuilding() {
           variants={sectionVariants}
           className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center mb-16 md:mb-28 w-full"
         >
-          {/* LEFT: Story Narrative (5.5/12 -> 4/12 width on desktop, order-1 on mobile) */}
-          <div className={`w-full lg:w-0 order-1 lg:order-1 text-left space-y-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            isSectionInView ? 'lg:flex-[4]' : 'lg:flex-[5.5]'
-          }`}>
-            <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
-              First-Hand Efficacy
-            </span>
-            
-            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight leading-snug">
-              Proving It on Myself First
-            </h3>
-
-            <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
-              <p>
-                Before asking anyone to trust Beyond Bound, I felt a responsibility to understand the problem more deeply myself.
-              </p>
-              <p>
-                I spent months wearing a continuous glucose monitor, tracking how everyday decisions — food, sleep, movement, and stress — influenced my own metabolic health. What began as curiosity quickly became conviction.
-              </p>
-              <p>
-                The experience changed the way I thought about wellness. It reminded me that health isn't built through claims or advertising. It's built through understanding, consistency, and measurable change.
-              </p>
-              <p>
-                That perspective continues to shape everything we build at Beyond Bound today.
-              </p>
-            </div>
-          </div>
-
-          {/* RIGHT: Video Player Column (6.5/12 -> 8/12 width on desktop, order-2 on mobile) */}
-          <div className={`w-full lg:w-0 order-2 lg:order-2 flex flex-col items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            isSectionInView ? 'lg:flex-[8]' : 'lg:flex-[6.5]'
-          }`}>
-            {/* Player Frame Card */}
-            <div ref={slideshowRef} className={`relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isSectionInView ? 'scale-[1.03] shadow-2xl shadow-accent/5' : 'scale-100 shadow-xl'
-            }`}>
-              
-              {/* Subtle Top-Left Badge (Hidden on Mobile) */}
-              <div className="absolute top-4 left-4 z-20 bg-navy/85 dark:bg-[#081220]/80 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest font-heading select-none pointer-events-none hidden sm:block">
-                Founder Self-Observation
+          {isMobile ? (
+            /* Mobile Flow: Title -> Video Frame -> All Paras */
+            <div className="w-full text-left space-y-6">
+              <div>
+                <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block mb-2">
+                  First-Hand Efficacy
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight leading-snug">
+                  Proving It on Myself First
+                </h3>
               </div>
 
-              {/* Video Viewport */}
-              <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black grid grid-cols-3 gap-1.5 sm:gap-2 p-1.5 sm:p-2">
-                <video
-                  ref={video1Ref}
-                  src={clip1}
-                  autoPlay
-                  loop
-                  playsInline
-                  muted
-                  className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
-                />
-                <video
-                  ref={video2Ref}
-                  src={clip2}
-                  autoPlay
-                  loop
-                  playsInline
-                  muted
-                  className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
-                />
-                <video
-                  ref={video3Ref}
-                  src={clip3}
-                  autoPlay
-                  loop
-                  playsInline
-                  muted
-                  className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
-                />
+              {/* Video Player Column */}
+              <div className="w-full flex flex-col items-center">
+                {/* Player Frame Card */}
+                <div ref={slideshowRef} className="relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group">
+                  {/* Video Viewport */}
+                  <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black grid grid-cols-3 gap-1.5 sm:gap-2 p-1.5 sm:p-2">
+                    <video
+                      ref={video1Ref}
+                      src={clip1}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                    />
+                    <video
+                      ref={video2Ref}
+                      src={clip2}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                    />
+                    <video
+                      ref={video3Ref}
+                      src={clip3}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                    />
+                  </div>
+                </div>
+
+                {/* Quote below the frame */}
+                <div className="mt-6 w-full max-w-lg bg-accent text-white px-5 py-3 rounded-2xl shadow-md border border-accent/20 text-center">
+                  <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center leading-relaxed">
+                    "What I won't test on myself, I will never ask anyone else to trust."
+                  </span>
+                </div>
+              </div>
+
+              {/* All paragraphs */}
+              <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
+                <p>
+                  Before asking anyone to trust Beyond Bound, I felt a responsibility to understand the problem more deeply myself.
+                </p>
+                <p>
+                  I spent months wearing a continuous glucose monitor, tracking how everyday decisions — food, sleep, movement, and stress — influenced my own metabolic health. What began as curiosity quickly became conviction.
+                </p>
+                <p>
+                  The experience changed the way I thought about wellness. It reminded me that health isn't built through claims or advertising. It's built through understanding, consistency, and measurable change.
+                </p>
+                <p>
+                  That perspective continues to shape everything we build at Beyond Bound today.
+                </p>
               </div>
             </div>
+          ) : (
+            /* Desktop Flow */
+            <>
+              {/* LEFT: Story Narrative (5.5/12 -> 4/12 width on desktop) */}
+              <div className={`w-full lg:w-0 order-1 lg:order-1 text-left space-y-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isSectionInView ? 'lg:flex-[4]' : 'lg:flex-[5.5]'
+              }`}>
+                <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
+                  First-Hand Efficacy
+                </span>
+                
+                <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight leading-snug">
+                  Proving It on Myself First
+                </h3>
 
-            {/* Quote below the frame */}
-            <div className="mt-6 w-full max-w-lg bg-accent text-white px-5 py-3 rounded-2xl shadow-md border border-accent/20 text-center">
-              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center leading-relaxed">
-                "What I won't test on myself, I will never ask anyone else to trust."
-              </span>
-            </div>
-          </div>
+                <div className="space-y-4 font-body text-navy/80 dark:text-white/80 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    Before asking anyone to trust Beyond Bound, I felt a responsibility to understand the problem more deeply myself.
+                  </p>
+                  <p>
+                    I spent months wearing a continuous glucose monitor, tracking how everyday decisions — food, sleep, movement, and stress — influenced my own metabolic health. What began as curiosity quickly became conviction.
+                  </p>
+                  <p>
+                    The experience changed the way I thought about wellness. It reminded me that health isn't built through claims or advertising. It's built through understanding, consistency, and measurable change.
+                  </p>
+                  <p>
+                    That perspective continues to shape everything we build at Beyond Bound today.
+                  </p>
+                </div>
+              </div>
+
+              {/* RIGHT: Video Player Column (6.5/12 -> 8/12 width on desktop) */}
+              <div className={`w-full lg:w-0 order-2 lg:order-2 flex flex-col items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isSectionInView ? 'lg:flex-[8]' : 'lg:flex-[6.5]'
+              }`}>
+                {/* Player Frame Card */}
+                <div ref={slideshowRef} className={`relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isSectionInView ? 'scale-[1.03] shadow-2xl shadow-accent/5' : 'scale-100 shadow-xl'
+                }`}>
+                  
+                  {/* Subtle Top-Left Badge (Hidden on Mobile) */}
+                  <div className="absolute top-4 left-4 z-20 bg-navy/85 dark:bg-[#081220]/80 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest font-heading select-none pointer-events-none hidden sm:block">
+                    Founder Self-Observation
+                  </div>
+
+                  {/* Video Viewport */}
+                  <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black grid grid-cols-3 gap-1.5 sm:gap-2 p-1.5 sm:p-2">
+                    <video
+                      ref={video1Ref}
+                      src={clip1}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                    />
+                    <video
+                      ref={video2Ref}
+                      src={clip2}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                    />
+                    <video
+                      ref={video3Ref}
+                      src={clip3}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                    />
+                  </div>
+                </div>
+
+                {/* Quote below the frame */}
+                <div className="mt-6 w-full max-w-lg bg-accent text-white px-5 py-3 rounded-2xl shadow-md border border-accent/20 text-center">
+                  <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center leading-relaxed">
+                    "What I won't test on myself, I will never ask anyone else to trust."
+                  </span>
+                </div>
+              </div>
+            </>
+          )}
         </motion.div>
 
         {/* ── PART 3 — THE JOURNEY TO BEYOND BOUND ── */}
