@@ -168,7 +168,19 @@ export default function FounderStory() {
             </div>
 
             {/* Mobile Vertical Connected Journey */}
-            <div className="md:hidden relative pl-8 border-l border-neutral-100 dark:border-white/5 space-y-12 py-2">
+            <div className="md:hidden relative space-y-12 py-2 w-full">
+              {/* Central vertical line track */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-neutral-100 dark:bg-white/5 z-0" />
+
+              {/* Mobile Timeline Track Progress Fill Line */}
+              <motion.div
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-teal dark:bg-teal-light origin-top z-0"
+              />
+
               {/* Huge Editorial Background Typography - Mobile Only */}
               <div className="absolute left-1/2 -translate-x-1/2 w-screen h-full flex items-center justify-center pointer-events-none select-none overflow-visible z-0">
                 <span 
@@ -181,40 +193,60 @@ export default function FounderStory() {
                 </span>
               </div>
 
-              {/* Mobile Timeline Track Progress Fill Line */}
-              <motion.div
-                initial={{ scaleY: 0 }}
-                whileInView={{ scaleY: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-0 bottom-0 left-0 w-[1px] bg-teal dark:bg-teal-light origin-top z-0"
-              />
+              {timelineStops.map((stop, idx) => {
+                const isLeft = idx % 2 === 0;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-4 w-full group"
+                  >
+                    {/* LEFT COLUMN: content if isLeft is true */}
+                    {isLeft ? (
+                      <div className="text-right flex flex-col items-end">
+                        <span className="text-[9px] font-heading font-bold text-teal dark:text-teal-light uppercase tracking-widest leading-none mb-1">
+                          0{idx + 1}
+                        </span>
+                        <span className="text-sm font-heading font-bold uppercase tracking-wider text-navy dark:text-white group-hover:text-teal dark:group-hover:text-teal-light transition-colors duration-300">
+                          {stop.era}
+                        </span>
+                        <span className="text-[10px] font-body text-navy/60 dark:text-white/60 mt-1 leading-normal max-w-[120px]">
+                          {stop.label}
+                        </span>
+                      </div>
+                    ) : (
+                      <div />
+                    )}
 
-              {timelineStops.map((stop, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative flex flex-col items-start text-left group"
-                >
-                  {/* Node Circle */}
-                  <div className="absolute -left-[37px] top-1.5 w-[18px] h-[18px] rounded-full bg-white dark:bg-[#081220] border border-neutral-300 dark:border-white/10 group-hover:border-teal dark:group-hover:border-teal-light flex items-center justify-center z-10 transition-colors duration-300 shadow-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-white/20 group-hover:bg-teal dark:group-hover:bg-teal-light transition-colors duration-300" />
-                  </div>
+                    {/* CENTER COLUMN: Node Circle */}
+                    <div className="relative flex items-center justify-center z-10 w-6 h-6">
+                      <div className="w-4 h-4 rounded-full bg-white dark:bg-[#081220] border border-neutral-300 dark:border-white/10 group-hover:border-teal dark:group-hover:border-teal-light flex items-center justify-center transition-colors duration-300 shadow-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-white/20 group-hover:bg-teal dark:group-hover:bg-teal-light transition-colors duration-300" />
+                      </div>
+                    </div>
 
-                  <span className="text-[9px] font-heading font-bold text-teal dark:text-teal-light uppercase tracking-widest leading-none mb-1.5">
-                    0{idx + 1}
-                  </span>
-                  <span className="text-sm font-heading font-bold uppercase tracking-wider text-navy dark:text-white group-hover:text-teal dark:group-hover:text-teal-light transition-colors duration-300">
-                    {stop.era}
-                  </span>
-                  <span className="text-xs font-body text-navy/60 dark:text-white/60 mt-1 leading-normal">
-                    {stop.label}
-                  </span>
-                </motion.div>
-              ))}
+                    {/* RIGHT COLUMN: content if isLeft is false */}
+                    {!isLeft ? (
+                      <div className="text-left flex flex-col items-start">
+                        <span className="text-[9px] font-heading font-bold text-teal dark:text-teal-light uppercase tracking-widest leading-none mb-1">
+                          0{idx + 1}
+                        </span>
+                        <span className="text-sm font-heading font-bold uppercase tracking-wider text-navy dark:text-white group-hover:text-teal dark:group-hover:text-teal-light transition-colors duration-300">
+                          {stop.era}
+                        </span>
+                        <span className="text-[10px] font-body text-navy/60 dark:text-white/60 mt-1 leading-normal max-w-[120px]">
+                          {stop.label}
+                        </span>
+                      </div>
+                    ) : (
+                      <div />
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
 
           </div>
