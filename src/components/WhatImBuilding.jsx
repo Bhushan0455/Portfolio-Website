@@ -243,66 +243,70 @@ export default function WhatImBuilding() {
             </div>
           </div>
 
-          {/* RIGHT: Video Player Frame (7/12 width on desktop, order-1 on mobile) */}
-          <div ref={slideshowRef} className="lg:col-span-7 order-1 lg:order-2 relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group">
-            
-            {/* Subtle Top-Left Badge */}
-            <div className="absolute top-4 left-4 z-20 bg-navy/85 dark:bg-[#081220]/80 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest font-heading select-none pointer-events-none">
-              Founder Self-Observation
-            </div>
-
-            {/* Top Right Controls (Tabs + Mute Toggle) */}
-            <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-              {/* Clip Selector Tabs */}
-              <div className="flex gap-1.5">
-                {clips.map((clip, idx) => (
-                  <button
-                    key={clip.id}
-                    onClick={() => handleClipChange(idx)}
-                    className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border transition-all duration-300 backdrop-blur-md cursor-pointer ${
-                      activeClipIdx === idx
-                        ? 'bg-teal border-teal text-white shadow-md font-semibold'
-                        : 'bg-black/60 border-white/10 text-white/80 hover:bg-black/80 hover:text-white'
-                    }`}
-                  >
-                    {clip.title}
-                  </button>
-                ))}
+          {/* RIGHT: Video Player Column (7/12 width on desktop, order-1 on mobile) */}
+          <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center w-full">
+            {/* Player Frame Card */}
+            <div ref={slideshowRef} className="relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group">
+              
+              {/* Subtle Top-Left Badge (Hidden on Mobile) */}
+              <div className="absolute top-4 left-4 z-20 bg-navy/85 dark:bg-[#081220]/80 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest font-heading select-none pointer-events-none hidden sm:block">
+                Founder Self-Observation
               </div>
 
-              {/* Mute/Unmute Button */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (videoRef.current) {
-                    videoRef.current.muted = !videoRef.current.muted;
-                    setIsMuted(videoRef.current.muted);
-                  }
-                }}
-                className="w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-teal hover:border-teal transition-all duration-300 cursor-pointer"
-                title={isMuted ? "Unmute" : "Mute"}
-              >
-                {isMuted ? <RiVolumeMuteLine size={13} /> : <RiVolumeUpLine size={13} />}
-              </button>
+              {/* Top Right Controls (Tabs + Mute Toggle) */}
+              <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-20 flex items-center gap-1.5 sm:gap-2">
+                {/* Clip Selector Tabs */}
+                <div className="flex gap-1 sm:gap-1.5">
+                  {clips.map((clip, idx) => (
+                    <button
+                      key={clip.id}
+                      onClick={() => handleClipChange(idx)}
+                      className={`px-2 py-1 sm:px-3 sm:py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider rounded-full border transition-all duration-300 backdrop-blur-md cursor-pointer ${
+                        activeClipIdx === idx
+                          ? 'bg-teal border-teal text-white shadow-md font-semibold'
+                          : 'bg-black/60 border-white/10 text-white/80 hover:bg-black/80 hover:text-white'
+                      }`}
+                    >
+                      {clip.title}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Mute/Unmute Button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (videoRef.current) {
+                      videoRef.current.muted = !videoRef.current.muted;
+                      setIsMuted(videoRef.current.muted);
+                    }
+                  }}
+                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-teal hover:border-teal transition-all duration-300 cursor-pointer"
+                  title={isMuted ? "Unmute" : "Mute"}
+                >
+                  {isMuted ? <RiVolumeMuteLine size={11} className="sm:hidden" /> : <RiVolumeUpLine size={11} className="sm:hidden" />}
+                  {isMuted ? <RiVolumeMuteLine size={13} className="hidden sm:block" /> : <RiVolumeUpLine size={13} className="hidden sm:block" />}
+                </button>
+              </div>
+
+              {/* Video Viewport */}
+              <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black flex items-center justify-center">
+                <video
+                  key={activeClipIdx}
+                  ref={videoRef}
+                  src={clips[activeClipIdx].src}
+                  autoPlay
+                  playsInline
+                  muted={isMuted}
+                  onEnded={handleVideoEnded}
+                  className="w-full h-full object-contain bg-black rounded-[1.5rem]"
+                />
+              </div>
             </div>
 
-            {/* Video Viewport */}
-            <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black flex items-center justify-center">
-              <video
-                key={activeClipIdx}
-                ref={videoRef}
-                src={clips[activeClipIdx].src}
-                autoPlay
-                playsInline
-                muted={isMuted}
-                onEnded={handleVideoEnded}
-                className="w-full h-full object-contain bg-black rounded-[1.5rem]"
-              />
-            </div>
-
-            {/* Quote overlaying the bottom center inside the frame */}
-            <div className="absolute bottom-4 left-4 right-4 bg-accent/90 backdrop-blur-sm text-white px-4 py-2.5 rounded-xl border border-white/10 shadow-lg z-20 text-center pointer-events-none">
-              <span className="font-heading text-[10px] font-bold uppercase tracking-widest block text-white/95 text-center max-w-md mx-auto leading-relaxed">
+            {/* Quote below the frame */}
+            <div className="mt-6 w-full max-w-lg bg-accent text-white px-5 py-3 rounded-2xl shadow-md border border-accent/20 text-center">
+              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center leading-relaxed">
                 "What I won't test on myself, I will never ask anyone else to trust."
               </span>
             </div>
