@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { RiArrowRightUpLine, RiPlayLine, RiCloseLine, RiVolumeMuteLine, RiVolumeUpLine } from 'react-icons/ri';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.jpg';
 import beyondboundImg from '../assets/beyondbound.jpg';
 import beyondboundLogo from '../assets/beyondbound_logo.png';
@@ -13,28 +13,24 @@ import clip3 from '../assets/Clip3 1.mp4';
 export default function WhatImBuilding() {
   const cgmContainerRef = useRef(null);
   const slideshowRef = useRef(null);
-  const videoRef = useRef(null);
+  const video1Ref = useRef(null);
+  const video2Ref = useRef(null);
+  const video3Ref = useRef(null);
 
-  const [activeClipIdx, setActiveClipIdx] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
-
-  const clips = [
-    { id: 1, title: 'Clip 1', src: clip1 },
-    { id: 2, title: 'Clip 2', src: clip2 },
-    { id: 3, title: 'Clip 3', src: clip3 },
-  ];
-
-  // Intersection Observer to play video when in view and pause when off-screen
+  // Intersection Observer to play videos when in view and pause when off-screen
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (videoRef.current) {
-          if (entry.isIntersecting) {
-            videoRef.current.play().catch(err => console.log("Autoplay on scroll prevented:", err));
-          } else {
-            videoRef.current.pause();
+        const videos = [video1Ref.current, video2Ref.current, video3Ref.current];
+        videos.forEach(video => {
+          if (video) {
+            if (entry.isIntersecting) {
+              video.play().catch(err => console.log("Autoplay on scroll prevented:", err));
+            } else {
+              video.pause();
+            }
           }
-        }
+        });
       },
       { threshold: 0.1 }
     );
@@ -49,22 +45,6 @@ export default function WhatImBuilding() {
       }
     };
   }, []);
-
-  // Load and autoplay when activeClipIdx changes
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play().catch(err => console.log("Autoplay on clip change prevented:", err));
-    }
-  }, [activeClipIdx]);
-
-  const handleClipChange = (idx) => {
-    setActiveClipIdx(idx);
-  };
-
-  const handleVideoEnded = () => {
-    setActiveClipIdx((prev) => (prev + 1) % clips.length);
-  };
 
   // Parallax for the CGM photo
   const { scrollYProgress } = useScroll({
@@ -253,53 +233,34 @@ export default function WhatImBuilding() {
                 Founder Self-Observation
               </div>
 
-              {/* Top Right Controls (Tabs + Mute Toggle) */}
-              <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-20 flex items-center gap-1.5 sm:gap-2">
-                {/* Clip Selector Tabs */}
-                <div className="flex gap-1 sm:gap-1.5">
-                  {clips.map((clip, idx) => (
-                    <button
-                      key={clip.id}
-                      onClick={() => handleClipChange(idx)}
-                      className={`px-2 py-1 sm:px-3 sm:py-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider rounded-full border transition-all duration-300 backdrop-blur-md cursor-pointer ${
-                        activeClipIdx === idx
-                          ? 'bg-teal border-teal text-white shadow-md font-semibold'
-                          : 'bg-black/60 border-white/10 text-white/80 hover:bg-black/80 hover:text-white'
-                      }`}
-                    >
-                      {clip.title}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Mute/Unmute Button */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (videoRef.current) {
-                      videoRef.current.muted = !videoRef.current.muted;
-                      setIsMuted(videoRef.current.muted);
-                    }
-                  }}
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-teal hover:border-teal transition-all duration-300 cursor-pointer"
-                  title={isMuted ? "Unmute" : "Mute"}
-                >
-                  {isMuted ? <RiVolumeMuteLine size={11} className="sm:hidden" /> : <RiVolumeUpLine size={11} className="sm:hidden" />}
-                  {isMuted ? <RiVolumeMuteLine size={13} className="hidden sm:block" /> : <RiVolumeUpLine size={13} className="hidden sm:block" />}
-                </button>
-              </div>
-
               {/* Video Viewport */}
-              <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black flex items-center justify-center">
+              <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black grid grid-cols-3 gap-1.5 sm:gap-2 p-1.5 sm:p-2">
                 <video
-                  key={activeClipIdx}
-                  ref={videoRef}
-                  src={clips[activeClipIdx].src}
+                  ref={video1Ref}
+                  src={clip1}
                   autoPlay
+                  loop
                   playsInline
-                  muted={isMuted}
-                  onEnded={handleVideoEnded}
-                  className="w-full h-full object-contain bg-black rounded-[1.5rem]"
+                  muted
+                  className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                />
+                <video
+                  ref={video2Ref}
+                  src={clip2}
+                  autoPlay
+                  loop
+                  playsInline
+                  muted
+                  className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
+                />
+                <video
+                  ref={video3Ref}
+                  src={clip3}
+                  autoPlay
+                  loop
+                  playsInline
+                  muted
+                  className="w-full h-full object-cover rounded-lg sm:rounded-xl bg-neutral-900"
                 />
               </div>
             </div>
