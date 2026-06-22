@@ -16,11 +16,13 @@ export default function WhatImBuilding() {
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
   const video3Ref = useRef(null);
+  const [isSectionInView, setIsSectionInView] = useState(false);
 
   // Intersection Observer to play videos when in view and pause when off-screen
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        setIsSectionInView(entry.isIntersecting);
         const videos = [video1Ref.current, video2Ref.current, video3Ref.current];
         videos.forEach(video => {
           if (video) {
@@ -32,16 +34,16 @@ export default function WhatImBuilding() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
 
-    if (slideshowRef.current) {
-      observer.observe(slideshowRef.current);
+    if (cgmContainerRef.current) {
+      observer.observe(cgmContainerRef.current);
     }
 
     return () => {
-      if (slideshowRef.current) {
-        observer.unobserve(slideshowRef.current);
+      if (cgmContainerRef.current) {
+        observer.unobserve(cgmContainerRef.current);
       }
     };
   }, []);
@@ -188,17 +190,18 @@ export default function WhatImBuilding() {
           </div>
         </motion.div>
 
-        {/* ── PART 2 — FIRST-HAND EFFICACY ── */}
         <motion.div 
           ref={cgmContainerRef}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={sectionVariants}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-28"
+          className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center mb-16 md:mb-28 w-full"
         >
-          {/* LEFT: Story Narrative (5/12 width on desktop, order-2 on mobile) */}
-          <div className="lg:col-span-5 order-2 lg:order-1 text-left space-y-6">
+          {/* LEFT: Story Narrative (5.5/12 -> 4/12 width on desktop, order-2 on mobile) */}
+          <div className={`w-full lg:w-0 order-2 lg:order-1 text-left space-y-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isSectionInView ? 'lg:flex-[4]' : 'lg:flex-[5.5]'
+          }`}>
             <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
               First-Hand Efficacy
             </span>
@@ -223,10 +226,14 @@ export default function WhatImBuilding() {
             </div>
           </div>
 
-          {/* RIGHT: Video Player Column (7/12 width on desktop, order-1 on mobile) */}
-          <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center w-full">
+          {/* RIGHT: Video Player Column (6.5/12 -> 8/12 width on desktop, order-1 on mobile) */}
+          <div className={`w-full lg:w-0 order-1 lg:order-2 flex flex-col items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isSectionInView ? 'lg:flex-[8]' : 'lg:flex-[6.5]'
+          }`}>
             {/* Player Frame Card */}
-            <div ref={slideshowRef} className="relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group">
+            <div ref={slideshowRef} className={`relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isSectionInView ? 'scale-[1.03] shadow-2xl shadow-accent/5' : 'scale-100 shadow-xl'
+            }`}>
               
               {/* Subtle Top-Left Badge (Hidden on Mobile) */}
               <div className="absolute top-4 left-4 z-20 bg-navy/85 dark:bg-[#081220]/80 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest font-heading select-none pointer-events-none hidden sm:block">
