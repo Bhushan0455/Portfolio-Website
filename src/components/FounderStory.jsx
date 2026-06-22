@@ -86,13 +86,6 @@ export default function FounderStory() {
           variants={fadeUp}
           className="mt-24 pt-16 border-t border-neutral-100 dark:border-white/10 relative w-full overflow-visible"
         >
-          {/* Huge Editorial Background Typography */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-            <span className="font-heading font-black text-navy/[0.03] dark:text-white/[0.02] tracking-[0.08em] uppercase leading-none select-none" style={{ fontSize: 'clamp(4rem, 14vw, 10rem)' }}>
-              JOURNEY
-            </span>
-          </div>
-
           {/* Ambient Radial Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-teal/[0.04] dark:bg-teal-light/[0.03] rounded-full blur-3xl pointer-events-none z-0" />
 
@@ -112,13 +105,25 @@ export default function FounderStory() {
 
           {/* Connected timeline container */}
           <div className="relative z-10 max-w-3xl mx-auto px-4">
-            
+
             {/* Desktop Horizontal Connected Journey */}
             <div className="hidden md:block relative py-12">
+              {/* Huge Editorial Background Typography - Desktop Only */}
+              <div className="absolute left-1/2 -translate-x-1/2 w-screen h-full flex items-center justify-center pointer-events-none select-none overflow-visible z-0">
+                <span 
+                  className="font-heading font-black text-navy/[0.06] dark:text-white/[0.08] tracking-[0.08em] uppercase leading-none select-none blur-[0.5px] translate-y-5" 
+                  style={{ 
+                    fontSize: 'clamp(6rem, 12vw, 10rem)'
+                  }}
+                >
+                  JOURNEY
+                </span>
+              </div>
+
               {/* Timeline Track Background Line */}
               <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-neutral-100 dark:bg-white/5 -translate-y-1/2 z-0" />
               {/* Timeline Track Progress Fill Line (Draws in on scroll) */}
-              <motion.div 
+              <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
@@ -129,7 +134,7 @@ export default function FounderStory() {
               {/* Three Nodes */}
               <div className="flex justify-between items-center relative z-10">
                 {timelineStops.map((stop, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +146,7 @@ export default function FounderStory() {
                     <div className="relative flex items-center justify-center mb-4">
                       {/* Node glow wrapper on hover */}
                       <div className="absolute inset-0 bg-teal/20 dark:bg-teal-light/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 scale-150" />
-                      
+
                       {/* Circle body */}
                       <div className="w-10 h-10 rounded-full bg-white dark:bg-[#081220] border border-neutral-200 dark:border-white/10 group-hover:border-teal dark:group-hover:border-teal-light flex items-center justify-center transition-all duration-300 z-10 shadow-sm relative">
                         <span className="text-[10px] font-heading font-bold text-navy/40 dark:text-white/40 group-hover:text-teal dark:group-hover:text-teal-light transition-colors duration-300">
@@ -164,8 +169,20 @@ export default function FounderStory() {
 
             {/* Mobile Vertical Connected Journey */}
             <div className="md:hidden relative pl-8 border-l border-neutral-100 dark:border-white/5 space-y-12 py-2">
+              {/* Huge Editorial Background Typography - Mobile Only */}
+              <div className="absolute left-1/2 -translate-x-1/2 w-screen h-full flex items-center justify-center pointer-events-none select-none overflow-visible z-0">
+                <span 
+                  className="font-heading font-black text-navy/[0.06] dark:text-white/[0.08] tracking-[0.08em] uppercase leading-none select-none blur-[0.5px] translate-y-7" 
+                  style={{ 
+                    fontSize: 'clamp(3.5rem, 16vw, 6.5rem)'
+                  }}
+                >
+                  JOURNEY
+                </span>
+              </div>
+
               {/* Mobile Timeline Track Progress Fill Line */}
-              <motion.div 
+              <motion.div
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
@@ -174,7 +191,7 @@ export default function FounderStory() {
               />
 
               {timelineStops.map((stop, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -15 }}
                   whileInView={{ opacity: 1, x: 0 }}

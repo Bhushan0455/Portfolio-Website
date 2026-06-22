@@ -1,13 +1,71 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { RiArrowRightUpLine } from 'react-icons/ri';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { RiArrowRightUpLine, RiPlayLine, RiCloseLine, RiVolumeMuteLine, RiVolumeUpLine } from 'react-icons/ri';
 import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.jpg';
 import beyondboundImg from '../assets/beyondbound.jpg';
 import beyondboundLogo from '../assets/beyondbound_logo.png';
 
+// Import video clips
+import clip1 from '../assets/Clip1.mp4';
+import clip2 from '../assets/Clip2.mp4';
+import clip3 from '../assets/Clip3 1.mp4';
+
 export default function WhatImBuilding() {
   const cgmContainerRef = useRef(null);
-  
+  const slideshowRef = useRef(null);
+  const videoRef = useRef(null);
+
+  const [activeClipIdx, setActiveClipIdx] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const clips = [
+    { id: 1, title: 'Clip 1', src: clip1 },
+    { id: 2, title: 'Clip 2', src: clip2 },
+    { id: 3, title: 'Clip 3', src: clip3 },
+  ];
+
+  // Intersection Observer to play video when in view and pause when off-screen
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (videoRef.current) {
+          if (entry.isIntersecting) {
+            videoRef.current.play().catch(err => console.log("Autoplay on scroll prevented:", err));
+          } else {
+            videoRef.current.pause();
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (slideshowRef.current) {
+      observer.observe(slideshowRef.current);
+    }
+
+    return () => {
+      if (slideshowRef.current) {
+        observer.unobserve(slideshowRef.current);
+      }
+    };
+  }, []);
+
+  // Load and autoplay when activeClipIdx changes
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play().catch(err => console.log("Autoplay on clip change prevented:", err));
+    }
+  }, [activeClipIdx]);
+
+  const handleClipChange = (idx) => {
+    setActiveClipIdx(idx);
+  };
+
+  const handleVideoEnded = () => {
+    setActiveClipIdx((prev) => (prev + 1) % clips.length);
+  };
+
   // Parallax for the CGM photo
   const { scrollYProgress } = useScroll({
     target: cgmContainerRef,
@@ -159,8 +217,8 @@ export default function WhatImBuilding() {
           variants={sectionVariants}
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-28"
         >
-          {/* LEFT: Story Narrative (5/12 width) */}
-          <div className="lg:col-span-5 text-left space-y-6">
+          {/* LEFT: Story Narrative (5/12 width on desktop, order-2 on mobile) */}
+          <div className="lg:col-span-5 order-2 lg:order-1 text-left space-y-6">
             <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
               First-Hand Efficacy
             </span>
@@ -185,25 +243,66 @@ export default function WhatImBuilding() {
             </div>
           </div>
 
-          {/* RIGHT: Continuous Glucose Monitor Photo (7/12 width) */}
-          <div className="lg:col-span-7 relative w-full">
-            <motion.div 
-              className="relative overflow-hidden rounded-[2.5rem] aspect-[16/10] sm:aspect-[16/9] md:aspect-[16/10] shadow-xl dark:shadow-none border border-accent/10 dark:border-white/10"
-              whileHover={{ scale: 1.015 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <motion.img 
-                style={{ y: yParallax }}
-                src={beyondboundImg} 
-                alt="Priyanshu Chauhan showing Continuous Glucose Monitor (CGM) on his arm" 
-                className="absolute -top-[10%] w-full h-[120%] object-cover object-center brightness-[0.95] contrast-[1.02]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent pointer-events-none" />
-            </motion.div>
+          {/* RIGHT: Video Player Frame (7/12 width on desktop, order-1 on mobile) */}
+          <div ref={slideshowRef} className="lg:col-span-7 order-1 lg:order-2 relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group">
             
-            {/* Small pull quote overlapping photo block */}
-            <div className="absolute -bottom-6 left-6 right-6 md:left-auto md:right-6 md:bottom-6 bg-accent text-white px-5 py-3 rounded-2xl shadow-lg border border-accent/20 z-20 text-center">
-              <span className="font-heading text-xs font-bold uppercase tracking-widest block text-white/95 text-center max-w-xs md:max-w-sm mx-auto">
+            {/* Subtle Top-Left Badge */}
+            <div className="absolute top-4 left-4 z-20 bg-navy/85 dark:bg-[#081220]/80 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest font-heading select-none pointer-events-none">
+              Founder Self-Observation
+            </div>
+
+            {/* Top Right Controls (Tabs + Mute Toggle) */}
+            <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+              {/* Clip Selector Tabs */}
+              <div className="flex gap-1.5">
+                {clips.map((clip, idx) => (
+                  <button
+                    key={clip.id}
+                    onClick={() => handleClipChange(idx)}
+                    className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border transition-all duration-300 backdrop-blur-md cursor-pointer ${
+                      activeClipIdx === idx
+                        ? 'bg-teal border-teal text-white shadow-md font-semibold'
+                        : 'bg-black/60 border-white/10 text-white/80 hover:bg-black/80 hover:text-white'
+                    }`}
+                  >
+                    {clip.title}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mute/Unmute Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (videoRef.current) {
+                    videoRef.current.muted = !videoRef.current.muted;
+                    setIsMuted(videoRef.current.muted);
+                  }
+                }}
+                className="w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-teal hover:border-teal transition-all duration-300 cursor-pointer"
+                title={isMuted ? "Unmute" : "Mute"}
+              >
+                {isMuted ? <RiVolumeMuteLine size={13} /> : <RiVolumeUpLine size={13} />}
+              </button>
+            </div>
+
+            {/* Video Viewport */}
+            <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black flex items-center justify-center">
+              <video
+                key={activeClipIdx}
+                ref={videoRef}
+                src={clips[activeClipIdx].src}
+                autoPlay
+                playsInline
+                muted={isMuted}
+                onEnded={handleVideoEnded}
+                className="w-full h-full object-contain bg-black rounded-[1.5rem]"
+              />
+            </div>
+
+            {/* Quote overlaying the bottom center inside the frame */}
+            <div className="absolute bottom-4 left-4 right-4 bg-accent/90 backdrop-blur-sm text-white px-4 py-2.5 rounded-xl border border-white/10 shadow-lg z-20 text-center pointer-events-none">
+              <span className="font-heading text-[10px] font-bold uppercase tracking-widest block text-white/95 text-center max-w-md mx-auto leading-relaxed">
                 "What I won't test on myself, I will never ask anyone else to trust."
               </span>
             </div>

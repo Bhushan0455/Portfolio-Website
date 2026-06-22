@@ -25,10 +25,10 @@ export default function QuoteInterstitial() {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-teal/[0.04] dark:bg-teal-light/[0.03] rounded-full blur-[100px] sm:blur-[120px] pointer-events-none z-0" />
 
       {/* Oversized Decorative Quotation Marks (framed to the section) */}
-      <div className="absolute top-4 left-6 sm:top-6 sm:left-12 lg:left-24 font-serif text-[12rem] sm:text-[18rem] md:text-[22rem] lg:text-[26rem] text-black dark:text-white opacity-[0.06] select-none pointer-events-none leading-none z-0">
+      <div className="absolute top-4 left-6 sm:top-6 sm:left-12 lg:left-24 font-serif text-[12rem] sm:text-[18rem] md:text-[22rem] lg:text-[26rem] text-black dark:text-white opacity-[0.15] select-none pointer-events-none leading-none z-0">
         “
       </div>
-      <div className="absolute right-6 sm:right-12 lg:right-24 bottom-[-8rem] sm:bottom-[-12rem] md:bottom-[-14rem] lg:bottom-[-18rem] font-serif text-[12rem] sm:text-[18rem] md:text-[22rem] lg:text-[26rem] text-black dark:text-white opacity-[0.06] select-none pointer-events-none leading-none z-0">
+      <div className="absolute right-6 sm:right-12 lg:right-24 bottom-[-8rem] sm:bottom-[-12rem] md:bottom-[-14rem] lg:bottom-[-18rem] font-serif text-[12rem] sm:text-[18rem] md:text-[22rem] lg:text-[26rem] text-black dark:text-white opacity-[0.15] select-none pointer-events-none leading-none z-0">
         ”
       </div>
 
