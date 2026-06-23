@@ -1,9 +1,9 @@
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.jpg';
-import beyondboundImg from '../assets/beyondbound.jpg';
 import beyondboundLogo from '../assets/beyondbound_logo.png';
+import CGMGraph from './CGMGraph';
 
 // Import video clips
 import clip1 from '../assets/Clip1.mp4';
@@ -12,7 +12,6 @@ import clip3 from '../assets/Clip3 1.mp4';
 
 export default function WhatImBuilding() {
   const cgmContainerRef = useRef(null);
-  const slideshowRef = useRef(null);
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
   const video3Ref = useRef(null);
@@ -62,12 +61,7 @@ export default function WhatImBuilding() {
     });
   }, [isMobile, isSectionInView]);
 
-  // Parallax for the CGM photo
-  const { scrollYProgress } = useScroll({
-    target: cgmContainerRef,
-    offset: ["start end", "end start"]
-  });
-  const yParallax = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+
 
   const journeySteps = [
     {
@@ -138,7 +132,7 @@ export default function WhatImBuilding() {
       <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-20 lg:px-32 relative z-10">
-        
+
         {/* ── SECTION HEADER ── */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light">
@@ -156,7 +150,7 @@ export default function WhatImBuilding() {
         </div>
 
         {/* ── PART 1 — WHY I STARTED ── */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
@@ -172,14 +166,14 @@ export default function WhatImBuilding() {
 
               {/* Photo Frame */}
               <div className="w-full">
-                <motion.div 
+                <motion.div
                   className="relative overflow-hidden rounded-[2rem] aspect-[16/10] sm:aspect-[16/11] shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
                   whileHover={{ scale: 1.015 }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <img 
-                    src={healthcareEntrepreneurshipImg} 
-                    alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition" 
+                  <img
+                    src={healthcareEntrepreneurshipImg}
+                    alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition"
                     className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-[0.16,1,0.3,1] brightness-[0.93] contrast-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-navy/5 to-transparent pointer-events-none" />
@@ -210,14 +204,14 @@ export default function WhatImBuilding() {
             <>
               {/* LEFT: Photo */}
               <div className="lg:col-span-5 order-2 lg:order-1">
-                <motion.div 
+                <motion.div
                   className="relative overflow-hidden rounded-[2rem] aspect-[16/10] sm:aspect-[16/11] lg:aspect-square shadow-xl dark:shadow-none group border border-accent/10 dark:border-white/10"
                   whileHover={{ scale: 1.015 }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <img 
-                    src={healthcareEntrepreneurshipImg} 
-                    alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition" 
+                  <img
+                    src={healthcareEntrepreneurshipImg}
+                    alt="Priyanshu Chauhan presenting and pitching Beyond Bound® at startup exhibition"
                     className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-[0.16,1,0.3,1] brightness-[0.93] contrast-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-navy/5 to-transparent pointer-events-none" />
@@ -252,7 +246,7 @@ export default function WhatImBuilding() {
         </motion.div>
 
         {/* ── PART 2 — PROVING IT ON MYSELF FIRST ── */}
-        <motion.div 
+        <motion.div
           ref={cgmContainerRef}
           initial="hidden"
           whileInView="visible"
@@ -275,7 +269,7 @@ export default function WhatImBuilding() {
               {/* Video Player Column */}
               <div className="w-full flex flex-col items-center">
                 {/* Player Frame Card */}
-                <div ref={slideshowRef} className="relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group">
+                <div className="relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group">
                   {/* Video Viewport */}
                   <div className="w-full h-full rounded-[1.5rem] relative overflow-hidden bg-black grid grid-cols-3 gap-1.5 sm:gap-2 p-1.5 sm:p-2">
                     <video
@@ -336,13 +330,12 @@ export default function WhatImBuilding() {
             /* Desktop Flow */
             <>
               {/* LEFT: Story Narrative (5.5/12 -> 4/12 width on desktop) */}
-              <div className={`w-full lg:w-0 order-1 lg:order-1 text-left space-y-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                isSectionInView ? 'lg:flex-[4]' : 'lg:flex-[5.5]'
-              }`}>
+              <div className={`w-full lg:w-0 order-1 lg:order-1 text-left space-y-6 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isSectionInView ? 'lg:flex-[4]' : 'lg:flex-[5.5]'
+                }`}>
                 <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
                   First-Hand Efficacy
                 </span>
-                
+
                 <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight leading-snug">
                   Proving It on Myself First
                 </h3>
@@ -364,14 +357,12 @@ export default function WhatImBuilding() {
               </div>
 
               {/* RIGHT: Video Player Column (6.5/12 -> 8/12 width on desktop) */}
-              <div className={`w-full lg:w-0 order-2 lg:order-2 flex flex-col items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                isSectionInView ? 'lg:flex-[8]' : 'lg:flex-[6.5]'
-              }`}>
-                {/* Player Frame Card */}
-                <div ref={slideshowRef} className={`relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  isSectionInView ? 'scale-[1.03] shadow-2xl shadow-accent/5' : 'scale-100 shadow-xl'
+              <div className={`w-full lg:w-0 order-2 lg:order-2 flex flex-col items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isSectionInView ? 'lg:flex-[8]' : 'lg:flex-[6.5]'
                 }`}>
-                  
+                {/* Player Frame Card */}
+                <div className={`relative w-full aspect-[16/9] rounded-[2rem] border border-accent/20 dark:border-white/10 p-2 bg-white dark:bg-[#0e1f35]/30 shadow-xl dark:shadow-none overflow-hidden group transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isSectionInView ? 'scale-[1.03] shadow-2xl shadow-accent/5' : 'scale-100 shadow-xl'
+                  }`}>
+
                   {/* Subtle Top-Left Badge (Hidden on Mobile) */}
                   <div className="absolute top-4 left-4 z-20 bg-navy/85 dark:bg-[#081220]/80 backdrop-blur-md border border-white/10 text-white text-[9px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest font-heading select-none pointer-events-none hidden sm:block">
                     Founder Self-Observation
@@ -420,6 +411,61 @@ export default function WhatImBuilding() {
           )}
         </motion.div>
 
+        {/* ── PART 2.5 — THE DATA BEHIND THE CONVICTION (CGM GRAPH & FRAMEWORK) ── */}
+        <div className="mb-16 md:mb-28 max-w-6xl mx-auto w-full">
+          {/* Transition Chapter Headline */}
+          <div className="text-left mb-8 w-full">
+            <span className="text-[10px] font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
+              THE DATA BEHIND THE CONVICTION
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight mt-3 max-w-3xl">
+              Before building a metabolic health company, I wanted to understand my own metabolism first.
+            </h3>
+            <p className="text-navy/60 dark:text-white/60 font-body text-xs sm:text-sm mt-3 leading-relaxed max-w-2xl">
+              Continuous glucose-monitor self-observation across multiple seasons. Same meals. Same routines. The formulation was the variable being evaluated.
+            </p>
+          </div>
+
+          {/* Premium Animated CGM Graph */}
+          <CGMGraph />
+
+          {/* Premium Stat Cards for Observation Framework */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 w-full">
+            <div className="bg-[#FAF9F5]/40 dark:bg-[#0e1f35]/25 border border-neutral-100 dark:border-white/5 p-6 rounded-2xl text-left">
+              <span className="text-[10px] font-heading font-semibold uppercase tracking-[0.25em] text-accent block">
+                CGM Tracking
+              </span>
+              <span className="text-sm sm:text-base font-heading font-bold text-navy dark:text-white mt-1.5 block">
+                Continuous monitoring
+              </span>
+            </div>
+            <div className="bg-[#FAF9F5]/40 dark:bg-[#0e1f35]/25 border border-neutral-100 dark:border-white/5 p-6 rounded-2xl text-left">
+              <span className="text-[10px] font-heading font-semibold uppercase tracking-[0.25em] text-accent block">
+                Multiple Seasons
+              </span>
+              <span className="text-sm sm:text-base font-heading font-bold text-navy dark:text-white mt-1.5 block">
+                Repeated observations
+              </span>
+            </div>
+            <div className="bg-[#FAF9F5]/40 dark:bg-[#0e1f35]/25 border border-neutral-100 dark:border-white/5 p-6 rounded-2xl text-left">
+              <span className="text-[10px] font-heading font-semibold uppercase tracking-[0.25em] text-accent block">
+                Consistent Inputs
+              </span>
+              <span className="text-sm sm:text-base font-heading font-bold text-navy dark:text-white mt-1.5 block">
+                Comparable meal patterns
+              </span>
+            </div>
+            <div className="bg-[#FAF9F5]/40 dark:bg-[#0e1f35]/25 border border-neutral-100 dark:border-white/5 p-6 rounded-2xl text-left">
+              <span className="text-[10px] font-heading font-semibold uppercase tracking-[0.25em] text-accent block">
+                Founder-Led
+              </span>
+              <span className="text-sm sm:text-base font-heading font-bold text-navy dark:text-white mt-1.5 block">
+                Personally conducted
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* ── PART 3 — THE JOURNEY TO BEYOND BOUND ── */}
         <div className="mb-16 md:mb-28 max-w-4xl mx-auto">
           <div className="text-left mb-12">
@@ -429,7 +475,7 @@ export default function WhatImBuilding() {
           </div>
 
           {/* Grid Wrapper */}
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -437,7 +483,7 @@ export default function WhatImBuilding() {
             className="grid grid-cols-1 md:grid-cols-2 w-full items-stretch gap-[2px] bg-white dark:bg-[#081220] rounded-3xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800"
           >
             {journeySteps.map((step, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 variants={{
                   hidden: { opacity: 0, y: 30 },
@@ -446,23 +492,23 @@ export default function WhatImBuilding() {
                 className={`flex flex-col text-left items-start justify-start p-6 sm:p-8 md:p-12 ${step.cellClass}`}
               >
                 {/* Step number in 48px top-left */}
-                <span 
+                <span
                   className="font-heading font-bold leading-none select-none tracking-tight mb-6"
                   style={{ fontSize: '48px', color: '#C9A87C' }}
                 >
                   {step.num}
                 </span>
-                
+
                 {/* Bold title in 18px below it */}
-                <h4 
+                <h4
                   className={`font-heading font-bold tracking-tight mb-2 ${step.titleClass}`}
                   style={{ fontSize: '18px' }}
                 >
                   {step.label}
                 </h4>
-                
+
                 {/* Body text in 14px below that */}
-                <p 
+                <p
                   className={`font-body leading-relaxed ${step.descClass}`}
                   style={{ fontSize: '14px' }}
                 >
@@ -471,7 +517,7 @@ export default function WhatImBuilding() {
 
                 {/* Memorable line quote */}
                 {step.quote && (
-                  <p 
+                  <p
                     className={`font-body italic font-semibold mt-4 leading-relaxed ${step.descClass}`}
                     style={{ fontSize: '13px' }}
                   >
@@ -488,12 +534,12 @@ export default function WhatImBuilding() {
           <div className="bg-[#FAF9F5] dark:bg-[#0e1f35]/40 border border-accent/20 dark:border-white/10 rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
             {/* Soft inner glow decorator */}
             <div className="absolute -right-16 -top-16 w-32 h-32 bg-teal/5 rounded-full blur-2xl pointer-events-none" />
-            
+
             {/* Brand Logo Image */}
             <div className="flex justify-center mb-4">
-              <img 
-                src={beyondboundLogo} 
-                alt="Beyond Bound® Logo" 
+              <img
+                src={beyondboundLogo}
+                alt="Beyond Bound® Logo"
                 className="h-20 sm:h-24 w-auto object-contain"
               />
             </div>
@@ -514,8 +560,8 @@ export default function WhatImBuilding() {
             {/* Focus area pills */}
             <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 max-w-2xl mx-auto">
               {focusAreas.map((area, idx) => (
-                <span 
-                  key={idx} 
+                <span
+                  key={idx}
                   className="px-4 py-2 bg-white dark:bg-[#081220] border border-border/80 dark:border-white/10 rounded-full text-xs font-heading font-semibold text-navy/85 dark:text-white/85 hover:border-teal/20 dark:hover:border-teal-light/20 transition-all duration-300 shadow-sm"
                 >
                   {area}
@@ -526,7 +572,7 @@ export default function WhatImBuilding() {
         </div>
 
         {/* ── PART 5 — EXPLORE BEYOND BOUND ── */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
@@ -541,7 +587,7 @@ export default function WhatImBuilding() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             {/* Website CTA */}
-            <a 
+            <a
               href="https://beyondbound.co/"
               target="_blank"
               rel="noopener noreferrer"
