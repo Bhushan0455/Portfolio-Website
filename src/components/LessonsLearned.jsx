@@ -40,7 +40,7 @@ export default function LessonsLearned() {
   };
 
   return (
-    <section id="lessons" className="py-28 bg-[#FAF9F6] dark:bg-[#081220] relative overflow-hidden select-none">
+    <section id="lessons" aria-labelledby="lessons-title" className="py-28 bg-[#FAF9F6] dark:bg-[#081220] relative overflow-hidden select-none">
       
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-20 text-center">
@@ -51,6 +51,7 @@ export default function LessonsLearned() {
           KEY INSIGHTS
         </span>
         <h2 
+          id="lessons-title"
           className="font-bold font-heading text-navy dark:text-white tracking-tight mt-2"
           style={{ fontSize: '36px' }}
         >

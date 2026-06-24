@@ -146,11 +146,15 @@ function App() {
         </>
       )}
 
+      {/* Navbar rendered outside transition wrapper for absolute fixed position stability on mobile */}
+      {!preloaderActive && (
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+      )}
+
       {/* ── Sections Assembly with smooth staggered entrance ── */}
       <div className={`transition-opacity duration-1000 ease-[0.16,1,0.3,1] ${
         preloaderActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
         <Hero preloaderActive={preloaderActive} />
         <QuoteInterstitial />
         <FounderStory />

@@ -18,7 +18,7 @@ export default function FounderStory() {
   ];
 
   return (
-    <section id="story" className="pt-20 pb-0 md:pt-28 md:pb-0 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
+    <section id="story" aria-labelledby="story-title" className="pt-20 pb-0 md:pt-28 md:pb-0 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
       {/* Decorative ambient gradients */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-sage/20 dark:bg-teal-dark/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-12 right-12 w-64 h-64 bg-teal/5 rounded-full blur-[100px] pointer-events-none z-0" />
@@ -51,12 +51,13 @@ export default function FounderStory() {
           }}
           className="space-y-6 md:space-y-8 max-w-3xl font-body text-navy/85 dark:text-white/85 text-base sm:text-lg leading-[1.75]"
         >
-          <motion.h3
+          <motion.h2
+            id="story-title"
             variants={fadeUp}
             className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white leading-snug tracking-tight"
           >
             From Agriculture to Healthcare — Building Brands That Matter.
-          </motion.h3>
+          </motion.h2>
 
           <motion.p variants={fadeUp}>
             My journey into healthcare didn't begin in a hospital. It began with a B.Sc. in Agriculture. Working with the soil taught me that health starts at the molecular level, in the food we grow and the nutrition we consume. It showed me that true wellbeing is systemic, and that in healthcare, just like in agriculture, you cannot shortcut the process if you want to build something that lasts.

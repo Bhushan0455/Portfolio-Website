@@ -90,7 +90,7 @@ export default function Connect() {
   ];
 
   return (
-    <footer id="connect" className="relative overflow-hidden select-none" style={{ backgroundColor: '#07162c' }}>
+    <footer id="connect" aria-labelledby="connect-title" className="relative overflow-hidden select-none" style={{ backgroundColor: '#07162c' }}>
 
       {/* ════════════════════════════════════════════════════════════════
           DESKTOP FOOTER — hidden below md
@@ -105,6 +105,7 @@ export default function Connect() {
           {/* Section 1 – Final Call to Action */}
           <div className="max-w-xl mx-auto mb-8">
             <motion.h2
+              id="connect-title"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-50px' }}

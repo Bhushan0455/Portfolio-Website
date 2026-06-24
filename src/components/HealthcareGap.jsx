@@ -11,7 +11,7 @@ export default function HealthcareGap() {
   };
 
   return (
-    <section id="gap" className="py-24 bg-[#FAF9F6] dark:bg-[#0b1625] relative overflow-hidden select-none">
+    <section id="gap" aria-labelledby="gap-title" className="py-24 bg-[#FAF9F6] dark:bg-[#0b1625] relative overflow-hidden select-none">
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-left">
@@ -39,12 +39,13 @@ export default function HealthcareGap() {
           }}
           className="space-y-8 max-w-3xl font-body text-navy/80 dark:text-white/80 text-base sm:text-lg leading-[1.8]"
         >
-          <motion.h3 
+          <motion.h2 
+            id="gap-title"
             variants={fadeUp}
             className="text-3xl sm:text-4xl font-bold font-heading text-navy dark:text-white tracking-tight leading-tight"
           >
             Why hasn't someone already solved wellness in India?
-          </motion.h3>
+          </motion.h2>
 
           <motion.p variants={fadeUp}>
             The Indian market is flooded with supplements making massive health promises. Yet, metabolic disorders continue to climb. When I spoke directly to consumers, I realized they weren't suffering from a shortage of health products. They were suffering from a complete lack of transparency, education, and validation. They didn't know what to believe.

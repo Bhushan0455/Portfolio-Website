@@ -11,7 +11,7 @@ export default function Vision() {
   };
 
   return (
-    <section id="vision" className="w-full bg-white dark:bg-[#07162c] py-20 md:py-32 relative overflow-hidden flex items-center justify-center select-none border-b border-border/20 dark:border-white/5">
+    <section id="vision" aria-labelledby="vision-title" className="w-full bg-white dark:bg-[#07162c] py-20 md:py-32 relative overflow-hidden flex items-center justify-center select-none border-b border-border/20 dark:border-white/5">
       {/* Subtle background circles */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-navy/5 dark:border-white/5 rounded-full pointer-events-none"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-navy/10 dark:border-white/10 rounded-full pointer-events-none"></div>
@@ -24,9 +24,9 @@ export default function Vision() {
           variants={reveal}
           className="space-y-6"
         >
-          <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
+          <h2 id="vision-title" className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light block">
             The Vision
-          </span>
+          </h2>
           <p className="font-serif italic text-2xl sm:text-3xl md:text-4xl leading-relaxed text-navy dark:text-white tracking-tight">
             "Natural" will have to mean "proven." <br />
             Every natural ingredient will have to survive a glucose monitor.

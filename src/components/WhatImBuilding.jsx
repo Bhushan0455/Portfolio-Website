@@ -126,7 +126,7 @@ export default function WhatImBuilding() {
   };
 
   return (
-    <section id="building" className="py-24 md:py-32 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
+    <section id="building" aria-labelledby="building-title" className="py-24 md:py-32 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
       {/* Subtle background ambient decorations */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-sage/30 dark:bg-teal-dark/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
@@ -138,7 +138,7 @@ export default function WhatImBuilding() {
           <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal dark:text-teal-light">
             My Focus
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-navy dark:text-white mt-3 tracking-tight">
+          <h2 id="building-title" className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-navy dark:text-white mt-3 tracking-tight">
             What I'm Building
           </h2>
           <p className="text-navy/60 dark:text-white/60 font-body text-base sm:text-lg mt-4 max-w-xl mx-auto leading-relaxed">

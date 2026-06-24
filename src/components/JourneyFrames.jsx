@@ -95,7 +95,7 @@ export default function JourneyFrames() {
   };
 
   return (
-    <section id="journey" className="pt-8 pb-16 md:pt-10 md:pb-24 bg-white dark:bg-[#081220] relative overflow-hidden">
+    <section id="journey" aria-labelledby="journey-title" className="pt-8 pb-16 md:pt-10 md:pb-24 bg-white dark:bg-[#081220] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Section Header */}
@@ -103,7 +103,7 @@ export default function JourneyFrames() {
           <span className="text-xs font-heading font-semibold uppercase tracking-wider text-teal dark:text-teal-light">
             Storytelling
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-heading text-navy dark:text-white tracking-tight mt-2">
+          <h2 id="journey-title" className="text-3xl sm:text-4xl font-bold font-heading text-navy dark:text-white tracking-tight mt-2">
             The Journey
           </h2>
           <div className="h-0.5 w-16 bg-accent mx-auto mt-4"></div>

@@ -46,6 +46,7 @@ export default function FounderPhilosophy() {
     <section
       ref={containerRef}
       id="philosophy"
+      aria-labelledby="philosophy-title"
       className="relative min-h-screen bg-[#07162c] text-white flex items-center justify-start overflow-hidden py-28 md:py-36 px-6 sm:px-12 md:px-20 lg:px-32 select-none"
     >
       {/* ── Full-width background speaking portrait with subtle parallax ── */}
@@ -96,6 +97,7 @@ export default function FounderPhilosophy() {
           {/* Quote Text matching reference sizes */}
           <motion.div variants={textVariants}>
             <h2
+              id="philosophy-title"
               className="text-5xl sm:text-7xl lg:text-[5.5rem] font-bold font-serif leading-[1.08] tracking-tight max-w-2xl"
               style={{ color: '#ffffff' }}
             >

@@ -125,6 +125,7 @@ export default function Hero({ preloaderActive }) {
   return (
     <section
       id="home"
+      aria-labelledby="hero-title"
       className="min-h-screen pt-24 pb-12 md:pt-28 md:pb-16 flex items-center bg-gradient-to-b from-sage/20 via-white to-white dark:from-navy-light/10 dark:via-[#081220] dark:to-[#081220] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
@@ -160,6 +161,7 @@ export default function Hero({ preloaderActive }) {
             {/* Headline Clip Reveal */}
             <div className="overflow-hidden mb-6 py-1">
               <motion.h1
+                id="hero-title"
                 variants={clipVariants}
                 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block max-w-2xl"
               >
