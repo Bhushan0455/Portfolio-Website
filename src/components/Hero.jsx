@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { RiArrowRightLine, RiDoubleQuotesL } from 'react-icons/ri';
 import homeImg from '../assets/home.png';
 
 function Typewriter() {

@@ -12,7 +12,7 @@ import connectImg from '../assets/connect.jpeg';
 function StaggeredText({ text, delayOffset = 0, className = "", alignClass = "justify-center" }) {
   if (!text) return null;
   const words = text.split(" ");
-  
+
   return (
     <span className={`flex flex-wrap ${alignClass} ${className}`}>
       {words.map((word, wordIdx) => {
@@ -31,10 +31,10 @@ function StaggeredText({ text, delayOffset = 0, className = "", alignClass = "ju
                   key={charIdx}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    delay: delay, 
-                    duration: 0.35, 
-                    ease: "easeOut" 
+                  transition={{
+                    delay: delay,
+                    duration: 0.35,
+                    ease: "easeOut"
                   }}
                   className="inline-block"
                 >
@@ -134,7 +134,7 @@ const INTRO_STAGES = [
   }
 ];
 
-const STEP_DURATIONS = [11000, 9500, 10000, 9500, 8000];
+const STEP_DURATIONS = [9000, 9000, 9500, 9500, 8000];
 const TOTAL_STAGES = INTRO_STAGES.length; // 5
 
 export default function Preloader({ onComplete }) {
@@ -143,14 +143,16 @@ export default function Preloader({ onComplete }) {
   // Key to force re-mount of AnimatePresence children on manual nav
   const [animKey, setAnimKey] = useState(0);
 
-
+  // Store onComplete in a ref to decouple parent renders from the timer
+  const onCompleteRef = useRef(onComplete);
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   // Auto-advance timer ref
   const autoAdvanceTimer = useRef(null);
   // Track if component is mounted
   const isMounted = useRef(true);
-
-
 
   // Cleanup on unmount
   useEffect(() => {
@@ -173,7 +175,7 @@ export default function Preloader({ onComplete }) {
       // Final chapter passed → finish preloader
       setStep(TOTAL_STAGES);
       setIsVisible(false);
-      if (onComplete) onComplete();
+      if (onCompleteRef.current) onCompleteRef.current();
       return;
     }
 
@@ -182,16 +184,16 @@ export default function Preloader({ onComplete }) {
     // Increment animKey to force fresh animation mount
     setAnimKey(prev => prev + 1);
     setStep(targetStep);
-  }, [onComplete]);
+  }, []);
 
   // ── Auto-advance timer: starts/restarts whenever `step` changes ──
   useEffect(() => {
     if (step >= TOTAL_STAGES) {
       // Completion transition
       setIsVisible(false);
-      if (onComplete) {
+      if (onCompleteRef.current) {
         const exitTimer = setTimeout(() => {
-          if (isMounted.current) onComplete();
+          if (isMounted.current && onCompleteRef.current) onCompleteRef.current();
         }, 850);
         return () => clearTimeout(exitTimer);
       }
@@ -216,7 +218,7 @@ export default function Preloader({ onComplete }) {
         autoAdvanceTimer.current = null;
       }
     };
-  }, [step, animKey, onComplete, navigateToStep]);
+  }, [step, animKey, navigateToStep]);
 
   // ── Progress calculation for the segment bar ──
   const [progress, setProgress] = useState(0);
@@ -272,7 +274,7 @@ export default function Preloader({ onComplete }) {
     }
     setStep(TOTAL_STAGES);
     setIsVisible(false);
-    if (onComplete) onComplete();
+    if (onCompleteRef.current) onCompleteRef.current();
   };
 
   return (
@@ -291,7 +293,7 @@ export default function Preloader({ onComplete }) {
           <BackgroundParticles />
 
           {/* Documentary Progress Segments Indicator */}
-          <motion.div 
+          <motion.div
             exit={{ opacity: 0 }}
             className="flex justify-center gap-2 mt-4 mb-8 relative z-20 w-[200px] md:w-[320px]"
           >
@@ -303,7 +305,7 @@ export default function Preloader({ onComplete }) {
               return (
                 <div key={idx} className="flex-1 h-[3px] bg-white/10 rounded-full overflow-hidden relative">
                   <div
-                    style={{ 
+                    style={{
                       transform: `scaleX(${scaleValue})`,
                       transformOrigin: 'left',
                       transition: 'transform 30ms linear'
@@ -317,7 +319,7 @@ export default function Preloader({ onComplete }) {
 
           {/* Main Layout Grid */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center justify-items-center max-w-5xl w-full px-6 md:px-12 z-20 mt-2 md:mt-4">
-            
+
             {/* Left: Text Content (md:col-span-7) */}
             <div className="order-2 md:order-1 md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left w-full justify-center min-h-[220px] md:min-h-[350px]">
               <AnimatePresence mode="wait">
@@ -395,7 +397,7 @@ export default function Preloader({ onComplete }) {
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-navy/15"></div>
-                      
+
                       {/* Diagonal Light Sweep for premium luxury feel */}
                       <motion.div
                         initial={{ x: '-150%' }}
@@ -412,7 +414,7 @@ export default function Preloader({ onComplete }) {
           </div>
 
           {/* Dedicated Skip Intro Button */}
-          <motion.button 
+          <motion.button
             exit={{ y: 15, opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={handleSkip}
