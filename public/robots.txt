@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://priyanshuchauhan.com/sitemap.xml
+Sitemap: https://www.priyanshuchauhan.com/sitemap.xml
