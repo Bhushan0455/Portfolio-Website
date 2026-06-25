@@ -111,9 +111,9 @@ export default function FounderStory() {
             <div className="hidden md:block relative py-12">
               {/* Huge Editorial Background Typography - Desktop Only */}
               <div className="absolute left-1/2 -translate-x-1/2 w-screen h-full flex items-center justify-center pointer-events-none select-none overflow-visible z-0">
-                <span 
-                  className="font-heading font-black text-navy/[0.06] dark:text-white/[0.08] tracking-[0.08em] uppercase leading-none select-none blur-[0.5px] translate-y-5" 
-                  style={{ 
+                <span
+                  className="font-heading font-black text-navy/[0.06] dark:text-white/[0.08] tracking-[0.08em] uppercase leading-none select-none blur-[0.5px] translate-y-5"
+                  style={{
                     fontSize: 'clamp(6rem, 12vw, 10rem)'
                   }}
                 >
@@ -184,9 +184,9 @@ export default function FounderStory() {
 
               {/* Huge Editorial Background Typography - Mobile Only */}
               <div className="absolute left-1/2 -translate-x-1/2 w-screen h-full flex items-center justify-center pointer-events-none select-none overflow-visible z-0">
-                <span 
-                  className="font-heading font-black text-navy/[0.06] dark:text-white/[0.08] tracking-[0.08em] uppercase leading-none select-none blur-[0.5px] translate-y-7" 
-                  style={{ 
+                <span
+                  className="font-heading font-black text-navy/[0.06] dark:text-white/[0.08] tracking-[0.08em] uppercase leading-none select-none blur-[0.5px] translate-y-7"
+                  style={{
                     fontSize: 'clamp(3.5rem, 16vw, 6.5rem)'
                   }}
                 >

@@ -140,12 +140,13 @@ export default function Hero({ preloaderActive }) {
           >
             {/* Priyanshu Chauhan Clip Reveal */}
             <div className="overflow-hidden mb-2">
-              <motion.span
+              <motion.h1
+                id="hero-title"
                 variants={clipVariants}
                 className="text-xs font-heading font-semibold tracking-wider text-teal dark:text-teal-light uppercase block"
               >
                 Priyanshu Chauhan
-              </motion.span>
+              </motion.h1>
             </div>
 
             {/* Title Clip Reveal */}
@@ -160,13 +161,12 @@ export default function Hero({ preloaderActive }) {
 
             {/* Headline Clip Reveal */}
             <div className="overflow-hidden mb-6 py-1">
-              <motion.h1
-                id="hero-title"
+              <motion.h2
                 variants={clipVariants}
                 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block max-w-2xl"
               >
                 Building a metabolic health brand that earns trust through proof.
-              </motion.h1>
+              </motion.h2>
             </div>
 
             {/* Two lines of narrative body copy */}
