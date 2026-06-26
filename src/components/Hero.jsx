@@ -215,10 +215,10 @@ export default function Hero() {
             {/* Understated Scroll Cue instead of buttons & quote block */}
             <motion.div
               variants={fadeUpVariants}
-              className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-white/70 flex items-center gap-2 select-none"
+              className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-black dark:text-white flex items-center gap-2 select-none"
             >
               <span>Scroll to explore</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white animate-pulse" />
             </motion.div>
           </motion.div>
 
