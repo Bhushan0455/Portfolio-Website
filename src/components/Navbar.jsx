@@ -164,7 +164,9 @@ export default function Navbar({ theme, toggleTheme }) {
               e.preventDefault();
               scrollTo('hero');
             }}
-            className="font-heading text-2xl tracking-tight text-navy dark:text-white cursor-pointer flex items-center gap-2 md:gap-2.5 group font-light"
+            className={`font-heading text-2xl tracking-tight cursor-pointer flex items-center gap-2 md:gap-2.5 group font-light transition-colors duration-300 ${
+              isScrolled ? 'text-navy dark:text-white' : 'text-white'
+            }`}
           >
             <img
               src="/favicon.png"
@@ -190,7 +192,11 @@ export default function Navbar({ theme, toggleTheme }) {
                     scrollTo(link.id);
                   }}
                   className={`text-sm font-body font-medium transition-colors duration-300 cursor-pointer relative py-1 ${
-                    isActive ? 'text-teal font-semibold' : 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal'
+                    isActive 
+                      ? 'text-teal font-semibold' 
+                      : isScrolled
+                        ? 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal' 
+                        : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -208,7 +214,11 @@ export default function Navbar({ theme, toggleTheme }) {
             {/* Dark Mode Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full border border-border text-navy hover:text-teal hover:bg-sage/20 dark:border-white/10 dark:text-white dark:hover:text-teal-light dark:hover:bg-white/5 transition-all duration-300 cursor-pointer flex items-center justify-center w-9 h-9"
+              className={`p-2 rounded-full border transition-all duration-300 cursor-pointer flex items-center justify-center w-9 h-9 ${
+                isScrolled
+                  ? 'border-border text-navy hover:text-teal hover:bg-sage/20 dark:border-white/10 dark:text-white dark:hover:text-teal-light dark:hover:bg-white/5'
+                  : 'border-white/20 text-white hover:bg-white/10'
+              }`}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <RiSunLine size={18} /> : <RiMoonLine size={18} />}
@@ -220,7 +230,11 @@ export default function Navbar({ theme, toggleTheme }) {
                 e.preventDefault();
                 scrollTo('connect');
               }}
-              className={`bg-teal text-white hover:bg-teal-dark font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${
+              className={`font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${
+                isScrolled
+                  ? 'bg-teal text-white hover:bg-teal-dark'
+                  : 'bg-white text-teal hover:bg-white/90'
+              } ${
                 activeSection === 'connect' ? 'ring-2 ring-teal ring-offset-2' : ''
               }`}
             >
@@ -233,7 +247,11 @@ export default function Navbar({ theme, toggleTheme }) {
             {/* Mobile Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-1.5 rounded-full border border-border text-navy hover:text-teal dark:border-white/10 dark:text-white dark:hover:text-teal-light transition-all duration-300 cursor-pointer flex items-center justify-center w-8 h-8"
+              className={`p-1.5 rounded-full border transition-all duration-300 cursor-pointer flex items-center justify-center w-8 h-8 ${
+                isScrolled
+                  ? 'border-border text-navy hover:text-teal dark:border-white/10 dark:text-white dark:hover:text-teal-light'
+                  : 'border-white/20 text-white hover:bg-white/10'
+              }`}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <RiSunLine size={16} /> : <RiMoonLine size={16} />}
@@ -242,7 +260,11 @@ export default function Navbar({ theme, toggleTheme }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-navy dark:text-white hover:text-teal p-1.5 transition-colors cursor-pointer"
+              className={`p-1.5 transition-colors cursor-pointer ${
+                isScrolled
+                  ? 'text-navy dark:text-white hover:text-teal'
+                  : 'text-white hover:text-white/80'
+              }`}
               aria-label="Toggle Menu"
             >
               {isOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}

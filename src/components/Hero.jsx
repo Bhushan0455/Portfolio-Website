@@ -52,8 +52,8 @@ function Typewriter() {
     <span className="inline-block relative">
       <span
         className={`transition-all duration-500 ease-out font-heading font-medium tracking-wide ${showGlow
-          ? 'text-teal drop-shadow-[0_0_10px_rgba(13,115,119,0.5)] font-semibold'
-          : 'text-navy/80 dark:text-white/80'
+          ? 'text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.6)] font-semibold'
+          : 'text-white/80'
           }`}
       >
         {displayedText}
@@ -67,7 +67,7 @@ function Typewriter() {
   );
 }
 
-export default function Hero({ preloaderActive }) {
+export default function Hero() {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -157,7 +157,7 @@ export default function Hero({ preloaderActive }) {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={preloaderActive ? "hidden" : "visible"}
+            animate="visible"
             className="lg:col-span-12 flex flex-col justify-center text-left"
           >
             {/* Priyanshu Chauhan Clip Reveal */}
@@ -165,7 +165,7 @@ export default function Hero({ preloaderActive }) {
               <motion.h1
                 id="hero-title"
                 variants={clipVariants}
-                className="text-xs font-heading font-semibold tracking-wider text-teal dark:text-teal-light uppercase block"
+                className="text-xs font-heading font-semibold tracking-wider text-white uppercase block"
               >
                 Priyanshu Chauhan
               </motion.h1>
@@ -175,7 +175,7 @@ export default function Hero({ preloaderActive }) {
             <div className="overflow-hidden mb-6">
               <motion.span
                 variants={clipVariants}
-                className="text-sm font-heading font-medium tracking-wide text-navy/60 dark:text-white/60 uppercase block"
+                className="text-sm font-heading font-medium tracking-wide text-white/60 uppercase block"
               >
                 Founder & CEO, Beyond Bound®
               </motion.span>
@@ -185,7 +185,7 @@ export default function Hero({ preloaderActive }) {
             <div className="overflow-hidden mb-6 py-1">
               <motion.h2
                 variants={clipVariants}
-                className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-navy dark:text-white leading-[1.15] block max-w-2xl"
+                className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-white leading-[1.15] block max-w-2xl"
               >
                 Building a metabolic health brand that earns trust through proof.
               </motion.h2>
@@ -194,12 +194,12 @@ export default function Hero({ preloaderActive }) {
             {/* Two lines of narrative body copy */}
             <motion.div
               variants={fadeUpVariants}
-              className="space-y-4 text-navy/70 dark:text-white/70 font-body text-base sm:text-lg leading-relaxed max-w-xl mb-8"
+              className="space-y-4 text-white/70 font-body text-base sm:text-lg leading-relaxed max-w-xl mb-8"
             >
               <p>
                 I came to this work through agriculture, corporate sales, an MBA, and a glucose monitor strapped to my own arm.
               </p>
-              <p className="font-semibold text-navy/90 dark:text-white/90">
+              <p className="font-semibold text-white/90">
                 This isn't a portfolio. It's a working record of a founder still in the middle of the build.
               </p>
             </motion.div>
@@ -215,10 +215,10 @@ export default function Hero({ preloaderActive }) {
             {/* Understated Scroll Cue instead of buttons & quote block */}
             <motion.div
               variants={fadeUpVariants}
-              className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-teal/70 dark:text-teal-light/70 flex items-center gap-2 select-none"
+              className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-white/70 flex items-center gap-2 select-none"
             >
               <span>Scroll to explore</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" />
             </motion.div>
           </motion.div>
 

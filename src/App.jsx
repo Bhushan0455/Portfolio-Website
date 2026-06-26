@@ -11,11 +11,8 @@ import LessonsLearned from './components/LessonsLearned';
 import MomentsMilestones from './components/MomentsMilestones';
 import Vision from './components/Vision';
 import Connect from './components/Connect';
-import Preloader from './components/Preloader';
 
 function App() {
-  const [preloaderActive, setPreloaderActive] = useState(false);
-  const [showPreloader, setShowPreloader] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
@@ -46,17 +43,7 @@ function App() {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  useEffect(() => {
-    // Lock scrolling while preloader is active
-    if (preloaderActive) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [preloaderActive]);
+
 
   useEffect(() => {
     // ── Scroll Progress Tracker ──
@@ -96,12 +83,7 @@ function App() {
     // Stagger detection to ensure React has fully rendered the DOM
     const timer = setTimeout(addHoverListeners, 800);
 
-    // ── Defer Preloader Mount to Avoid Hydration Mismatch & Bypass for react-snap ──
-    const isReactSnap = typeof navigator !== 'undefined' && /ReactSnap/i.test(navigator.userAgent);
-    if (!isReactSnap) {
-      setShowPreloader(true);
-      setPreloaderActive(true);
-    }
+
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -113,14 +95,7 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-white text-navy font-body antialiased selection:bg-teal selection:text-white relative ${!isMobile ? 'lg:cursor-none' : ''}`}>
-      {showPreloader && (
-        <Preloader 
-          onComplete={() => {
-            setPreloaderActive(false);
-            setShowPreloader(false);
-          }} 
-        />
-      )}
+
       
       {/* ── Scroll Progress Bar ── */}
       <div
@@ -147,15 +122,11 @@ function App() {
       )}
 
       {/* Navbar rendered outside transition wrapper for absolute fixed position stability on mobile */}
-      {!preloaderActive && (
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
-      )}
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       {/* ── Sections Assembly with smooth staggered entrance ── */}
-      <main className={`transition-opacity duration-1000 ease-[0.16,1,0.3,1] ${
-        preloaderActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
-      }`}>
-        <Hero preloaderActive={preloaderActive} />
+      <main className="transition-opacity duration-1000 ease-[0.16,1,0.3,1] opacity-100">
+        <Hero />
         <QuoteInterstitial />
         <FounderStory />
         <JourneyFrames />

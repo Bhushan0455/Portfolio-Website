@@ -22,43 +22,45 @@
   --font-body: 'Inter', sans-serif;
 }
 
-/* Base Styles */
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  /* Base Styles */
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  font-family: var(--font-body);
-  color: var(--color-body);
-  background-color: var(--color-white);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
+  body {
+    font-family: var(--font-body);
+    color: var(--color-body);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
 
-.dark body {
-  background-color: #081220;
-  color: #f8fafc;
-}
+  .dark body {
+    background-color: #081220;
+    color: #f8fafc;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  color: var(--color-navy);
-  transition: color 0.3s ease;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+    transition: color 0.3s ease;
+  }
 
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-  color: #f8fafc;
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: #f8fafc;
+  }
 }
 
 /* Scrollbar */
