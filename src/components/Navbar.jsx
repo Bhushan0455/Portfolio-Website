@@ -150,7 +150,11 @@ export default function Navbar({ theme, toggleTheme }) {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 dark:bg-navy/90 backdrop-blur-md border-b border-border dark:border-white/10 py-4 shadow-sm"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 ${
+          isScrolled
+            ? 'bg-white/90 dark:bg-navy/90 backdrop-blur-md border-b border-border dark:border-white/10 shadow-sm'
+            : 'bg-transparent border-b border-transparent shadow-none'
+        }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
           {/* Logo */}
@@ -160,10 +164,17 @@ export default function Navbar({ theme, toggleTheme }) {
               e.preventDefault();
               scrollTo('hero');
             }}
-            className="font-heading text-2xl tracking-tight text-navy dark:text-white cursor-pointer flex items-center gap-1 group font-light"
+            className="font-heading text-2xl tracking-tight text-navy dark:text-white cursor-pointer flex items-center gap-2 md:gap-2.5 group font-light"
           >
-            <span className="font-bold group-hover:font-medium transition-weight">Priyanshu</span>
-            <span className="text-teal group-hover:translate-x-0.5 transition-transform duration-300">.</span>
+            <img
+              src="/favicon.png"
+              alt="Priyanshu Chauhan Logo"
+              className="w-[22px] h-[22px] md:w-[26px] md:h-[26px] object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="flex items-center">
+              <span className="font-bold group-hover:font-medium transition-weight">Priyanshu</span>
+              <span className="text-teal group-hover:translate-x-0.5 transition-transform duration-300">.</span>
+            </div>
           </a>
 
           {/* Desktop Links */}
