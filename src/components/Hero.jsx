@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import homeImg from '../assets/home.png';
 
 function Typewriter() {
   const phrases = [
@@ -124,11 +123,34 @@ export default function Hero({ preloaderActive }) {
 
   return (
     <section
-      id="home"
+      id="hero"
       aria-labelledby="hero-title"
-      className="min-h-screen pt-24 pb-12 md:pt-28 md:pb-16 flex items-center bg-gradient-to-b from-sage/20 via-white to-white dark:from-navy-light/10 dark:via-[#081220] dark:to-[#081220] overflow-hidden"
+      className="relative min-h-screen pt-24 pb-12 md:pt-28 md:pb-16 flex items-center bg-gradient-to-b from-sage/20 via-white to-white dark:from-navy-light/10 dark:via-[#081220] dark:to-[#081220] overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/video/hero-poster.webp"
+        aria-hidden="true"
+        tabIndex={-1}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+      >
+        <source src="/video/hero.webm" type="video/webm" />
+        <source src="/video/hero.mp4" type="video/mp4" />
+        <source src="/video/hero-720.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/45 pointer-events-none z-10" />
+
+      {/* Bottom Cinematic Blur & Fade Overlay to hide watermark and blend into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#081220] dark:via-[#081220]/80 dark:to-transparent pointer-events-none z-10 backdrop-blur-[3px]" />
+
+      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
           {/* Left Column: Text & Quote */}
@@ -136,7 +158,7 @@ export default function Hero({ preloaderActive }) {
             variants={containerVariants}
             initial="hidden"
             animate={preloaderActive ? "hidden" : "visible"}
-            className="lg:col-span-7 flex flex-col justify-center text-left"
+            className="lg:col-span-12 flex flex-col justify-center text-left"
           >
             {/* Priyanshu Chauhan Clip Reveal */}
             <div className="overflow-hidden mb-2">
@@ -199,56 +221,6 @@ export default function Hero({ preloaderActive }) {
               <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-teal-light animate-pulse" />
             </motion.div>
           </motion.div>
-
-          {/* Right Column: Editorial Image Frame */}
-          <div className="lg:col-span-5 flex justify-center items-center w-full">
-            <motion.div
-              layoutId="founder-portrait"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={preloaderActive ? { opacity: 0 } : { opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-[385px] aspect-[4/5] p-3 border border-accent/20 dark:border-white/10 rounded-3xl bg-white dark:bg-[#0e1f35]/50 shadow-xl shadow-navy/5 dark:shadow-none relative"
-            >
-              {/* Premium Blurred Ambient Glow Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={preloaderActive ? { opacity: 0 } : { opacity: 0.35 }}
-                transition={{ delay: 0.8, duration: 1.0 }}
-                className="absolute -inset-4 bg-cover bg-center rounded-[36px] pointer-events-none scale-105 z-[-1] blur-2xl"
-                style={{ backgroundImage: `url(${homeImg})` }}
-              />
-
-              {/* Float Wrapper */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 6,
-                  ease: 'easeInOut'
-                }}
-                className="w-full h-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-teal/20 dark:hover:shadow-teal-light/20 transition-shadow duration-500 border border-transparent hover:border-teal/20 dark:hover:border-teal-light/20 group relative cursor-pointer"
-              >
-                {/* Founder Image */}
-                <motion.img
-                  initial={{ scale: 1.15 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.3 }}
-                  src={homeImg}
-                  alt="Priyanshu Chauhan"
-                  className="w-full h-full object-cover rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-[0.16,1,0.3,1]"
-                />
-
-                {/* Subtle Glow Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-              </motion.div>
-
-              {/* Decorative Corner Accents */}
-              <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-teal dark:border-teal-light rounded-tl-3xl -translate-x-[1px] -translate-y-[1px]"></div>
-              <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-teal dark:border-teal-light rounded-tr-3xl translate-x-[1px] -translate-y-[1px]"></div>
-              <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-teal dark:border-teal-light rounded-bl-3xl -translate-x-[1px] translate-y-[1px]"></div>
-              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-teal dark:border-teal-light rounded-br-3xl translate-x-[1px] translate-y-[1px]"></div>
-            </motion.div>
-          </div>
 
         </div>
       </div>

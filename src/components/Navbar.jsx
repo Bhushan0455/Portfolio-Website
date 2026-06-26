@@ -5,10 +5,10 @@ import { RiMenuLine, RiCloseLine, RiSunLine, RiMoonLine } from 'react-icons/ri';
 const NAV_LINKS = [
   { label: 'Story', id: 'story' },
   { label: 'Journey', id: 'journey' },
-  { label: 'Insight', id: 'gap' },
+  { label: 'Insight', id: 'insight' },
   { label: "What I'm Building", id: 'building' },
   { label: 'Philosophy', id: 'philosophy' },
-  { label: 'Milestones', id: 'moments' },
+  { label: 'Milestones', id: 'milestones' },
   { label: 'Vision', id: 'vision' },
 ];
 
@@ -16,6 +16,40 @@ export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+
+  const scrollTo = (id) => {
+    setIsOpen(false);
+    
+    // Update hash without page reload
+    if (window.history.pushState) {
+      window.history.pushState(null, null, `#${id}`);
+    } else {
+      window.location.hash = id;
+    }
+
+    if (id === 'hero') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      setActiveSection('hero');
+      return;
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,8 +63,20 @@ export default function Navbar({ theme, toggleTheme }) {
     const handleScrollSpy = () => {
       const scrollPosition = window.scrollY + 220; // Offset for detection
 
+      // Check if scrolled to the very bottom
+      if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
+        setActiveSection('connect');
+        if (window.location.hash !== '#connect') {
+          window.history.replaceState(null, null, '#connect');
+        }
+        return;
+      }
+
       if (window.scrollY < 120) {
-        setActiveSection('');
+        setActiveSection('hero');
+        if (window.location.hash !== '#hero') {
+          window.history.replaceState(null, null, '#hero');
+        }
         return;
       }
 
@@ -41,42 +87,65 @@ export default function Navbar({ theme, toggleTheme }) {
           const height = el.offsetHeight;
           if (scrollPosition >= top && scrollPosition < top + height) {
             setActiveSection(link.id);
+            if (window.location.hash !== `#${link.id}`) {
+              window.history.replaceState(null, null, `#${link.id}`);
+            }
             break;
           }
         }
       }
     };
 
+    const handleHashChange = () => {
+      if (window.location.hash) {
+        const hashId = window.location.hash.substring(1);
+        scrollTo(hashId);
+      } else {
+        scrollTo('hero');
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('scroll', handleScrollSpy);
+    window.addEventListener('hashchange', handleHashChange);
     
     // Run initially
     handleScroll();
     handleScrollSpy();
 
+    // Check if there is a hash in the URL on mount/load
+    if (window.location.hash) {
+      const hashId = window.location.hash.substring(1);
+      const timer = setTimeout(() => {
+        const element = document.getElementById(hashId);
+        if (element) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 400); // 400ms buffer to ensure layout stability after preloader completes
+      
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('scroll', handleScrollSpy);
+        window.removeEventListener('hashchange', handleHashChange);
+        clearTimeout(timer);
+      };
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('scroll', handleScrollSpy);
+      window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-
-  const scrollTo = (id) => {
-    setIsOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-        duration: 800
-      });
-    }
-  };
 
   return (
     <>
@@ -85,25 +154,30 @@ export default function Navbar({ theme, toggleTheme }) {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
           {/* Logo */}
-          <button
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-              setActiveSection('');
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo('hero');
             }}
             className="font-heading text-2xl tracking-tight text-navy dark:text-white cursor-pointer flex items-center gap-1 group font-light"
           >
             <span className="font-bold group-hover:font-medium transition-weight">Priyanshu</span>
             <span className="text-teal group-hover:translate-x-0.5 transition-transform duration-300">.</span>
-          </button>
+          </a>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.id;
               return (
-                <button
+                <a
                   key={link.id}
-                  onClick={() => scrollTo(link.id)}
+                  href={`#${link.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo(link.id);
+                  }}
                   className={`text-sm font-body font-medium transition-colors duration-300 cursor-pointer relative py-1 ${
                     isActive ? 'text-teal font-semibold' : 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal'
                   }`}
@@ -116,7 +190,7 @@ export default function Navbar({ theme, toggleTheme }) {
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                </button>
+                </a>
               );
             })}
             
@@ -129,14 +203,18 @@ export default function Navbar({ theme, toggleTheme }) {
               {theme === 'dark' ? <RiSunLine size={18} /> : <RiMoonLine size={18} />}
             </button>
 
-            <button
-              onClick={() => scrollTo('connect')}
+            <a
+              href="#connect"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('connect');
+              }}
               className={`bg-teal text-white hover:bg-teal-dark font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${
                 activeSection === 'connect' ? 'ring-2 ring-teal ring-offset-2' : ''
               }`}
             >
               Connect
-            </button>
+            </a>
           </div>
 
           {/* Mobile Navigation controls */}
@@ -172,22 +250,30 @@ export default function Navbar({ theme, toggleTheme }) {
             >
               <div className="px-6 py-8 flex flex-col gap-5">
                 {NAV_LINKS.map((link) => (
-                  <button
+                  <a
                     key={link.id}
-                    onClick={() => scrollTo(link.id)}
-                    className={`text-left font-body font-medium py-3 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer ${
+                    href={`#${link.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo(link.id);
+                    }}
+                    className={`text-left font-body font-medium py-3 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer block ${
                       activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
                     }`}
                   >
                     {link.label}
-                  </button>
+                  </a>
                 ))}
-                <button
-                  onClick={() => scrollTo('connect')}
-                  className="bg-teal text-white hover:bg-teal-dark font-body text-sm font-semibold text-center py-3 rounded-full mt-2 cursor-pointer shadow-sm"
+                <a
+                  href="#connect"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo('connect');
+                  }}
+                  className="bg-teal text-white hover:bg-teal-dark font-body text-sm font-semibold text-center py-3 rounded-full mt-2 cursor-pointer shadow-sm block"
                 >
                   Connect
-                </button>
+                </a>
               </div>
             </motion.div>
           )}

@@ -152,7 +152,7 @@ function App() {
       )}
 
       {/* ── Sections Assembly with smooth staggered entrance ── */}
-      <div className={`transition-opacity duration-1000 ease-[0.16,1,0.3,1] ${
+      <main className={`transition-opacity duration-1000 ease-[0.16,1,0.3,1] ${
         preloaderActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <Hero preloaderActive={preloaderActive} />
@@ -166,7 +166,7 @@ function App() {
         <MomentsMilestones />
         <Vision />
         <Connect />
-      </div>
+      </main>
     </div>
   );
 }

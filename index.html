@@ -7,14 +7,24 @@
   <link rel="alternate icon" type="image/x-icon" href="/favicon.ico?v=2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ── Advanced Page Metadata ── -->
+  <!-- ── Performance Optimization Preconnect & Preload ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="/video/hero-poster.webp" as="image" type="image/webp" />
+
+  <!-- ── Technical Page Metadata ── -->
   <title>Priyanshu Chauhan | Founder & CEO of Beyond Bound | Metabolic Health India</title>
   <meta name="description"
     content="Priyanshu Chauhan is the Founder and CEO of Beyond Bound, building evidence-based metabolic health solutions for India through research, self-observation, and innovative healthcare products." />
   <meta name="keywords"
     content="Priyanshu Chauhan, Priyanshu Chauhan Founder, Beyond Bound Founder, Glycomics, Metabolic Health India, Healthcare Entrepreneur India, Ayurveda validation, preventive health India, wellness transparency" />
   <meta name="author" content="Priyanshu Chauhan" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.priyanshuchauhan.com/" />
+
+  <!-- ── Styling Theme Color ── -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#081220" media="(prefers-color-scheme: dark)" />
 
   <!-- ── Open Graph / Facebook / LinkedIn ── -->
   <meta property="og:type" content="website" />
@@ -40,9 +50,24 @@
       "name": "Priyanshu Chauhan",
       "jobTitle": "Founder & CEO",
       "url": "https://www.priyanshuchauhan.com",
+      "image": "https://www.priyanshuchauhan.com/beyondbound_logo.png",
+      "description": "Priyanshu Chauhan is the Founder and CEO of Beyond Bound, building evidence-based metabolic health solutions for India.",
       "worksFor": {
         "@type": "Organization",
-        "name": "Beyond Bound"
+        "name": "Beyond Bound",
+        "url": "https://www.priyanshuchauhan.com",
+        "logo": "https://www.priyanshuchauhan.com/beyondbound_logo.png"
+      },
+      "knowsAbout": [
+        "Metabolic Health",
+        "Glycomics",
+        "Healthcare Management",
+        "Ayurveda Validation",
+        "Preventive Wellness"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "K J Somaiya Institute of Management"
       }
     }
   </script>
