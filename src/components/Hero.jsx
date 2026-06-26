@@ -197,7 +197,7 @@ export default function Hero() {
               className="space-y-4 text-white/70 font-body text-base sm:text-lg leading-relaxed max-w-xl mb-8"
             >
               <p>
-                I came to this work through agriculture, corporate sales, an MBA, and a glucose monitor strapped to my own arm.
+                I came to this work through agriculture, product strategy, new product development (NPD), operational efficiency, an MBA, and years of glucose self-observation.
               </p>
               <p className="font-semibold text-white/90">
                 This isn't a portfolio. It's a working record of a founder still in the middle of the build.
