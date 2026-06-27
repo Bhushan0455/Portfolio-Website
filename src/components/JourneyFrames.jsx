@@ -8,12 +8,12 @@ import {
   RiCompassLine
 } from 'react-icons/ri';
 
-import mbaJourneyImg from '../assets/mba_journey.jpg';
-import corporateLearningImg from '../assets/corporate_learning.png';
-import aboutImg from '../assets/about.png';
-import beyondboundImg from '../assets/beyondbound.jpg';
-import glycomicsImg from '../assets/glycomics.png';
-import visionImg from '../assets/vision.png';
+import mbaJourneyImg from '../assets/mba_journey.webp';
+import corporateLearningImg from '../assets/corporate_learning.webp';
+import aboutImg from '../assets/about.webp';
+import beyondboundImg from '../assets/beyondbound.webp';
+import glycomicsImg from '../assets/glycomics.webp';
+import visionImg from '../assets/vision.webp';
 
 export default function JourneyFrames() {
   const cards = [

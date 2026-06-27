@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { RiArrowRightUpLine } from 'react-icons/ri';
-import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.jpg';
-import beyondboundLogo from '../assets/beyondbound_logo.png';
+import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.webp';
+import beyondboundLogo from '../assets/beyondbound_logo.webp';
 import CGMGraph from './CGMGraph';
 
 // Import video clips

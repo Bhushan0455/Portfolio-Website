@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import founderSpeakingImg from '../assets/founder_speaking.jpg';
+import founderSpeakingImg from '../assets/founder_speaking.webp';
 
 export default function FounderPhilosophy() {
   const containerRef = useRef(null);
