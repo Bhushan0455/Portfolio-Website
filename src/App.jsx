@@ -1,18 +1,16 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-
-// Lazy-load sections below the fold
-const QuoteInterstitial = lazy(() => import('./components/QuoteInterstitial'));
-const FounderStory = lazy(() => import('./components/FounderStory'));
-const JourneyFrames = lazy(() => import('./components/JourneyFrames'));
-const HealthcareGap = lazy(() => import('./components/HealthcareGap'));
-const WhatImBuilding = lazy(() => import('./components/WhatImBuilding'));
-const FounderPhilosophy = lazy(() => import('./components/FounderPhilosophy'));
-const LessonsLearned = lazy(() => import('./components/LessonsLearned'));
-const MomentsMilestones = lazy(() => import('./components/MomentsMilestones'));
-const Vision = lazy(() => import('./components/Vision'));
-const Connect = lazy(() => import('./components/Connect'));
+import QuoteInterstitial from './components/QuoteInterstitial';
+import FounderStory from './components/FounderStory';
+import JourneyFrames from './components/JourneyFrames';
+import HealthcareGap from './components/HealthcareGap';
+import WhatImBuilding from './components/WhatImBuilding';
+import FounderPhilosophy from './components/FounderPhilosophy';
+import LessonsLearned from './components/LessonsLearned';
+import MomentsMilestones from './components/MomentsMilestones';
+import Vision from './components/Vision';
+import Connect from './components/Connect';
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -129,18 +127,16 @@ function App() {
       {/* ── Sections Assembly with smooth staggered entrance ── */}
       <main className="transition-opacity duration-1000 ease-[0.16,1,0.3,1] opacity-100">
         <Hero />
-        <Suspense fallback={<div className="min-h-[100px] opacity-0" />}>
-          <QuoteInterstitial />
-          <FounderStory />
-          <JourneyFrames />
-          <HealthcareGap />
-          <WhatImBuilding />
-          <FounderPhilosophy />
-          <LessonsLearned />
-          <MomentsMilestones />
-          <Vision />
-          <Connect />
-        </Suspense>
+        <QuoteInterstitial />
+        <FounderStory />
+        <JourneyFrames />
+        <HealthcareGap />
+        <WhatImBuilding />
+        <FounderPhilosophy />
+        <LessonsLearned />
+        <MomentsMilestones />
+        <Vision />
+        <Connect />
       </main>
     </div>
   );
