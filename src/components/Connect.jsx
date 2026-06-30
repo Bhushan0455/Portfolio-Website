@@ -122,7 +122,7 @@ export default function Connect() {
               variants={fadeUp}
               className="text-white/60 font-body text-xs sm:text-sm leading-relaxed mb-4 max-w-lg mx-auto"
             >
-              I'm not interested in fast conversations about slow problems. But if you're thinking seriously about metabolic wellness, preventive health, or honest brand-building in India — I usually write back the same day.
+              I'd like to hear from you — especially if you're thinking seriously about metabolic wellness, preventive health, or honest brand-building in India. Slow problems deserve real conversations, not fast ones. I usually write back the same day.
             </motion.p>
 
             <motion.div
