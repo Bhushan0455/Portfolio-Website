@@ -19,7 +19,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
   const scrollTo = (id) => {
     setIsOpen(false);
-    
+
     // Update hash without page reload
     if (window.history.pushState) {
       window.history.pushState(null, null, `#${id}`);
@@ -108,7 +108,7 @@ export default function Navbar({ theme, toggleTheme }) {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('scroll', handleScrollSpy);
     window.addEventListener('hashchange', handleHashChange);
-    
+
     // Run initially
     handleScroll();
     handleScrollSpy();
@@ -131,7 +131,7 @@ export default function Navbar({ theme, toggleTheme }) {
           });
         }
       }, 400); // 400ms buffer to ensure layout stability after preloader completes
-      
+
       return () => {
         window.removeEventListener('scroll', handleScroll);
         window.removeEventListener('scroll', handleScrollSpy);
@@ -150,11 +150,10 @@ export default function Navbar({ theme, toggleTheme }) {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 ${
-          isScrolled
-            ? 'bg-white/90 dark:bg-navy/90 backdrop-blur-md border-b border-border dark:border-white/10 shadow-sm'
-            : 'bg-transparent border-b border-transparent shadow-none'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 ${isScrolled
+          ? 'bg-white/90 dark:bg-navy/90 backdrop-blur-md border-b border-border dark:border-white/10 shadow-sm'
+          : 'bg-transparent border-b border-transparent shadow-none'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
           {/* Logo */}
@@ -164,9 +163,8 @@ export default function Navbar({ theme, toggleTheme }) {
               e.preventDefault();
               scrollTo('hero');
             }}
-            className={`font-heading text-2xl tracking-tight cursor-pointer flex items-center gap-2 md:gap-2.5 group font-light transition-colors duration-300 ${
-              isScrolled ? 'text-navy dark:text-white' : 'text-white'
-            }`}
+            className={`font-heading text-2xl tracking-tight cursor-pointer flex items-center gap-2 md:gap-2.5 group font-light transition-colors duration-300 ${isScrolled ? 'text-navy dark:text-white' : 'text-white'
+              }`}
           >
             <img
               src="/favicon.png"
@@ -191,13 +189,12 @@ export default function Navbar({ theme, toggleTheme }) {
                     e.preventDefault();
                     scrollTo(link.id);
                   }}
-                  className={`text-sm font-body font-medium transition-colors duration-300 cursor-pointer relative py-1 ${
-                    isActive 
-                      ? 'text-teal font-semibold' 
-                      : isScrolled
-                        ? 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal' 
-                        : 'text-white/80 hover:text-white'
-                  }`}
+                  className={`text-sm font-body font-medium transition-colors duration-300 cursor-pointer relative py-1 ${isActive
+                    ? 'text-teal font-semibold'
+                    : isScrolled
+                      ? 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal'
+                      : 'text-white/80 hover:text-white'
+                    }`}
                 >
                   {link.label}
                   {isActive && (
@@ -210,15 +207,14 @@ export default function Navbar({ theme, toggleTheme }) {
                 </a>
               );
             })}
-            
+
             {/* Dark Mode Toggle Button */}
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full border transition-all duration-300 cursor-pointer flex items-center justify-center w-9 h-9 ${
-                isScrolled
-                  ? 'border-border text-navy hover:text-teal hover:bg-sage/20 dark:border-white/10 dark:text-white dark:hover:text-teal-light dark:hover:bg-white/5'
-                  : 'border-white/20 text-white hover:bg-white/10'
-              }`}
+              className={`p-2 rounded-full border transition-all duration-300 cursor-pointer flex items-center justify-center w-9 h-9 ${isScrolled
+                ? 'border-border text-navy hover:text-teal hover:bg-sage/20 dark:border-white/10 dark:text-white dark:hover:text-teal-light dark:hover:bg-white/5'
+                : 'border-white/20 text-white hover:bg-white/10'
+                }`}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <RiSunLine size={18} /> : <RiMoonLine size={18} />}
@@ -230,13 +226,11 @@ export default function Navbar({ theme, toggleTheme }) {
                 e.preventDefault();
                 scrollTo('connect');
               }}
-              className={`font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${
-                isScrolled
-                  ? 'bg-teal text-white hover:bg-teal-dark'
-                  : 'bg-white text-teal hover:bg-white/90'
-              } ${
-                activeSection === 'connect' ? 'ring-2 ring-teal ring-offset-2' : ''
-              }`}
+              className={`font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${isScrolled
+                ? 'bg-teal text-black hover:bg-teal-dark'
+                : 'bg-white text-black hover:bg-white/90'
+                } ${activeSection === 'connect' ? 'ring-2 ring-teal ring-offset-2' : ''
+                }`}
             >
               Connect
             </a>
@@ -247,11 +241,10 @@ export default function Navbar({ theme, toggleTheme }) {
             {/* Mobile Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
-              className={`p-1.5 rounded-full border transition-all duration-300 cursor-pointer flex items-center justify-center w-8 h-8 ${
-                isScrolled
-                  ? 'border-border text-navy hover:text-teal dark:border-white/10 dark:text-white dark:hover:text-teal-light'
-                  : 'border-white/20 text-white hover:bg-white/10'
-              }`}
+              className={`p-1.5 rounded-full border transition-all duration-300 cursor-pointer flex items-center justify-center w-8 h-8 ${isScrolled
+                ? 'border-border text-navy hover:text-teal dark:border-white/10 dark:text-white dark:hover:text-teal-light'
+                : 'border-white/20 text-white hover:bg-white/10'
+                }`}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <RiSunLine size={16} /> : <RiMoonLine size={16} />}
@@ -260,11 +253,10 @@ export default function Navbar({ theme, toggleTheme }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-1.5 transition-colors cursor-pointer ${
-                isScrolled
-                  ? 'text-navy dark:text-white hover:text-teal'
-                  : 'text-white hover:text-white/80'
-              }`}
+              className={`p-1.5 transition-colors cursor-pointer ${isScrolled
+                ? 'text-navy dark:text-white hover:text-teal'
+                : 'text-white hover:text-white/80'
+                }`}
               aria-label="Toggle Menu"
             >
               {isOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
@@ -290,9 +282,8 @@ export default function Navbar({ theme, toggleTheme }) {
                       e.preventDefault();
                       scrollTo(link.id);
                     }}
-                    className={`text-left font-body font-medium py-3 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer block ${
-                      activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
-                    }`}
+                    className={`text-left font-body font-medium py-3 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer block ${activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
+                      }`}
                   >
                     {link.label}
                   </a>

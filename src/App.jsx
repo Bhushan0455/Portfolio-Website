@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import QuoteInterstitial from './components/QuoteInterstitial';
@@ -14,9 +15,16 @@ import Connect from './components/Connect';
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+
+  // Custom Cursor Motion Values for smooth chasing effect
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+
+  const springConfig = { damping: 28, stiffness: 300, mass: 0.3 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
   
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -65,7 +73,8 @@ function App() {
     window.addEventListener('resize', checkMobile);
 
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
     window.addEventListener('mousemove', handleMouseMove);
 
@@ -107,16 +116,26 @@ function App() {
       {!isMobile && (
         <>
           {/* Inner Dot */}
-          <div
-            className="fixed pointer-events-none z-[9999] rounded-full bg-teal w-2 h-2 -translate-x-1/2 -translate-y-1/2"
-            style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
+          <motion.div
+            className="fixed pointer-events-none z-[9999] rounded-full bg-teal w-1 h-1"
+            style={{
+              x: cursorX,
+              y: cursorY,
+              translateX: '-50%',
+              translateY: '-50%'
+            }}
           />
           {/* Outer Ring */}
-          <div
-            className={`fixed pointer-events-none z-[9998] rounded-full border border-teal/40 -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border-color] duration-300 ease-out ${
-              isHoveringInteractive ? 'w-12 h-12 bg-teal/5 border-teal/60' : 'w-6 h-6'
+          <motion.div
+            className={`fixed pointer-events-none z-[9998] rounded-full border border-teal/40 transition-[width,height,background-color,border-color] duration-300 ease-out ${
+              isHoveringInteractive ? 'w-14 h-14 bg-teal/5 border-teal/60' : 'w-8 h-8'
             }`}
-            style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
+            style={{
+              x: cursorXSpring,
+              y: cursorYSpring,
+              translateX: '-50%',
+              translateY: '-50%'
+            }}
           />
         </>
       )}
