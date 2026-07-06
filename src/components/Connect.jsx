@@ -1,60 +1,36 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { RiMailLine, RiLinkedinBoxFill, RiGlobalLine, RiArrowRightUpLine } from 'react-icons/ri';
+import { 
+  LuLinkedin, 
+  LuMail, 
+  LuArrowUpRight, 
+  LuInstagram, 
+  LuBookOpen,
+  LuFlag,
+  LuLightbulb,
+  LuRocket,
+  LuLeaf,
+  LuAward,
+  LuEye,
+  LuActivity
+} from 'react-icons/lu';
+
+// ── Desktop Navigation Links ──
+const NAV_LINKS = [
+  { label: 'Story', id: 'story', icon: LuBookOpen },
+  { label: 'Journey', id: 'journey', icon: LuFlag },
+  { label: 'Insight', id: 'insight', icon: LuLightbulb },
+  { label: 'Beyond Bound', id: 'building', icon: LuRocket },
+  { label: 'Philosophy', id: 'philosophy', icon: LuLeaf },
+  { label: 'Milestones', id: 'milestones', icon: LuAward },
+  { label: 'Vision', id: 'vision', icon: LuEye },
+];
+
+const FOCUS_TAGS = ['Healthcare', 'Entrepreneurship', 'Metabolic Wellness'];
 
 export default function Connect() {
-  // ── Shared animation variants ──
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1 } }
-  };
+  const [activePhilosophy, setActivePhilosophy] = useState(0);
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-    }
-  };
-
-  const scaleIn = {
-    hidden: { opacity: 0, scale: 0.97 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-    }
-  };
-
-  // ── Desktop data ──
-  const links = [
-    {
-      href: 'https://www.linkedin.com/in/priyanshu-chauhan-963981212/',
-      label: 'LinkedIn',
-      sub: 'Connect Professionally',
-      icon: RiLinkedinBoxFill,
-      accent: 'hover:border-teal/30 hover:shadow-[0_0_12px_rgba(13,115,119,0.1)]'
-    },
-    {
-      href: 'mailto:founder@beyondbound.co',
-      label: 'Email',
-      sub: 'founder@beyondbound.co',
-      icon: RiMailLine,
-      accent: 'hover:border-accent/30 hover:shadow-[0_0_12px_rgba(201,168,124,0.1)]'
-    },
-    {
-      href: 'https://beyondbound.co/',
-      label: 'Beyond Bound®',
-      sub: 'Metabolic Wellness Venture',
-      icon: RiGlobalLine,
-      accent: 'hover:border-teal/30 hover:shadow-[0_0_12px_rgba(13,115,119,0.1)]'
-    }
-  ];
-
-  const tags = ['Healthcare', 'Entrepreneurship', 'Metabolic Wellness'];
-
-  // ── Mobile data ──
   const philosophyLines = [
     '"Trust before scale."',
     '"Proof before claims."',
@@ -62,15 +38,57 @@ export default function Connect() {
     '"Long-term over shortcuts."',
   ];
 
-  const [activePhilosophy, setActivePhilosophy] = useState(0);
-
+  // Rotate philosophy quotes
   useEffect(() => {
     const interval = setInterval(() => {
-      setActivePhilosophy(prev => (prev + 1) % philosophyLines.length);
+      setActivePhilosophy((prev) => (prev + 1) % philosophyLines.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
 
+  // Smooth scroll helper
+  const scrollTo = (id) => {
+    if (id === 'hero') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // ── Entrance Animation Variants ──
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.08 }
+    }
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
+  // Mobile direct actions
   const mobileActions = [
     {
       href: 'https://www.linkedin.com/in/priyanshu-chauhan-963981212/',
@@ -90,132 +108,256 @@ export default function Connect() {
   ];
 
   return (
-    <footer id="connect" aria-labelledby="connect-title" className="relative overflow-hidden select-none" style={{ backgroundColor: '#07162c' }}>
+    <footer 
+      id="connect" 
+      aria-labelledby="connect-title" 
+      className="relative overflow-hidden select-none bg-[#FAF9F6] dark:bg-[#07162c] border-t border-navy/10 dark:border-white/10 transition-colors duration-300"
+    >
 
       {/* ════════════════════════════════════════════════════════════════
-          DESKTOP FOOTER — hidden below md
+          DESKTOP REFIND FOOTER — hidden below md
           ════════════════════════════════════════════════════════════════ */}
       <div className="hidden md:block">
-        {/* Background gradients/glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-teal/5 rounded-full blur-3xl pointer-events-none z-0" />
-        <div className="absolute bottom-5 left-10 w-48 h-48 bg-accent/5 rounded-full blur-3xl pointer-events-none z-0" />
+        
+        {/* Premium Top Highlight */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-navy/10 dark:via-white/5 to-transparent pointer-events-none z-10" />
+        
+        {/* Background Ambient Glows */}
+        <div className="absolute top-0 left-1/4 w-[350px] h-[200px] bg-teal/5 dark:bg-teal/[0.02] rounded-full blur-[100px] pointer-events-none z-0" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[250px] bg-accent/5 dark:bg-accent/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
 
-        <div className="max-w-5xl mx-auto px-6 relative z-10 text-center py-12">
+        {/* Grain Overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none z-0 opacity-[0.02] dark:opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '128px 128px'
+          }}
+        />
 
-          {/* Section 1 – Final Call to Action */}
-          <div className="max-w-xl mx-auto mb-8">
-            <motion.h2
-              id="connect-title"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
-              variants={fadeUp}
-              className="text-2xl sm:text-3xl font-bold font-heading !text-white tracking-tight mb-2"
-            >
-              Let's build something worth trusting.
-            </motion.h2>
-
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
-              variants={fadeUp}
-              className="text-white/60 font-body text-xs sm:text-sm leading-relaxed mb-4 max-w-lg mx-auto"
-            >
-              I'd like to hear from you — especially if you're thinking seriously about metabolic wellness, preventive health, or honest brand-building in India. Slow problems deserve real conversations, not fast ones. I usually write back the same day.
-            </motion.p>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
-              variants={fadeUp}
-            >
-              <motion.a
-                href="https://www.linkedin.com/in/priyanshu-chauhan-963981212/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02, boxShadow: '0 0 10px rgba(13, 115, 119, 0.2)' }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-teal hover:bg-teal-light text-white text-xs font-heading font-semibold rounded-full shadow-md transition-colors duration-300"
-              >
-                <span>Connect With Me</span>
-                <RiArrowRightUpLine size={14} />
-              </motion.a>
-            </motion.div>
-          </div>
-
-          {/* Section 2 – Contact & Socials */}
-          <motion.div
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-24 relative z-10">
+          
+          {/* Main Grid Section */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
             variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-10"
+            className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start pb-16 border-b border-navy/10 dark:border-white/10"
           >
-            {links.map((link, idx) => {
-              const Icon = link.icon;
-              return (
-                <motion.a
-                  key={idx}
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  variants={fadeUp}
-                  whileHover={{ y: -2, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  className={`bg-white/5 border border-white/10 rounded-lg p-4 text-left flex flex-col justify-between group transition-all duration-300 cursor-pointer ${link.accent}`}
+            
+            {/* Column 1: Founder Identity & Status (Cols 1-5) */}
+            <motion.div variants={fadeUp} className="md:col-span-5 flex flex-col items-start space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-[#10B981]">
+                  Founder & CEO
+                </span>
+                <h3 
+                  id="connect-title"
+                  className="font-heading font-bold text-4xl lg:text-[40px] tracking-tight text-navy dark:text-white flex items-center gap-1.5 group cursor-default"
                 >
-                  <div className="flex justify-between items-start mb-3">
-                    <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-accent group-hover:scale-110 group-hover:bg-accent/15 group-hover:text-accent-light transition-all duration-300">
-                      <Icon size={16} />
-                    </div>
-                    <RiArrowRightUpLine size={14} className="text-white/20 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-                  </div>
-                  <div>
-                    <span className="block text-[8px] font-heading font-semibold uppercase tracking-wider text-white/40 mb-0.5">
-                      {link.sub}
-                    </span>
-                    <span className="font-heading font-bold text-sm text-white group-hover:text-accent transition-colors duration-200">
-                      {link.label}
-                    </span>
-                  </div>
-                </motion.a>
-              );
-            })}
-          </motion.div>
-
-          {/* Section 3 – Founder Identity */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            variants={scaleIn}
-            className="relative inline-block max-w-xs mx-auto mb-8 px-5 py-3 rounded-[16px]"
-          >
-            <div className="absolute inset-0 bg-teal/10 rounded-[16px] blur-md pointer-events-none z-0" />
-            <div className="relative z-10 space-y-2">
-              <h3 className="font-heading font-bold text-xl sm:text-2xl !text-white tracking-tight">
-                Priyanshu Chauhan
-              </h3>
-              <p className="font-heading text-[10px] text-accent uppercase tracking-widest font-semibold">
-                Founder & CEO, Beyond Bound®
+                  Priyanshu Chauhan
+                </h3>
+              </div>
+              
+              <p className="text-navy/70 dark:text-white/60 font-body text-sm leading-relaxed max-w-md">
+                Building Beyond Bound — a metabolic wellness venture focused on preventive health and honest brand-building in India.
               </p>
-              <div className="flex flex-wrap justify-center gap-1 pt-0.5">
-                {tags.map((tag, idx) => (
-                  <span key={idx} className="bg-white/5 border border-white/10 px-2 py-0.5 rounded-full text-[9px] font-body text-white/70">
+
+              {/* Status indicator row */}
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+                </span>
+                <span className="font-body text-xs text-navy/50 dark:text-white/50">
+                  Open to conversations
+                </span>
+              </div>
+
+              {/* Cycling Philosophy Block */}
+              <div className="h-6 overflow-hidden flex items-center select-none text-accent/80 font-serif italic text-sm tracking-wide">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={activePhilosophy}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {philosophyLines[activePhilosophy]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+
+              {/* Focus Badges */}
+              <div className="flex flex-wrap gap-2 pt-2">
+                {FOCUS_TAGS.map((tag, idx) => (
+                  <span 
+                    key={idx} 
+                    className="font-body text-xs text-[#10B981] border border-[#10B981]/20 bg-[#10B981]/5 px-3.5 py-1 rounded-full cursor-default"
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
-            </div>
+
+              {/* Social icons circles (LinkedIn, Instagram, Email) - no Twitter */}
+              <div className="flex items-center gap-3 pt-2">
+                <a
+                  href="https://www.linkedin.com/in/priyanshu-chauhan-963981212/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit LinkedIn Profile"
+                  className="w-10 h-10 rounded-full bg-navy/5 dark:bg-white/5 border border-navy/10 dark:border-white/10 text-navy/50 dark:text-white/50 hover:text-navy dark:hover:text-white hover:border-navy/20 dark:hover:border-white/20 hover:bg-navy/10 dark:hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
+                >
+                  <LuLinkedin size={18} />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Instagram Profile"
+                  className="w-10 h-10 rounded-full bg-navy/5 dark:bg-white/5 border border-navy/10 dark:border-white/10 text-navy/50 dark:text-white/50 hover:text-navy dark:hover:text-white hover:border-navy/20 dark:hover:border-white/20 hover:bg-navy/10 dark:hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
+                >
+                  <LuInstagram size={18} />
+                </a>
+                <a
+                  href="mailto:founder@beyondbound.co"
+                  aria-label="Send Email"
+                  className="w-10 h-10 rounded-full bg-navy/5 dark:bg-white/5 border border-navy/10 dark:border-white/10 text-navy/50 dark:text-white/50 hover:text-navy dark:hover:text-white hover:border-navy/20 dark:hover:border-white/20 hover:bg-navy/10 dark:hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
+                >
+                  <LuMail size={18} />
+                </a>
+              </div>
+
+            </motion.div>
+
+            {/* Column 2: Navigation Links (Cols 6-8 on desktop, aligned to layout grid) */}
+            <motion.div variants={fadeUp} className="md:col-span-3 flex flex-col space-y-5 w-full">
+              <span className="font-heading text-[11px] font-semibold text-navy/40 dark:text-white/40 uppercase tracking-[0.25em]">
+                NAVIGATE
+              </span>
+              <nav 
+                className="flex flex-col space-y-4" 
+                aria-label="Footer navigation"
+              >
+                {NAV_LINKS.map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <a
+                      key={link.id}
+                      href={`#${link.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(link.id);
+                      }}
+                      className="group flex items-center gap-3 text-sm font-body text-navy/60 dark:text-white/60 hover:text-navy dark:hover:text-white transition-colors duration-300 cursor-pointer w-fit"
+                    >
+                      <Icon size={16} className="text-navy/40 dark:text-white/40 group-hover:text-navy dark:group-hover:text-white transition-colors duration-300" />
+                      <span className="relative overflow-hidden inline-block">
+                        <span className="block transform transition-transform duration-300 group-hover:translate-x-0.5">
+                          {link.label}
+                        </span>
+                      </span>
+                    </a>
+                  );
+                })}
+              </nav>
+            </motion.div>
+
+            {/* Column 3: Contact & Direct Connect Cards (Cols 9-12) */}
+            <motion.div variants={fadeUp} className="md:col-span-4 flex flex-col space-y-5 w-full">
+              <span className="font-heading text-[11px] font-semibold text-navy/40 dark:text-white/40 uppercase tracking-[0.25em]">
+                CONNECT
+              </span>
+
+              <div className="flex flex-col gap-3">
+                {/* LinkedIn Connect Card */}
+                <a
+                  href="https://www.linkedin.com/in/priyanshu-chauhan-963981212/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-4 rounded-2xl border border-navy/10 dark:border-white/[0.07] bg-navy/[0.01] dark:bg-white/[0.02] hover:bg-navy/[0.03] dark:hover:bg-white/[0.04] hover:border-navy/20 dark:hover:border-white/10 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-navy/5 dark:bg-white/5 border border-navy/10 dark:border-white/10 text-[#10B981] flex items-center justify-center group-hover:scale-105 transition-all duration-300">
+                      <LuLinkedin size={20} />
+                    </div>
+                    <div className="text-left">
+                      <span className="block text-[10px] font-heading font-medium text-navy/40 dark:text-white/40 uppercase tracking-wider mb-0.5">
+                        Connect professionally
+                      </span>
+                      <span className="text-sm font-semibold font-heading text-navy dark:text-white transition-colors">
+                        LinkedIn
+                      </span>
+                    </div>
+                  </div>
+                  <LuArrowUpRight size={16} className="text-navy/20 dark:text-white/20 group-hover:text-navy dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                </a>
+
+                {/* Email Connect Card */}
+                <a
+                  href="mailto:founder@beyondbound.co"
+                  className="group flex items-center justify-between p-4 rounded-2xl border border-navy/10 dark:border-white/[0.07] bg-navy/[0.01] dark:bg-white/[0.02] hover:bg-navy/[0.03] dark:hover:bg-white/[0.04] hover:border-navy/20 dark:hover:border-white/10 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-navy/5 dark:bg-white/5 border border-navy/10 dark:border-white/10 text-[#10B981] flex items-center justify-center group-hover:scale-105 transition-all duration-300">
+                      <LuMail size={20} />
+                    </div>
+                    <div className="text-left">
+                      <span className="block text-[10px] font-heading font-medium text-navy/40 dark:text-white/40 uppercase tracking-wider mb-0.5">
+                        Drop a message
+                      </span>
+                      <span className="text-sm font-semibold font-heading text-navy dark:text-white transition-colors">
+                        founder@beyondbound.co
+                      </span>
+                    </div>
+                  </div>
+                  <LuArrowUpRight size={16} className="text-navy/20 dark:text-white/20 group-hover:text-navy dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                </a>
+
+                {/* Beyond Bound Connect Card */}
+                <a
+                  href="https://beyondbound.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-4 rounded-2xl border border-navy/10 dark:border-white/[0.07] bg-navy/[0.01] dark:bg-white/[0.02] hover:bg-navy/[0.03] dark:hover:bg-white/[0.04] hover:border-navy/20 dark:hover:border-white/10 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-navy/5 dark:bg-white/5 border border-navy/10 dark:border-white/10 text-[#10B981] flex items-center justify-center group-hover:scale-105 transition-all duration-300">
+                      <LuActivity size={20} />
+                    </div>
+                    <div className="text-left">
+                      <span className="block text-[10px] font-heading font-medium text-navy/40 dark:text-white/40 uppercase tracking-wider mb-0.5">
+                        Metabolic wellness venture
+                      </span>
+                      <span className="text-sm font-semibold font-heading text-navy dark:text-white transition-colors">
+                        Beyond Bound
+                      </span>
+                    </div>
+                  </div>
+                  <LuArrowUpRight size={16} className="text-navy/20 dark:text-white/20 group-hover:text-navy dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                </a>
+              </div>
+            </motion.div>
+
           </motion.div>
 
-          {/* Section 4 – Footer Bottom Bar */}
-          <div className="border-t border-white/10 pt-5 mt-2">
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-white/40 text-[10px] text-center sm:text-left">
-              <span>&copy; 2026 Priyanshu Chauhan. All Rights Reserved.</span>
-              <span className="font-body tracking-wider italic text-white/50">
+          {/* Bottom Bar Section */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 text-[11px] text-navy/40 dark:text-white/40 font-body">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
+              <span>&copy; 2026 Priyanshu Chauhan. All rights reserved.</span>
+              <span className="text-navy/10 dark:text-white/10 hidden sm:inline">|</span>
+              <a href="#" className="hover:text-navy dark:hover:text-white cursor-pointer transition-colors duration-200">Privacy Policy</a>
+              <span className="text-navy/10 dark:text-white/10 hidden sm:inline">|</span>
+              <a href="#" className="hover:text-navy dark:hover:text-white cursor-pointer transition-colors duration-200">Terms of Use</a>
+            </div>
+            
+            <div className="flex items-center gap-2 text-center sm:text-right">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#10B981]" />
+              <span className="italic font-medium text-navy/50 dark:text-white/50 tracking-wider">
                 Built with purpose, innovation, and long-term thinking.
               </span>
             </div>
@@ -225,7 +367,7 @@ export default function Connect() {
       </div>
 
       {/* ════════════════════════════════════════════════════════════════
-          MOBILE FOOTER — visible only below md
+          MOBILE FOOTER — visible only below md (COMPATIBLE WITH LIGHT/DARK)
           ════════════════════════════════════════════════════════════════ */}
       <div className="block md:hidden">
         {/* Grain texture */}
@@ -239,7 +381,7 @@ export default function Connect() {
         />
 
         {/* Ambient glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-teal/[0.04] rounded-full blur-[100px] pointer-events-none z-0" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-teal/[0.03] dark:bg-teal/[0.04] rounded-full blur-[100px] pointer-events-none z-0 animate-pulse" />
 
         <div className="relative z-10 px-6 pt-16 pb-10">
 
@@ -253,10 +395,10 @@ export default function Connect() {
           >
             {/* Glow behind name */}
             <div className="relative inline-block">
-              <div className="absolute inset-0 bg-teal/[0.08] rounded-full blur-2xl pointer-events-none scale-150" />
+              <div className="absolute inset-0 bg-teal/5 dark:bg-teal/[0.08] rounded-full blur-2xl pointer-events-none scale-150" />
               <motion.h3
                 variants={fadeUp}
-                className="relative font-heading font-bold text-2xl text-white tracking-tight mb-1.5"
+                className="relative font-heading font-bold text-2xl text-navy dark:text-white tracking-tight mb-1.5"
               >
                 Priyanshu Chauhan
               </motion.h3>
@@ -271,7 +413,7 @@ export default function Connect() {
 
             <motion.p
               variants={fadeUp}
-              className="font-body text-sm text-white/50 leading-relaxed max-w-[280px] mx-auto"
+              className="font-body text-sm text-navy/60 dark:text-white/50 leading-relaxed max-w-[280px] mx-auto"
             >
               Building India's most trusted metabolic health brand.
             </motion.p>
@@ -293,12 +435,12 @@ export default function Connect() {
                 target={action.external ? '_blank' : undefined}
                 rel={action.external ? 'noopener noreferrer' : undefined}
                 variants={fadeUp}
-                className="flex items-center justify-between w-full min-h-[48px] px-5 py-3.5 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 cursor-pointer group"
+                className="flex items-center justify-between w-full min-h-[48px] px-5 py-3.5 rounded-2xl border border-navy/10 dark:border-white/[0.07] bg-navy/[0.01] dark:bg-white/[0.02] hover:bg-navy/5 dark:hover:bg-white/[0.05] hover:border-navy/20 dark:hover:border-white/[0.12] transition-all duration-300 cursor-pointer group"
               >
-                <span className="font-heading text-sm font-medium text-white/60 group-hover:text-white transition-colors duration-300 tracking-wide">
+                <span className="font-heading text-sm font-medium text-navy/70 dark:text-white/60 group-hover:text-navy dark:group-hover:text-white transition-colors duration-300 tracking-wide">
                   {action.label}
                 </span>
-                <span className="text-white/20 group-hover:text-accent text-xs transition-colors duration-300">↗</span>
+                <span className="text-navy/20 dark:text-white/20 group-hover:text-[#10B981] dark:group-hover:text-accent text-xs transition-colors duration-300">↗</span>
               </motion.a>
             ))}
           </motion.div>
@@ -311,7 +453,7 @@ export default function Connect() {
             variants={fadeUp}
             className="text-center mb-14"
           >
-            <div className="w-8 h-[1px] bg-accent/20 mx-auto mb-5" />
+            <div className="w-8 h-[1px] bg-navy/10 dark:bg-accent/20 mx-auto mb-5" />
 
             <div className="h-8 flex items-center justify-center overflow-hidden">
               <AnimatePresence mode="wait">
@@ -321,22 +463,22 @@ export default function Connect() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-serif italic text-sm text-accent/70 tracking-wide"
+                  className="font-serif italic text-sm text-teal dark:text-accent/70 tracking-wide"
                 >
                   {philosophyLines[activePhilosophy]}
                 </motion.span>
               </AnimatePresence>
             </div>
 
-            <div className="w-8 h-[1px] bg-accent/20 mx-auto mt-5" />
+            <div className="w-8 h-[1px] bg-navy/10 dark:bg-accent/20 mx-auto mt-5" />
           </motion.div>
 
           {/* ── Section 5: Copyright ── */}
           <div className="text-center space-y-2">
-            <p className="font-heading text-[10px] text-white/20 tracking-wide">
+            <p className="font-heading text-[10px] text-navy/40 dark:text-white/20 tracking-wide">
               &copy; 2026 Priyanshu Chauhan
             </p>
-            <p className="font-body text-[10px] text-white/15 italic leading-relaxed tracking-wide">
+            <p className="font-body text-[10px] text-navy/30 dark:text-white/15 italic leading-relaxed tracking-wide">
               Built with purpose, innovation,<br />and long-term thinking.
             </p>
           </div>

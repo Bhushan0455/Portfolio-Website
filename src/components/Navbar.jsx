@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: 'Story', id: 'story' },
   { label: 'Journey', id: 'journey' },
   { label: 'Insight', id: 'insight' },
-  { label: "What I'm Building", id: 'building' },
+  { label: 'Beyond Bound', id: 'building' },
   { label: 'Philosophy', id: 'philosophy' },
   { label: 'Milestones', id: 'milestones' },
   { label: 'Vision', id: 'vision' },
