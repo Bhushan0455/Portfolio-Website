@@ -215,7 +215,7 @@ export default function Connect() {
                   <LuLinkedin size={18} />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/priyanshu._.chauhan._/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visit Instagram Profile"
