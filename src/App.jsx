@@ -7,11 +7,14 @@ import FounderStory from './components/FounderStory';
 import JourneyFrames from './components/JourneyFrames';
 import HealthcareGap from './components/HealthcareGap';
 import WhatImBuilding from './components/WhatImBuilding';
+import GlycomicsSection from './components/GlycomicsSection';
 import FounderPhilosophy from './components/FounderPhilosophy';
 import LessonsLearned from './components/LessonsLearned';
 import MomentsMilestones from './components/MomentsMilestones';
 import Vision from './components/Vision';
 import Connect from './components/Connect';
+import { headingHierarchyCheck } from './utils/accessibility';
+import { reportWebVitals } from './utils/performance';
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -50,6 +53,19 @@ function App() {
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
+
+  // ── Dev-mode diagnostics ──
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      // Run heading hierarchy audit after DOM is fully rendered
+      const auditTimer = setTimeout(() => headingHierarchyCheck(), 1500);
+      // Report Web Vitals to console
+      reportWebVitals(({ name, value }) => {
+        console.log(`[CWV] ${name}: ${Math.round(value)}`);
+      });
+      return () => clearTimeout(auditTimer);
+    }
+  }, []);
 
 
 
@@ -151,6 +167,7 @@ function App() {
         <JourneyFrames />
         <HealthcareGap />
         <WhatImBuilding />
+        <GlycomicsSection />
         <FounderPhilosophy />
         <LessonsLearned />
         <MomentsMilestones />

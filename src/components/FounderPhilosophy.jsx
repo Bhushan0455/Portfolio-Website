@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import founderSpeakingImg from '../assets/founder_speaking.webp';
+import founderSpeakingMobileImg from '../assets/founder_speaking(mobile).webp';
 
 export default function FounderPhilosophy() {
   const containerRef = useRef(null);
@@ -57,12 +58,16 @@ export default function FounderPhilosophy() {
         viewport={{ once: true, margin: '-50px' }}
         className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none"
       >
-        <motion.img
-          src={founderSpeakingImg}
-          alt="Priyanshu Chauhan speaking on stage"
-          style={{ y: yParallax }}
-          className="absolute -top-[15%] w-full h-[130%] object-cover object-right brightness-[0.75] contrast-[1.05]"
-        />
+        <picture>
+          <source media="(max-width: 767px)" srcSet={founderSpeakingMobileImg} />
+          <source media="(min-width: 768px)" srcSet={founderSpeakingImg} />
+          <motion.img
+            src={founderSpeakingImg}
+            alt="Priyanshu Chauhan speaking on stage"
+            style={{ y: yParallax }}
+            className="absolute -top-[15%] w-full h-[130%] object-cover object-right brightness-[0.75] contrast-[1.05]"
+          />
+        </picture>
         {/* Soft edge-blending gradients ensuring readability of left-aligned text */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#07162c] via-[#07162c]/85 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#07162c] via-transparent to-transparent" />

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiMenuLine, RiCloseLine, RiSunLine, RiMoonLine } from 'react-icons/ri';
+import { FocusTrap } from '../utils/accessibility';
 
 const NAV_LINKS = [
   { label: 'Story', id: 'story' },
   { label: 'Journey', id: 'journey' },
   { label: 'Insight', id: 'insight' },
-  { label: "What I'm Building", id: 'building' },
+  { label: 'Beyond Bound', id: 'building' },
   { label: 'Philosophy', id: 'philosophy' },
   { label: 'Milestones', id: 'milestones' },
   { label: 'Vision', id: 'vision' },
@@ -258,6 +259,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 : 'text-white hover:text-white/80'
                 }`}
               aria-label="Toggle Menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
             </button>
@@ -272,33 +274,38 @@ export default function Navbar({ theme, toggleTheme }) {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
               className="absolute inset-x-0 top-full z-40 md:hidden bg-white dark:bg-navy border-b border-border dark:border-white/10 shadow-lg"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
             >
-              <div className="px-6 py-8 flex flex-col gap-5">
-                {NAV_LINKS.map((link) => (
+              <FocusTrap active={isOpen} onClose={() => setIsOpen(false)}>
+                <div className="px-6 py-8 flex flex-col gap-5">
+                  {NAV_LINKS.map((link) => (
+                    <a
+                      key={link.id}
+                      href={`#${link.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(link.id);
+                      }}
+                      className={`text-left font-body font-medium py-3 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer block ${activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
+                        }`}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
                   <a
-                    key={link.id}
-                    href={`#${link.id}`}
+                    href="#connect"
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollTo(link.id);
+                      scrollTo('connect');
                     }}
-                    className={`text-left font-body font-medium py-3 border-b border-border/40 dark:border-white/5 last:border-0 cursor-pointer block ${activeSection === link.id ? 'text-teal font-semibold' : 'text-navy/80 dark:text-white/80'
-                      }`}
+                    className="bg-teal text-white hover:bg-teal-dark font-body text-sm font-semibold text-center py-3 rounded-full mt-2 cursor-pointer shadow-sm block"
                   >
-                    {link.label}
+                    Connect
                   </a>
-                ))}
-                <a
-                  href="#connect"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollTo('connect');
-                  }}
-                  className="bg-teal text-white hover:bg-teal-dark font-body text-sm font-semibold text-center py-3 rounded-full mt-2 cursor-pointer shadow-sm block"
-                >
-                  Connect
-                </a>
-              </div>
+                </div>
+              </FocusTrap>
             </motion.div>
           )}
         </AnimatePresence>
