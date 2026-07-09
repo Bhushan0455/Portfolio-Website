@@ -227,8 +227,8 @@ export default function Navbar({ theme, toggleTheme }) {
                 scrollTo('connect');
               }}
               className={`font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${isScrolled
-                ? 'bg-teal text-black hover:bg-teal-dark'
-                : 'bg-white text-black hover:bg-white/90'
+                ? 'bg-teal text-white hover:bg-teal-dark'
+                : 'bg-white text-white hover:bg-white/90'
                 } ${activeSection === 'connect' ? 'ring-2 ring-teal ring-offset-2' : ''
                 }`}
             >
