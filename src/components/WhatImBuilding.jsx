@@ -615,65 +615,38 @@ export default function WhatImBuilding() {
 
                   {/* ── Premium Bottom Pill (micro-badge) ── */}
                   {step.pill && (
-                    <div
-                      className="mt-auto inline-flex items-center rounded-full transition-all duration-300 group-hover:shadow-md"
-                      style={{
-                        gap: '10px',
-                        padding: '9px 20px 9px 10px',
-                        backgroundColor: '#F7F7F5',
-                        border: '1px solid rgba(15, 139, 141, 0.08)',
-                        boxShadow: '0 4px 14px rgba(0,0,0,0.04)',
-                        height: '44px'
-                      }}
-                    >
+                    <div className="mt-auto inline-flex items-center rounded-full transition-all duration-300 group-hover:shadow-md bg-[#F7F7F5] dark:bg-[#0e1f35]/50 border border-[rgba(15,139,141,0.08)] dark:border-teal-light/10 shadow-[0_4px_14px_rgba(0,0,0,0.04)] dark:shadow-none h-[44px] gap-[10px] pl-[10px] pr-[20px]">
                       {/* Circular icon badge */}
-                      <div
-                        className="flex items-center justify-center flex-shrink-0 rounded-full"
-                        style={{
-                          width: '24px',
-                          height: '24px',
-                          border: '1.5px solid #0D7377',
-                          backgroundColor: '#FFFFFF'
-                        }}
-                      >
+                      <div className="flex items-center justify-center flex-shrink-0 rounded-full w-6 h-6 border-[1.5px] border-teal dark:border-teal-light bg-white dark:bg-[#081220]">
                         {/* CircleCheck — Clarity */}
                         {idx === 0 && (
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                             <polyline points="22 4 12 14.01 9 11.01" />
                           </svg>
                         )}
                         {/* ShieldCheck — Trust */}
                         {idx === 1 && (
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                             <polyline points="9 12 11 14 15 10" />
                           </svg>
                         )}
                         {/* Heart — Wellness */}
                         {idx === 2 && (
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                           </svg>
                         )}
                         {/* Sparkle — Future */}
                         {idx === 3 && (
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                           </svg>
                         )}
                       </div>
                       {/* Pill text */}
-                      <span
-                        className="font-heading"
-                        style={{
-                          fontSize: '14px',
-                          fontWeight: 600,
-                          color: '#0D7377',
-                          lineHeight: 1,
-                          whiteSpace: 'nowrap'
-                        }}
-                      >
+                      <span className="font-heading text-[14px] font-semibold text-teal dark:text-teal-light leading-none whitespace-nowrap">
                         {step.pill}
                       </span>
                     </div>
