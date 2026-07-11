@@ -67,38 +67,26 @@ export default function WhatImBuilding() {
     {
       num: '01',
       label: 'What I Observed',
-      desc: 'I observed that while metabolic disorders are rising rapidly across India, consumer understanding remains shallow. People are constantly overwhelmed by conflicting advice, shifting wellness trends, and information overload. They want to take control of their health, but they do not know who to trust.',
-      quote: 'Information overload breeds inaction; what we need today is not more products, but evidence we can actually verify.',
-      cellClass: 'bg-[#F8F6F1] dark:bg-[#0e1f35]',
-      titleClass: 'text-navy dark:text-white',
-      descClass: 'text-navy/70 dark:text-white/70'
+      desc: 'Metabolic disorders are rising rapidly in India. People are overwhelmed with conflicting advice and information overload, but lack clarity and trust.',
+      pill: 'Clarity creates action.'
     },
     {
       num: '02',
       label: 'What I Learned',
-      desc: 'My journey from agriculture to healthcare management taught me that wellness must be built from the soil up. Agriculture showed me where health begins, sales showed me how trust is earned, and managing healthcare showed me how systems scale.',
-      quote: 'Trust cannot be manufactured through marketing alone; it is the compound interest of transparency.',
-      cellClass: 'bg-[#F5F0E8] dark:bg-[#152942]',
-      titleClass: 'text-navy dark:text-white',
-      descClass: 'text-navy/70 dark:text-white/70'
+      desc: 'From agriculture to healthcare, one truth stayed with me — trust is earned, not sold. True impact comes from solving real problems at the root.',
+      pill: 'Trust is the foundation.'
     },
     {
       num: '03',
       label: 'What I\'m Building',
-      desc: 'Through Beyond Bound, I am building a brand focused on metabolic health. My goal isn\'t simply to create products, but to disclose exact formulations, substantiate every claim, and empower consumers with honest guidance so they can take control of their wellbeing.',
-      quote: 'For me, the opportunity isn\'t just in wellness. It\'s in creating a healthcare brand that people can genuinely believe in.',
-      cellClass: 'bg-[#EDF5F4] dark:bg-[#0b2c2a]',
-      titleClass: 'text-navy dark:text-white',
-      descClass: 'text-navy/70 dark:text-white/70'
+      desc: 'Beyond Bound is my effort to simplify metabolic health with evidence-backed solutions that are honest, transparent, and genuinely effective.',
+      pill: 'Wellness, done right.'
     },
     {
       num: '04',
       label: 'Where We\'re Going',
-      desc: 'I want to establish Beyond Bound as a trusted name in metabolic health. I believe the future of wellness belongs in the choices people make before disease ever arrives, and we are building the framework to guide those choices.',
-      quote: 'The future of healthcare begins at the table, not in the hospital.',
-      cellClass: 'bg-[#0D4A47] dark:bg-[#0D4A47]',
-      titleClass: 'text-white',
-      descClass: 'text-white/85'
+      desc: 'Building a trusted name in metabolic wellness — where prevention comes first and every choice today leads to a healthier tomorrow.',
+      pill: 'The future starts now.'
     }
   ];
 
@@ -466,66 +454,233 @@ export default function WhatImBuilding() {
           </div>
         </div>
 
-        {/* ── PART 3 — THE JOURNEY TO BEYOND BOUND ── */}
-        <div className="mb-16 md:mb-28 max-w-4xl mx-auto">
-          <div className="text-left mb-12">
-            <h3 className="text-2xl sm:text-3xl font-heading font-bold text-navy dark:text-white tracking-tight">
-              The Journey to Beyond Bound®
+        {/* ── PART 3 — FROM OBSERVATION TO IMPACT ── */}
+        <div className="mb-16 md:mb-28 max-w-6xl mx-auto w-full">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-16 md:mb-20"
+          >
+            <h3 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-heading font-bold text-navy dark:text-white tracking-tight leading-tight">
+              From <span className="text-teal dark:text-teal-light">observation</span> to impact.
             </h3>
-          </div>
+            <p className="text-navy/55 dark:text-white/55 font-body text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+              My journey is built on four simple beliefs that shape everything I'm building.
+            </p>
+          </motion.div>
 
-          {/* Grid Wrapper */}
+          {/* Timeline + Steps */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="grid grid-cols-1 md:grid-cols-2 w-full items-stretch gap-[2px] bg-white dark:bg-[#081220] rounded-3xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800"
+            viewport={{ once: true, margin: '-60px' }}
+            className="relative"
           >
-            {journeySteps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+            {/* ─ Segmented gold dashed lines BETWEEN nodes only (desktop) ─ */}
+            {/* Line segment 1: between node 1 and node 2 */}
+            <div
+              className="hidden lg:block absolute top-[52px] h-0 z-0"
+              style={{
+                left: 'calc(12.5% + 75px)',
+                width: 'calc(25% - 150px)',
+                borderTop: '1.5px dashed rgba(212, 176, 122, 0.40)'
+              }}
+            />
+            {/* Line segment 2: between node 2 and node 3 */}
+            <div
+              className="hidden lg:block absolute top-[52px] h-0 z-0"
+              style={{
+                left: 'calc(37.5% + 75px)',
+                width: 'calc(25% - 150px)',
+                borderTop: '1.5px dashed rgba(212, 176, 122, 0.40)'
+              }}
+            />
+            {/* Line segment 3: between node 3 and node 4 */}
+            <div
+              className="hidden lg:block absolute top-[52px] h-0 z-0"
+              style={{
+                left: 'calc(62.5% + 75px)',
+                width: 'calc(25% - 150px)',
+                borderTop: '1.5px dashed rgba(212, 176, 122, 0.40)'
+              }}
+            />
+
+            {/* ─ Gold connector dots at midpoints between nodes (desktop) ─ */}
+            {[25, 50, 75].map((pos) => (
+              <div
+                key={pos}
+                className="hidden lg:block absolute z-[1]"
+                style={{
+                  left: `${pos}%`,
+                  top: '52px',
+                  transform: 'translate(-50%, -50%)'
                 }}
-                className={`flex flex-col text-left items-start justify-start p-6 sm:p-8 md:p-12 ${step.cellClass}`}
               >
-                {/* Step number in 48px top-left */}
-                <span
-                  className="font-heading font-bold leading-none select-none tracking-tight mb-6"
-                  style={{ fontSize: '48px', color: '#C9A87C' }}
-                >
-                  {step.num}
-                </span>
-
-                {/* Bold title in 18px below it */}
-                <h4
-                  className={`font-heading font-bold tracking-tight mb-2 ${step.titleClass}`}
-                  style={{ fontSize: '18px' }}
-                >
-                  {step.label}
-                </h4>
-
-                {/* Body text in 14px below that */}
-                <p
-                  className={`font-body leading-relaxed ${step.descClass}`}
-                  style={{ fontSize: '14px' }}
-                >
-                  {step.desc}
-                </p>
-
-                {/* Memorable line quote */}
-                {step.quote && (
-                  <p
-                    className={`font-body italic font-semibold mt-4 leading-relaxed ${step.descClass}`}
-                    style={{ fontSize: '13px' }}
-                  >
-                    "{step.quote}"
-                  </p>
-                )}
-              </motion.div>
+                <div
+                  className="w-[9px] h-[9px] rounded-full"
+                  style={{
+                    backgroundColor: '#D4B07A',
+                    boxShadow: '0 2px 6px rgba(212, 176, 122, 0.3)'
+                  }}
+                />
+              </div>
             ))}
+
+            {/* ─ Steps Grid ─ */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-10 relative z-10">
+              {journeySteps.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, y: 35 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        duration: 0.7,
+                        delay: idx * 0.12,
+                        ease: [0.16, 1, 0.3, 1]
+                      }
+                    }
+                  }}
+                  className="flex flex-col items-center text-center group"
+                >
+                  {/* Concentric Circle Node */}
+                  <div className="relative mb-10 w-[104px] h-[104px] flex items-center justify-center">
+                    {/* Outermost ring */}
+                    <div className="absolute w-[104px] h-[104px] rounded-full border border-teal/8 dark:border-teal-light/8 group-hover:border-teal/15 dark:group-hover:border-teal-light/15 transition-all duration-500" />
+                    {/* Middle ring */}
+                    <div className="absolute w-[92px] h-[92px] rounded-full border border-teal/12 dark:border-teal-light/12 bg-teal/[0.02] dark:bg-teal-light/[0.02] group-hover:border-teal/20 dark:group-hover:border-teal-light/18 transition-all duration-500" />
+                    {/* Inner icon circle */}
+                    <div className="relative w-[72px] h-[72px] rounded-full bg-gradient-to-br from-sage/80 to-teal/10 dark:from-[#0e1f35]/80 dark:to-teal-light/10 border border-teal/15 dark:border-teal-light/15 flex items-center justify-center shadow-sm group-hover:shadow-lg group-hover:shadow-teal/10 transition-all duration-500">
+                      {/* Eye icon — What I Observed */}
+                      {idx === 0 && (
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      )}
+                      {/* Plant/Sprout icon — What I Learned */}
+                      {idx === 1 && (
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
+                          <path d="M7 20h10" />
+                          <path d="M12 20v-6" />
+                          <path d="M12 14c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6z" />
+                          <path d="M12 10c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6z" />
+                        </svg>
+                      )}
+                      {/* Laboratory Flask icon — What I'm Building */}
+                      {idx === 2 && (
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
+                          <path d="M9 3h6" />
+                          <path d="M10 3v7.4a2 2 0 0 1-.5 1.3L4 18.6a1 1 0 0 0 .7 1.7h14.6a1 1 0 0 0 .7-1.7l-5.5-6.9a2 2 0 0 1-.5-1.3V3" />
+                          <path d="M8.5 14h7" />
+                        </svg>
+                      )}
+                      {/* Target icon — Where We're Going */}
+                      {idx === 3 && (
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
+                          <circle cx="12" cy="12" r="10" />
+                          <circle cx="12" cy="12" r="6" />
+                          <circle cx="12" cy="12" r="2" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Step Number */}
+                  <span
+                    className="font-heading font-bold leading-none select-none tracking-tight mb-2 text-accent/70 dark:text-accent-light/70"
+                    style={{ fontSize: '14px' }}
+                  >
+                    {step.num}
+                  </span>
+
+                  {/* Title */}
+                  <h4 className="font-heading font-bold text-navy dark:text-white tracking-tight text-base sm:text-lg mb-3">
+                    {step.label}
+                  </h4>
+
+                  {/* Thin accent divider */}
+                  <div className="w-8 h-[2px] bg-accent/30 dark:bg-accent-light/30 rounded-full mb-4 group-hover:w-12 transition-all duration-500" />
+
+                  {/* Description */}
+                  <p className="font-body text-navy/60 dark:text-white/55 text-[13px] leading-relaxed max-w-[280px] mx-auto mb-5">
+                    {step.desc}
+                  </p>
+
+                  {/* ── Premium Bottom Pill (micro-badge) ── */}
+                  {step.pill && (
+                    <div
+                      className="mt-auto inline-flex items-center rounded-full transition-all duration-300 group-hover:shadow-md"
+                      style={{
+                        gap: '10px',
+                        padding: '9px 20px 9px 10px',
+                        backgroundColor: '#F7F7F5',
+                        border: '1px solid rgba(15, 139, 141, 0.08)',
+                        boxShadow: '0 4px 14px rgba(0,0,0,0.04)',
+                        height: '44px'
+                      }}
+                    >
+                      {/* Circular icon badge */}
+                      <div
+                        className="flex items-center justify-center flex-shrink-0 rounded-full"
+                        style={{
+                          width: '24px',
+                          height: '24px',
+                          border: '1.5px solid #0D7377',
+                          backgroundColor: '#FFFFFF'
+                        }}
+                      >
+                        {/* CircleCheck — Clarity */}
+                        {idx === 0 && (
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                          </svg>
+                        )}
+                        {/* ShieldCheck — Trust */}
+                        {idx === 1 && (
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <polyline points="9 12 11 14 15 10" />
+                          </svg>
+                        )}
+                        {/* Heart — Wellness */}
+                        {idx === 2 && (
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                          </svg>
+                        )}
+                        {/* Sparkle — Future */}
+                        {idx === 3 && (
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0D7377" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                          </svg>
+                        )}
+                      </div>
+                      {/* Pill text */}
+                      <span
+                        className="font-heading"
+                        style={{
+                          fontSize: '14px',
+                          fontWeight: 600,
+                          color: '#0D7377',
+                          lineHeight: 1,
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        {step.pill}
+                      </span>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
 
