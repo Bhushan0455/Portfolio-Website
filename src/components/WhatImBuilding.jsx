@@ -530,8 +530,8 @@ export default function WhatImBuilding() {
               </div>
             ))}
 
-            {/* ─ Steps Grid ─ */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-10 relative z-10">
+            {/* ─ Steps Grid (Desktop/Tablet) ─ */}
+            <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-10 relative z-10">
               {journeySteps.map((step, idx) => (
                 <motion.div
                   key={idx}
@@ -652,6 +652,86 @@ export default function WhatImBuilding() {
                     </div>
                   )}
                 </motion.div>
+              ))}
+            </div>
+
+            {/* ─ Steps Vertical Stack (Mobile) ─ */}
+            <div className="block md:hidden">
+              {journeySteps.map((step, index) => (
+                <div key={step.num}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
+                  >
+                    <div className="bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-sm px-5 py-8 mx-4 flex flex-col items-center gap-3">
+                      {/* Icon */}
+                      <div className="w-12 h-12 rounded-full bg-[#EDF5F4] dark:bg-[#141E1D] flex items-center justify-center">
+                        {index === 0 && (
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0D6B63] text-xl">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                          </svg>
+                        )}
+                        {index === 1 && (
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0D6B63] text-xl">
+                            <path d="M7 20h10" />
+                            <path d="M12 20v-6" />
+                            <path d="M12 14c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6z" />
+                            <path d="M12 10c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6z" />
+                          </svg>
+                        )}
+                        {index === 2 && (
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0D6B63] text-xl">
+                            <path d="M9 3h6" />
+                            <path d="M10 3v7.4a2 2 0 0 1-.5 1.3L4 18.6a1 1 0 0 0 .7 1.7h14.6a1 1 0 0 0 .7-1.7l-5.5-6.9a2 2 0 0 1-.5-1.3V3" />
+                            <path d="M8.5 14h7" />
+                          </svg>
+                        )}
+                        {index === 3 && (
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0D6B63] text-xl">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                          </svg>
+                        )}
+                      </div>
+
+                      {/* Step Number */}
+                      <span className="text-xs font-medium tracking-widest text-[#C9A96E] dark:text-[#6B5A3E]">
+                        {step.num}
+                      </span>
+
+                      {/* Title */}
+                      <h4 className="text-lg font-bold text-[#1A2B4A] dark:text-[#E8E8E8] text-center">
+                        {step.label}
+                      </h4>
+
+                      {/* Divider */}
+                      <div className="w-8 h-[2px] bg-[#C9A96E] rounded-full" />
+
+                      {/* Body */}
+                      <p className="text-sm text-[#6B6B6B] dark:text-[#9A9A9A] text-center leading-relaxed">
+                        {step.desc}
+                      </p>
+
+                      {/* Pill */}
+                      {step.pill && (
+                        <div className="mt-1 px-4 py-2 rounded-full border border-[#0D6B63] dark:border-[#2A8F87] text-[#0D6B63] dark:text-[#2A8F87] text-xs flex items-center gap-2">
+                          {step.pill}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+
+                  {/* Vertical dotted connector */}
+                  {index < journeySteps.length - 1 && (
+                    <div className="flex justify-center">
+                      <div className="w-[2px] h-8 border-l-2 border-dashed border-[#0D6B63] dark:border-[#2A8F87]" />
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </motion.div>
