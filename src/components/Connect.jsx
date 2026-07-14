@@ -5,25 +5,19 @@ import {
   LuMail, 
   LuArrowUpRight, 
   LuInstagram, 
-  LuBookOpen,
-  LuFlag,
-  LuLightbulb,
-  LuRocket,
-  LuLeaf,
-  LuAward,
-  LuEye,
   LuActivity
 } from 'react-icons/lu';
 
 // ── Desktop Navigation Links ──
 const NAV_LINKS = [
-  { label: 'Story', id: 'story', icon: LuBookOpen },
-  { label: 'Journey', id: 'journey', icon: LuFlag },
-  { label: 'Insight', id: 'insight', icon: LuLightbulb },
-  { label: 'Beyond Bound', id: 'building', icon: LuRocket },
-  { label: 'Philosophy', id: 'philosophy', icon: LuLeaf },
-  { label: 'Milestones', id: 'milestones', icon: LuAward },
-  { label: 'Vision', id: 'vision', icon: LuEye },
+  { label: 'Story', id: 'story' },
+  { label: 'Journey', id: 'journey' },
+  { label: 'Insight', id: 'insight' },
+  { label: 'Beyond Bound', id: 'building' },
+  { label: 'Milestones', id: 'milestones' },
+  { label: 'Lessons', id: 'lessons' },
+  { label: 'Philosophy', id: 'philosophy' },
+  { label: 'Vision', id: 'vision' },
 ];
 
 const FOCUS_TAGS = ['Healthcare', 'Entrepreneurship', 'Metabolic Wellness'];
@@ -240,30 +234,27 @@ export default function Connect() {
                 NAVIGATE
               </span>
               <nav 
-                className="flex flex-col space-y-4" 
+                className="flex flex-col space-y-0" 
                 aria-label="Footer navigation"
               >
-                {NAV_LINKS.map((link) => {
-                  const Icon = link.icon;
-                  return (
-                    <a
-                      key={link.id}
-                      href={`#${link.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo(link.id);
-                      }}
-                      className="group flex items-center gap-3 text-sm font-body text-navy/60 dark:text-white/60 hover:text-navy dark:hover:text-white transition-colors duration-300 cursor-pointer w-fit"
-                    >
-                      <Icon size={16} className="text-navy/40 dark:text-white/40 group-hover:text-navy dark:group-hover:text-white transition-colors duration-300" />
-                      <span className="relative overflow-hidden inline-block">
-                        <span className="block transform transition-transform duration-300 group-hover:translate-x-0.5">
-                          {link.label}
-                        </span>
-                      </span>
-                    </a>
-                  );
-                })}
+                {NAV_LINKS.map((link) => (
+                  <a
+                    key={link.id}
+                    href={`#${link.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo(link.id);
+                    }}
+                    className="group flex items-center gap-4 py-[6px] cursor-pointer border-b border-navy/[0.06] dark:border-white/[0.06] last:border-0 w-full"
+                  >
+                    {/* Dash line — expands on hover */}
+                    <span className="block w-5 h-[1.5px] bg-navy/25 dark:bg-white/25 rounded-full transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-8 group-hover:bg-teal dark:group-hover:bg-teal-light flex-shrink-0" />
+                    {/* Label — shifts right on hover */}
+                    <span className="text-[15px] font-body font-medium text-navy/60 dark:text-white/55 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-navy dark:group-hover:text-white group-hover:translate-x-1.5 inline-block">
+                      {link.label}
+                    </span>
+                  </a>
+                ))}
               </nav>
             </motion.div>
 
