@@ -130,7 +130,7 @@ export default function Connect() {
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-14 relative z-10">
           
           {/* Main Grid Section */}
           <motion.div 
@@ -138,18 +138,18 @@ export default function Connect() {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start pb-16 border-b border-navy/10 dark:border-white/10"
+            className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-start pb-10 border-b border-navy/10 dark:border-white/10"
           >
             
             {/* Column 1: Founder Identity & Status (Cols 1-5) */}
-            <motion.div variants={fadeUp} className="md:col-span-5 flex flex-col items-start space-y-6">
+            <motion.div variants={fadeUp} className="md:col-span-5 flex flex-col items-start space-y-4">
               <div className="space-y-2">
                 <span className="text-xs font-heading font-semibold uppercase tracking-[0.25em] text-[#10B981]">
                   Founder & CEO
                 </span>
                 <h3 
                   id="connect-title"
-                  className="font-heading font-bold text-4xl lg:text-[40px] tracking-tight text-navy dark:text-white flex items-center gap-1.5 group cursor-default"
+                  className="font-heading font-bold text-3xl lg:text-[34px] tracking-tight text-navy dark:text-white flex items-center gap-1.5 group cursor-default"
                 >
                   Priyanshu Chauhan
                 </h3>
@@ -337,7 +337,7 @@ export default function Connect() {
           </motion.div>
 
           {/* Bottom Bar Section */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 text-[11px] text-navy/40 dark:text-white/40 font-body">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-[11px] text-navy/40 dark:text-white/40 font-body">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
               <span>&copy; 2026 Priyanshu Chauhan. All rights reserved.</span>
               <span className="text-navy/10 dark:text-white/10 hidden sm:inline">|</span>
