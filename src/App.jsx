@@ -151,9 +151,9 @@ function App() {
         <JourneyFrames />
         <HealthcareGap />
         <WhatImBuilding />
-        <FounderPhilosophy />
-        <LessonsLearned />
         <MomentsMilestones />
+        <LessonsLearned />
+        <FounderPhilosophy />
         <Vision />
         <Connect />
       </main>

@@ -7,8 +7,9 @@ const NAV_LINKS = [
   { label: 'Journey', id: 'journey' },
   { label: 'Insight', id: 'insight' },
   { label: 'Beyond Bound', id: 'building' },
-  { label: 'Philosophy', id: 'philosophy' },
   { label: 'Milestones', id: 'milestones' },
+  { label: 'Lessons', id: 'lessons' },
+  { label: 'Philosophy', id: 'philosophy' },
   { label: 'Vision', id: 'vision' },
 ];
 
