@@ -121,7 +121,17 @@ export default function JourneyFrames() {
                 className={`flex flex-col md:flex-row items-center gap-6 md:gap-10 lg:gap-16 ${isEven ? '' : 'md:flex-row-reverse'
                   }`}
               >
-                {/* Visual Image Frame (70%) */}
+                {/* ── Mobile-only: Title + Pill above the image ── */}
+                <div className="w-full md:hidden space-y-2.5">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy dark:text-white tracking-tight leading-tight">
+                    {card.title}
+                  </h3>
+                  <div className="inline-block bg-teal/5 dark:bg-teal-light/10 border border-teal/15 dark:border-teal-light/20 text-teal dark:text-teal-light text-[10px] font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider font-heading">
+                    {card.metric}
+                  </div>
+                </div>
+
+                {/* Visual Image Frame (60% on desktop, full-width on mobile) */}
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
@@ -166,13 +176,20 @@ export default function JourneyFrames() {
                   />
                 </motion.div>
 
-                {/* Minimal Text / Caption (30%) */}
+                {/* ── Mobile-only: Description (no gold divider) ── */}
+                <div className="w-full md:hidden text-left">
+                  <p className="font-body text-navy/70 dark:text-white/70 text-sm sm:text-base leading-relaxed">
+                    {card.caption}
+                  </p>
+                </div>
+
+                {/* ── Desktop-only: Full text block (title + pill + divider + desc) ── */}
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: '-100px' }}
                   variants={isEven ? slideInRight : slideInLeft}
-                  className="w-full md:w-2/5 text-left space-y-4"
+                  className="hidden md:block w-full md:w-2/5 text-left space-y-4"
                 >
                   <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy dark:text-white tracking-tight leading-tight">
                     {card.title}
