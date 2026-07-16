@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 import healthcareEntrepreneurshipImg from '../assets/healthcare_entrepreneurship.webp';
-import beyondboundLogo from '../assets/beyondbound_logo.webp';
+import frame3Img from '../assets/frame3.png';
 import CGMGraph from './CGMGraph';
 
 // Import video clips
@@ -90,12 +90,7 @@ export default function WhatImBuilding() {
     }
   ];
 
-  const focusAreas = [
-    'Metabolic Health',
-    'Metabolic Wellness',
-    'Science-backed Natural Ingredients',
-    'Consumer Education'
-  ];
+
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -114,7 +109,7 @@ export default function WhatImBuilding() {
   };
 
   return (
-    <section id="building" aria-labelledby="building-title" className="py-24 md:py-32 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
+    <section id="building" aria-labelledby="building-title" className="pt-24 md:pt-32 pb-10 md:pb-12 bg-white dark:bg-[#081220] relative overflow-hidden select-none">
       {/* Subtle background ambient decorations */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-sage/30 dark:bg-teal-dark/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
@@ -737,74 +732,168 @@ export default function WhatImBuilding() {
           </motion.div>
         </div>
 
-        {/* ── PART 4 — BEYOND BOUND TODAY ── */}
-        <div className="mb-16 md:mb-28 max-w-4xl mx-auto">
-          <div className="bg-[#FAF9F5] dark:bg-[#0e1f35]/40 border border-accent/20 dark:border-white/10 rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
-            {/* Soft inner glow decorator */}
-            <div className="absolute -right-16 -top-16 w-32 h-32 bg-teal/5 rounded-full blur-2xl pointer-events-none" />
-
-            {/* Brand Logo Image */}
-            <div className="flex justify-center mb-4">
-              <img
-                src={beyondboundLogo}
-                alt="Beyond Bound® Logo"
-                className="h-20 sm:h-24 w-auto object-contain"
-              />
-            </div>
-
-            {/* Brand Logo Typo */}
-            <div className="font-heading font-extrabold text-2xl sm:text-3xl tracking-[0.2em] text-navy dark:text-white uppercase select-none">
-              BEYOND <span className="text-teal dark:text-teal-light">BOUND®</span>
-            </div>
-
-            {/* Tagline */}
-            <h4 className="font-serif italic text-lg sm:text-xl text-navy/90 dark:text-white/95 mt-4 leading-relaxed max-w-lg mx-auto">
-              "Wellness that survives measurement."
-            </h4>
-
-            {/* Accent divider line */}
-            <div className="h-[1px] w-20 bg-accent/35 mx-auto my-6" />
-
-            {/* Focus area pills */}
-            <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 max-w-2xl mx-auto">
-              {focusAreas.map((area, idx) => (
-                <span
-                  key={idx}
-                  className="px-4 py-2 bg-white dark:bg-[#081220] border border-border/80 dark:border-white/10 rounded-full text-xs font-heading font-semibold text-navy/85 dark:text-white/85 hover:border-teal/20 dark:hover:border-teal-light/20 transition-all duration-300 shadow-sm"
-                >
-                  {area}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ── PART 5 — EXPLORE BEYOND BOUND ── */}
+        {/* ── PART 4 — BEYOND BOUND: THE COMPANY (Redesigned Editorial Layout) ── */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           variants={sectionVariants}
-          className="text-center space-y-6 max-w-xl mx-auto"
+          className="mb-0 max-w-6xl mx-auto w-full"
         >
-          <div className="text-center">
-            <h3 className="text-xl sm:text-2xl font-heading font-bold text-navy dark:text-white tracking-tight">
-              Explore Beyond Bound®
-            </h3>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            {/* Website CTA */}
+          {/* ─── Section Header ─── */}
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-10">
+            <div>
+              <span className="inline-flex items-center gap-2 text-[11px] font-heading font-semibold uppercase tracking-[0.2em] text-teal dark:text-teal-light mb-3">
+                <span className="inline-block w-5 h-[1.5px] bg-teal dark:bg-teal-light" />
+                THE COMPANY
+              </span>
+              <h3 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-heading font-bold text-navy dark:text-white tracking-tight leading-tight mt-1">
+                Beyond Bound®
+              </h3>
+              <p className="text-navy/65 dark:text-white/60 font-body text-sm sm:text-base mt-3 leading-relaxed max-w-xl">
+                A science-led wellness brand for everyday India — starting where the quiet damage starts: metabolism.
+              </p>
+              {/* Registered Brand Badge */}
+              <div className="mt-5 inline-flex items-center gap-3 bg-[#F0FAF9] dark:bg-[#0e1f35]/60 border border-teal/15 dark:border-teal-light/15 rounded-full px-4 py-2">
+                <div className="flex items-center gap-1.5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-teal dark:text-teal-light">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                  </svg>
+                  <span className="font-heading font-bold text-xs text-navy dark:text-white">Beyond Bound®</span>
+                </div>
+                <span className="h-3.5 w-[1px] bg-navy/15 dark:bg-white/15" />
+                <span className="font-heading font-semibold text-[10px] uppercase tracking-[0.15em] text-navy/50 dark:text-white/45">Registered Brand · India</span>
+              </div>
+            </div>
+            {/* Amazon Link - Top Right */}
             <a
-              href="https://beyondbound.co/"
+              href="https://www.amazon.in/Glycomics-Metabolic-Wellness-Capsules-Berberine/dp/B0GSSGRZYF/ref=sr_1_2?crid=NCHP7X4UD7U0&dib=eyJ2IjoiMSJ9.cJUZ3IcwZKvnKXijjZh0Veiiee3pL5c61H55ewTKHKkRnGEUzUVUdGsm201GS-D-we7_vkxk_dL5fG9Sne7a_r7mgWObZIcJcT_0QZo70d9QMA-yptbnD9p6eAL_he36nbqnL4DJVODjIWMyZG338iGi9oFmARuLKwzqxqEuDe7TgpnlGUh4pjCztPFM-2eqf0ZNp2yQFdfQjG2FbjQx1HqpnVG5opzmFqxb095XcEr1V6iHxkxNTbndlMqPOjcmmV2OlXkzY33mdj2EBhf10WlNgiK6cUhc3H1DgprjvBU.zBPMQnNJPo0dE-tTrojhf5XEMs2AoZomIOYJAJ47aKo&dib_tag=se&keywords=glycomics&qid=1784202213&sprefix=glycomics%2Caps%2C580&sr=8-2&th=1"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal hover:bg-teal-dark text-white font-heading font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-xs tracking-widest uppercase cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-1.5 text-teal dark:text-teal-light font-heading font-semibold text-sm hover:underline underline-offset-4 decoration-teal/30 transition-all duration-300 whitespace-nowrap mt-2 shrink-0"
             >
-              <span>Visit Beyond Bound®</span>
+              View on Amazon.in
               <RiArrowRightUpLine size={16} />
             </a>
           </div>
+
+          {/* ─── Content Grid ─── */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+
+            {/* ── LEFT COLUMN: Mission, Vision, Approach ── */}
+            <div className="flex flex-col gap-6">
+              {/* Mission Card */}
+              <div className="relative bg-[#F5FAF9] dark:bg-[#0e1f35]/40 border border-teal/10 dark:border-teal-light/10 rounded-2xl p-6 sm:p-8 overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-teal dark:bg-teal-light rounded-l-2xl" />
+                <span className="inline-flex items-center gap-2 text-[11px] font-heading font-bold uppercase tracking-[0.18em] text-teal dark:text-teal-light mb-3">
+                  <span className="w-2 h-2 rounded-full bg-teal dark:bg-teal-light inline-block" />
+                  MISSION
+                </span>
+                <p className="font-heading font-bold text-lg sm:text-xl text-navy dark:text-white leading-snug">
+                  Make trustworthy, science-led wellness a default — not a luxury — for people who want to stay ahead of their health rather than react to it.
+                </p>
+              </div>
+
+              {/* Vision Card */}
+              <div className="relative bg-[#F5FAF9] dark:bg-[#0e1f35]/40 border border-teal/10 dark:border-teal-light/10 rounded-2xl p-6 sm:p-8 overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-teal dark:bg-teal-light rounded-l-2xl" />
+                <span className="inline-flex items-center gap-2 text-[11px] font-heading font-bold uppercase tracking-[0.18em] text-teal dark:text-teal-light mb-3">
+                  <span className="w-2 h-2 rounded-full bg-teal dark:bg-teal-light inline-block" />
+                  VISION
+                </span>
+                <p className="font-heading font-bold text-lg sm:text-xl text-navy dark:text-white leading-snug">
+                  An India where metabolic care is normal, measured, and affordable, and where 'natural' and 'evidence-based' are no longer opposites.
+                </p>
+              </div>
+
+              {/* Approach Card */}
+              <div className="bg-[#EEFAF8] dark:bg-[#0a2420]/50 border border-teal/10 dark:border-teal-light/10 rounded-2xl p-6 sm:p-8">
+                <h4 className="font-heading font-bold text-base sm:text-lg text-navy dark:text-white mb-5">
+                  The approach: measure first, market second
+                </h4>
+                <ul className="space-y-3.5">
+                  {[
+                    'Start with the body\'s own rhythm, not a crash protocol.',
+                    'Test on the founder before anyone else, with real instruments.',
+                    'Say only what can be defended — careful claims, honest labels.',
+                    'Publish the observations, including the unremarkable ones.'
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-teal dark:text-teal-light mt-0.5 shrink-0">
+                        <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="font-body text-sm text-navy/80 dark:text-white/75 leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* ── RIGHT COLUMN: Image + Glycomics Card ── */}
+            <div className="flex flex-col gap-6">
+              {/* Founder Image */}
+              <div className="relative overflow-hidden rounded-2xl aspect-[16/10] shadow-lg dark:shadow-none group">
+                <img
+                  src={frame3Img}
+                  alt="Founder working at desk with Beyond Bound® wellness supplements"
+                  className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-[0.16,1,0.3,1]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-transparent pointer-events-none" />
+              </div>
+
+              {/* Glycomics™ Product Card */}
+              <div className="bg-white dark:bg-[#0e1f35]/50 border border-border/80 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-sm dark:shadow-none">
+                {/* Card Header */}
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div>
+                    <h4 className="font-heading font-bold text-xl sm:text-2xl text-navy dark:text-white tracking-tight">
+                      Glycomics™
+                    </h4>
+                    <p className="font-body text-xs text-navy/50 dark:text-white/45 mt-1">
+                      Natural Glucose Metabolism Support · 60 capsules
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-1 bg-teal/10 dark:bg-teal-light/10 border border-teal/20 dark:border-teal-light/20 text-teal dark:text-teal-light text-[10px] font-heading font-bold uppercase tracking-widest px-3 py-1.5 rounded-full whitespace-nowrap shrink-0">
+                    Live on Amazon.in
+                  </span>
+                </div>
+
+                {/* Product Description */}
+                <p className="font-body text-sm text-navy/70 dark:text-white/65 leading-relaxed mb-5">
+                  A thoughtfully designed wellness supplement made with nature-inspired, science-led ingredients, formulated to support metabolic health and healthy glucose balance as part of a balanced lifestyle — without extreme or aggressive approaches.
+                </p>
+
+                {/* Founder Self-Observation Callout */}
+                <div className="bg-[#0a2e2a] dark:bg-[#0a2420] rounded-xl p-5 mb-5 border border-teal/15 dark:border-teal-light/10">
+                  <span className="inline-block text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-teal-light/80 mb-2.5 border-b border-teal-light/15 pb-1.5">
+                    FOUNDER SELF-OBSERVATION
+                  </span>
+                  <p className="font-body text-[13px] text-white/80 leading-relaxed">
+                    In the founder's own continuous-glucose self-observation: same food, with Glycomics — a steadier post-meal pattern, no sudden drop, no hypoglycemia.
+                  </p>
+                </div>
+
+                {/* Amazon CTA Button */}
+                <a
+                  href="https://www.amazon.in/Glycomics-Metabolic-Wellness-Capsules-Berberine/dp/B0GSSGRZYF/ref=sr_1_2?crid=NCHP7X4UD7U0&dib=eyJ2IjoiMSJ9.cJUZ3IcwZKvnKXijjZh0Veiiee3pL5c61H55ewTKHKkRnGEUzUVUdGsm201GS-D-we7_vkxk_dL5fG9Sne7a_r7mgWObZIcJcT_0QZo70d9QMA-yptbnD9p6eAL_he36nbqnL4DJVODjIWMyZG338iGi9oFmARuLKwzqxqEuDe7TgpnlGUh4pjCztPFM-2eqf0ZNp2yQFdfQjG2FbjQx1HqpnVG5opzmFqxb095XcEr1V6iHxkxNTbndlMqPOjcmmV2OlXkzY33mdj2EBhf10WlNgiK6cUhc3H1DgprjvBU.zBPMQnNJPo0dE-tTrojhf5XEMs2AoZomIOYJAJ47aKo&dib_tag=se&keywords=glycomics&qid=1784202213&sprefix=glycomics%2Caps%2C580&sr=8-2&th=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-[#081220] border border-border/80 dark:border-white/15 text-navy dark:text-white font-heading font-semibold text-sm rounded-lg hover:border-teal/30 dark:hover:border-teal-light/30 hover:shadow-md transition-all duration-300"
+                >
+                  View on Amazon.in
+                  <RiArrowRightUpLine size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* ─── Disclaimer ─── */}
+          <p className="font-body text-[11px] text-navy/40 dark:text-white/30 leading-relaxed mt-8 max-w-5xl">
+            Glycomics™ is a wellness supplement intended to support metabolic health as part of a balanced lifestyle. It is not intended to diagnose, treat, cure, or prevent any disease. Self-observation reflects one individual's experience and is not a clinical claim.
+          </p>
         </motion.div>
 
       </div>

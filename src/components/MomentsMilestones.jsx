@@ -43,7 +43,7 @@ export default function MomentsMilestones() {
   };
 
   return (
-    <section id="milestones" aria-labelledby="milestones-title" className="py-16 md:py-24 bg-white dark:bg-[#081220] relative overflow-hidden select-none border-t border-b border-border/20 dark:border-white/5">
+    <section id="milestones" aria-labelledby="milestones-title" className="pt-10 md:pt-12 pb-16 md:pb-24 bg-white dark:bg-[#081220] relative overflow-hidden select-none border-t border-b border-border/20 dark:border-white/5">
       {/* Subtle ambient gradients */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-teal/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none z-0" />
