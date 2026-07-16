@@ -94,6 +94,22 @@ export default function JourneyFrames() {
     }
   };
 
+  const shutterLeft = {
+    hidden: { x: 0 },
+    visible: {
+      x: '-100%',
+      transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
+    }
+  };
+
+  const shutterRight = {
+    hidden: { x: 0 },
+    visible: {
+      x: '100%',
+      transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
+    }
+  };
+
   return (
     <section id="journey" aria-labelledby="journey-title" className="pt-8 pb-16 md:pt-10 md:pb-24 bg-white dark:bg-[#081220] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -135,7 +151,7 @@ export default function JourneyFrames() {
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, margin: '-100px' }}
+                  viewport={{ once: false, margin: '-50px' }}
                   variants={imageScale}
                   style={{ willChange: 'transform, opacity' }}
                   className="w-full md:w-3/5 aspect-[16/10] rounded-3xl border border-accent/20 dark:border-white/10 p-2.5 bg-white dark:bg-[#0e1f35]/30 shadow-md dark:shadow-none hover:shadow-lg transition-shadow duration-300 overflow-hidden relative"
@@ -169,10 +185,7 @@ export default function JourneyFrames() {
 
                   {/* Editorial Reveal Shutter Mask */}
                   <motion.div
-                    initial={{ x: 0 }}
-                    whileInView={{ x: isEven ? '100%' : '-100%' }}
-                    viewport={{ once: false, margin: '-100px' }}
-                    transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+                    variants={isEven ? shutterRight : shutterLeft}
                     style={{ willChange: 'transform' }}
                     className="absolute inset-0 bg-sage dark:bg-navy-light/30 z-20 pointer-events-none"
                   />
@@ -189,7 +202,7 @@ export default function JourneyFrames() {
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, margin: '-100px' }}
+                  viewport={{ once: false, margin: '-50px' }}
                   variants={isEven ? slideInRight : slideInLeft}
                   style={{ willChange: 'transform, opacity' }}
                   className="hidden md:block w-full md:w-2/5 text-left space-y-4"
