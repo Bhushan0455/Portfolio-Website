@@ -20,7 +20,7 @@ export default function Vision() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: '-100px' }}
+          viewport={{ once: false, margin: '100px 0px -100px 0px' }}
           variants={reveal}
           className="space-y-6"
         >
@@ -36,9 +36,9 @@ export default function Vision() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: '-100px' }}
+          viewport={{ once: false, margin: '100px 0px -100px 0px' }}
           variants={reveal}
-          className="pt-12"
+          className="pt-2"
         >
           <span className="font-heading text-xs sm:text-sm text-navy/60 dark:text-accent font-semibold uppercase tracking-[0.3em]">
             The direction is fixed.
