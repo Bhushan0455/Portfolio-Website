@@ -136,7 +136,7 @@ export default function Connect() {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: '-100px' }}
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-start pb-10 border-b border-navy/10 dark:border-white/10"
           >
@@ -380,7 +380,7 @@ export default function Connect() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: false, margin: '-40px' }}
             variants={containerVariants}
             className="text-center mb-14"
           >
@@ -415,7 +415,7 @@ export default function Connect() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: false, margin: '-40px' }}
             variants={containerVariants}
             className="space-y-3 mb-14"
           >
@@ -440,7 +440,7 @@ export default function Connect() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: false, margin: '-40px' }}
             variants={fadeUp}
             className="text-center mb-14"
           >

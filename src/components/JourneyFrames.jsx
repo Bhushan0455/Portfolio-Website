@@ -135,8 +135,9 @@ export default function JourneyFrames() {
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: '-100px' }}
+                  viewport={{ once: false, margin: '-100px' }}
                   variants={imageScale}
+                  style={{ willChange: 'transform, opacity' }}
                   className="w-full md:w-3/5 aspect-[16/10] rounded-3xl border border-accent/20 dark:border-white/10 p-2.5 bg-white dark:bg-[#0e1f35]/30 shadow-md dark:shadow-none hover:shadow-lg transition-shadow duration-300 overflow-hidden relative"
                 >
                   {card.image ? (
@@ -170,8 +171,9 @@ export default function JourneyFrames() {
                   <motion.div
                     initial={{ x: 0 }}
                     whileInView={{ x: isEven ? '100%' : '-100%' }}
-                    viewport={{ once: true, margin: '-100px' }}
+                    viewport={{ once: false, margin: '-100px' }}
                     transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+                    style={{ willChange: 'transform' }}
                     className="absolute inset-0 bg-sage dark:bg-navy-light/30 z-20 pointer-events-none"
                   />
                 </motion.div>
@@ -187,8 +189,9 @@ export default function JourneyFrames() {
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: '-100px' }}
+                  viewport={{ once: false, margin: '-100px' }}
                   variants={isEven ? slideInRight : slideInLeft}
+                  style={{ willChange: 'transform, opacity' }}
                   className="hidden md:block w-full md:w-2/5 text-left space-y-4"
                 >
                   <h3 className="text-xl sm:text-2xl font-bold font-heading text-navy dark:text-white tracking-tight leading-tight">

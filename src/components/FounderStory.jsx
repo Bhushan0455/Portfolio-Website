@@ -28,8 +28,9 @@ export default function FounderStory() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={fadeUp}
+          style={{ willChange: 'transform, opacity' }}
           className="flex items-center gap-4 mb-12"
         >
           <div className="w-10 h-10 rounded-full bg-teal/10 dark:bg-teal-light/10 flex items-center justify-center text-teal dark:text-teal-light">
@@ -45,10 +46,11 @@ export default function FounderStory() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={{
             visible: { transition: { staggerChildren: 0.15 } }
           }}
+          style={{ willChange: 'transform, opacity' }}
           className="space-y-6 md:space-y-8 max-w-3xl font-body text-navy/85 dark:text-white/85 text-base sm:text-lg leading-[1.75]"
         >
           <motion.h2
@@ -83,8 +85,9 @@ export default function FounderStory() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={fadeUp}
+          style={{ willChange: 'transform, opacity' }}
           className="mt-24 pt-16 border-t border-neutral-100 dark:border-white/10 relative w-full overflow-visible"
         >
           {/* Ambient Radial Glow */}
@@ -127,8 +130,9 @@ export default function FounderStory() {
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: false, margin: '-50px' }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                style={{ willChange: 'transform' }}
                 className="absolute top-1/2 left-0 right-0 h-[2px] bg-teal dark:bg-teal-light -translate-y-1/2 z-0 origin-left"
               />
 
@@ -139,7 +143,7 @@ export default function FounderStory() {
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ delay: idx * 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="flex flex-col items-center text-center group cursor-pointer w-48 relative"
                   >
@@ -177,8 +181,9 @@ export default function FounderStory() {
               <motion.div
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: false, margin: '-50px' }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                style={{ willChange: 'transform' }}
                 className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-teal dark:bg-teal-light origin-top z-0"
               />
 
@@ -201,7 +206,7 @@ export default function FounderStory() {
                     key={idx}
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ delay: idx * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-4 w-full group"
                   >

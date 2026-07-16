@@ -136,8 +136,9 @@ export default function WhatImBuilding() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={sectionVariants}
+          style={{ willChange: 'transform, opacity' }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-28"
         >
           {isMobile ? (
@@ -233,8 +234,9 @@ export default function WhatImBuilding() {
           ref={cgmContainerRef}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={sectionVariants}
+          style={{ willChange: 'transform, opacity' }}
           className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center mb-16 md:mb-28 w-full"
         >
           {isMobile ? (
@@ -455,7 +457,7 @@ export default function WhatImBuilding() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: false, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-16 md:mb-20"
           >
@@ -472,7 +474,7 @@ export default function WhatImBuilding() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: false, margin: '-60px' }}
             className="relative"
           >
             {/* ─ Segmented gold dashed lines BETWEEN nodes only (desktop) ─ */}
@@ -657,7 +659,7 @@ export default function WhatImBuilding() {
                   <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
+                    viewport={{ once: false, margin: "-40px" }}
                     transition={{ duration: 0.5, delay: index * 0.15 }}
                   >
                     <div className="bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-sm px-5 py-8 mx-4 flex flex-col items-center gap-3">
@@ -736,8 +738,9 @@ export default function WhatImBuilding() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={sectionVariants}
+          style={{ willChange: 'transform, opacity' }}
           className="mb-0 max-w-6xl mx-auto w-full"
         >
           {/* ─── Section Header ─── */}

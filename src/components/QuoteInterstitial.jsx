@@ -75,7 +75,7 @@ export default function QuoteInterstitial() {
         <motion.div 
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: false, margin: '-50px' }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
           className="h-[1px] w-24 bg-accent/60 dark:bg-accent/50 mb-10 origin-center"
         />
@@ -84,7 +84,7 @@ export default function QuoteInterstitial() {
         <motion.p
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={reveal}
           className="font-serif italic text-2xl sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.3] text-navy/90 dark:text-white/90 tracking-tight max-w-2xl mx-auto"
         >
@@ -95,7 +95,7 @@ export default function QuoteInterstitial() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 1.0, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 text-center flex flex-col items-center justify-center gap-1"
         >
@@ -111,7 +111,7 @@ export default function QuoteInterstitial() {
         <motion.div 
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: false, margin: '-50px' }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
           className="h-[1px] w-24 bg-accent/60 dark:bg-accent/50 mt-10 origin-center"
         />

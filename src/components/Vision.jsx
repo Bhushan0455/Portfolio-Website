@@ -20,7 +20,7 @@ export default function Vision() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={reveal}
           className="space-y-6"
         >
@@ -36,7 +36,7 @@ export default function Vision() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           variants={reveal}
           className="pt-12"
         >

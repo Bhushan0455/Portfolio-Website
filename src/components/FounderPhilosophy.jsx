@@ -54,13 +54,13 @@ export default function FounderPhilosophy() {
         variants={imageVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
+        viewport={{ once: false, margin: '-50px' }}
         className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none"
       >
         <motion.img
           src={founderSpeakingImg}
           alt="Priyanshu Chauhan speaking on stage"
-          style={{ y: yParallax }}
+          style={{ y: yParallax, willChange: 'transform', transform: 'translateZ(0)' }}
           className="absolute -top-[15%] w-full h-[130%] object-cover object-right brightness-[0.75] contrast-[1.05]"
         />
         {/* Soft edge-blending gradients ensuring readability of left-aligned text */}
@@ -78,7 +78,8 @@ export default function FounderPhilosophy() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
+          style={{ willChange: 'transform, opacity' }}
           className="space-y-8"
         >
           {/* Header Label: + FOUNDER PHILOSOPHY ─────────────────── ◆ */}

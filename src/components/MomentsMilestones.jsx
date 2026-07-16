@@ -54,7 +54,7 @@ export default function MomentsMilestones() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-left max-w-3xl mb-10 md:mb-20"
         >
@@ -80,7 +80,7 @@ export default function MomentsMilestones() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl"
         >
           {cards.map((card, idx) => (

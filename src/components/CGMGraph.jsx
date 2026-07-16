@@ -267,9 +267,10 @@ export default function CGMGraph() {
     <motion.div 
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: false, margin: '-100px' }}
       variants={cardVariants}
       onViewportEnter={() => setIsCardInView(true)}
+      style={{ willChange: 'transform, opacity' }}
       className="w-full text-left"
     >
       {/* ── CARD WRAPPER WITH SPOTLIGHT MOUSE INTERACTION ── */}

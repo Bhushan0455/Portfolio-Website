@@ -37,7 +37,7 @@ export default function HealthcareGap() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: '-100px' }}
             variants={staggerContainer}
             className="lg:col-span-7 space-y-8 text-left"
           >
@@ -87,7 +87,7 @@ export default function HealthcareGap() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: '-100px' }}
             variants={staggerContainer}
             className="lg:col-span-5 space-y-8 flex flex-col justify-between self-stretch"
           >
