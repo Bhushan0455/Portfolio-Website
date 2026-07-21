@@ -199,13 +199,6 @@ export default function Navbar({ theme, toggleTheme }) {
                     }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-teal"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
                 </a>
               );
             })}
