@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: 'Milestones', id: 'milestones' },
   { label: 'Lessons', id: 'lessons' },
   { label: 'Philosophy', id: 'philosophy' },
-  { label: 'Vision', id: 'vision' },
+  { label: 'Contact', id: 'contact' },
 ];
 
 export default function Navbar({ theme, toggleTheme }) {

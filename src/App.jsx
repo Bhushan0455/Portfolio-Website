@@ -10,7 +10,7 @@ import WhatImBuilding from './components/WhatImBuilding';
 import FounderPhilosophy from './components/FounderPhilosophy';
 import LessonsLearned from './components/LessonsLearned';
 import MomentsMilestones from './components/MomentsMilestones';
-import Vision from './components/Vision';
+import ContactSection from './components/ContactSection';
 import Connect from './components/Connect';
 
 function App() {
@@ -154,7 +154,7 @@ function App() {
         <MomentsMilestones />
         <LessonsLearned />
         <FounderPhilosophy />
-        <Vision />
+        <ContactSection />
         <Connect />
       </main>
     </div>
