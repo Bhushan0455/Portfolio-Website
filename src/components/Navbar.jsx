@@ -164,18 +164,19 @@ export default function Navbar({ theme, toggleTheme }) {
               e.preventDefault();
               scrollTo('hero');
             }}
-            className={`font-heading text-2xl tracking-tight cursor-pointer flex items-center gap-2 md:gap-2.5 group font-light transition-colors duration-300 ${isScrolled ? 'text-navy dark:text-white' : 'text-white'
-              }`}
+            aria-label="Priyanshu - Home"
+            className="group cursor-pointer inline-flex items-baseline text-2xl md:text-[27px] tracking-tight select-none"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            <img
-              src="/favicon.png"
-              alt="Priyanshu Chauhan Logo"
-              className="w-[22px] h-[22px] md:w-[26px] md:h-[26px] object-contain transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="flex items-center">
-              <span className="font-bold group-hover:font-medium transition-weight">Priyanshu</span>
-              <span className="text-teal group-hover:translate-x-0.5 transition-transform duration-300">.</span>
-            </div>
+            <span className="text-[#0F8B81] font-bold text-[1.42em] leading-none transition-transform duration-300 group-hover:scale-[1.02] inline-block origin-bottom-left">
+              P
+            </span>
+            <span className="font-bold leading-none text-[#0A1628] dark:text-white transition-colors duration-300">
+              riyanshu
+            </span>
+            <span className="text-[#0F8B81] font-bold leading-none transition-transform duration-300 group-hover:translate-x-0.5 inline-block ml-[0.5px]">
+              .
+            </span>
           </a>
 
           {/* Desktop Links */}
