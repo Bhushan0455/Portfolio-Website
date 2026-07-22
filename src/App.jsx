@@ -78,27 +78,21 @@ function App() {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // ── Interactive Hover Listeners for Cursor Expansion ──
-    const addHoverListeners = () => {
-      const interactives = document.querySelectorAll(
-        'a, button, [role="button"], input, textarea, .group, .cursor-pointer'
-      );
-      interactives.forEach((el) => {
-        el.addEventListener('mouseenter', () => setIsHoveringInteractive(true));
-        el.addEventListener('mouseleave', () => setIsHoveringInteractive(false));
-      });
+    // ── Global Event Delegation for Interactive Cursor Expansion ──
+    const handleMouseOver = (e) => {
+      if (e.target && e.target.closest && e.target.closest('a, button, [role="button"], input, textarea, select, .group, .cursor-pointer')) {
+        setIsHoveringInteractive(true);
+      } else {
+        setIsHoveringInteractive(false);
+      }
     };
-
-    // Stagger detection to ensure React has fully rendered the DOM
-    const timer = setTimeout(addHoverListeners, 800);
-
-
+    window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('mousemove', handleMouseMove);
-      clearTimeout(timer);
+      window.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
 
@@ -117,7 +111,7 @@ function App() {
         <>
           {/* Inner Dot */}
           <motion.div
-            className="fixed pointer-events-none z-[9999] rounded-full bg-teal w-1 h-1"
+            className="fixed pointer-events-none z-[100001] rounded-full bg-teal w-1 h-1"
             style={{
               x: cursorX,
               y: cursorY,
@@ -127,7 +121,7 @@ function App() {
           />
           {/* Outer Ring */}
           <motion.div
-            className={`fixed pointer-events-none z-[9998] rounded-full border border-teal/40 transition-[width,height,background-color,border-color] duration-300 ease-out ${
+            className={`fixed pointer-events-none z-[100000] rounded-full border border-teal/40 transition-[width,height,background-color,border-color] duration-300 ease-out ${
               isHoveringInteractive ? 'w-14 h-14 bg-teal/5 border-teal/60' : 'w-8 h-8'
             }`}
             style={{

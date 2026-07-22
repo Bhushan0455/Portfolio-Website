@@ -78,6 +78,30 @@
   border-radius: 3px;
 }
 
+/* Privacy Policy Modal Scrollbar */
+.privacy-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.privacy-scroll::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 4px;
+}
+
+.privacy-scroll::-webkit-scrollbar-thumb {
+  background: #0F766E;
+  border-radius: 4px;
+}
+
+.privacy-scroll::-webkit-scrollbar-thumb:hover {
+  background: #0D5F59;
+}
+
+.privacy-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #0F766E #F1F5F9;
+}
+
 /* Selection */
 ::selection {
   background-color: var(--color-teal);
