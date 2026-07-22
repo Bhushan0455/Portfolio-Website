@@ -364,8 +364,6 @@ export default function Connect() {
               <span>&copy; 2026 Priyanshu Chauhan. All rights reserved.</span>
               <span className="text-navy/10 dark:text-white/10 hidden sm:inline">|</span>
               <button onClick={() => setIsPrivacyOpen(true)} className="hover:text-navy dark:hover:text-white cursor-pointer transition-colors duration-200">Privacy Policy</button>
-              <span className="text-navy/10 dark:text-white/10 hidden sm:inline">|</span>
-              <a href="#" className="hover:text-navy dark:hover:text-white cursor-pointer transition-colors duration-200">Terms of Use</a>
             </div>
             
             <div className="flex items-center gap-2 text-center sm:text-right">
