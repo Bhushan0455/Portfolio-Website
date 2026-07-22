@@ -54,7 +54,10 @@ export default function Navbar({ theme, toggleTheme }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      const heroEl = document.getElementById('hero');
+      const heroHeight = heroEl ? heroEl.offsetHeight : window.innerHeight;
+
+      if (window.scrollY >= heroHeight - 80) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -171,7 +174,7 @@ export default function Navbar({ theme, toggleTheme }) {
             <span className="text-[#0F8B81] font-bold text-[1.42em] leading-none transition-transform duration-300 group-hover:scale-[1.02] inline-block origin-bottom-left">
               P
             </span>
-            <span className="font-bold leading-none text-[#0A1628] dark:text-white transition-colors duration-300">
+            <span className={`font-bold leading-none transition-colors duration-300 ${isScrolled ? 'text-[#0A1628] dark:text-white' : 'text-white'}`}>
               riyanshu
             </span>
             <span className="text-[#0F8B81] font-bold leading-none transition-transform duration-300 group-hover:translate-x-0.5 inline-block ml-[0.5px]">
@@ -194,7 +197,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   className={`text-sm font-body font-medium transition-colors duration-300 cursor-pointer relative py-1 ${isActive
                     ? 'text-teal font-semibold'
                     : isScrolled
-                      ? 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal'
+                      ? 'text-navy/70 hover:text-teal dark:text-white/75 dark:hover:text-teal-light'
                       : 'text-white/80 hover:text-white'
                     }`}
                 >
@@ -223,7 +226,7 @@ export default function Navbar({ theme, toggleTheme }) {
               }}
               className={`font-body text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer ${isScrolled
                 ? 'bg-teal text-white hover:bg-teal-dark'
-                : 'bg-white text-black hover:bg-white/90'
+                : 'bg-white text-navy hover:bg-white/90'
                 } ${activeSection === 'connect' ? 'ring-2 ring-teal ring-offset-2' : ''
                 }`}
             >
