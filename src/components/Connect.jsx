@@ -530,10 +530,10 @@ export default function Connect() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="privacy-modal-title"
-              className="relative z-10 bg-white flex flex-col overflow-hidden w-full h-full md:w-[90vw] md:max-w-[880px] md:h-auto md:max-h-[84vh] md:rounded-[22px] md:border md:border-[#E9E9E9] md:shadow-[0_25px_80px_-12px_rgba(0,0,0,0.15),0_8px_24px_-8px_rgba(0,0,0,0.08)] rounded-t-[20px]"
+              className="relative z-10 bg-white flex flex-col overflow-hidden isolation-isolate transform-gpu w-full h-full md:w-[90vw] md:max-w-[880px] md:h-auto md:max-h-[84vh] md:rounded-[22px] md:border md:border-[#E9E9E9] md:shadow-[0_25px_80px_-12px_rgba(0,0,0,0.15),0_8px_24px_-8px_rgba(0,0,0,0.08)] rounded-t-[20px]"
             >
               {/* Fixed Header */}
-              <div className="flex items-center justify-between px-6 sm:px-8 lg:px-10 pt-6 sm:pt-7 pb-5 border-b border-[#F1F5F9] shrink-0 bg-white z-10">
+              <div className="flex items-center justify-between px-6 sm:px-8 lg:px-10 pt-6 sm:pt-7 pb-5 border-b border-[#F1F5F9] shrink-0 bg-white z-10 md:rounded-t-[22px] rounded-t-[20px]">
                 <div>
                   <h2 id="privacy-modal-title" className="font-heading font-bold text-[28px] sm:text-[34px] text-[#0F172A] tracking-tight leading-none">
                     Privacy Policy

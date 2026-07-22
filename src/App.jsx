@@ -80,11 +80,10 @@ function App() {
 
     // ── Global Event Delegation for Interactive Cursor Expansion ──
     const handleMouseOver = (e) => {
-      if (e.target && e.target.closest && e.target.closest('a, button, [role="button"], input, textarea, select, .group, .cursor-pointer')) {
-        setIsHoveringInteractive(true);
-      } else {
-        setIsHoveringInteractive(false);
-      }
+      const isInteractive = Boolean(
+        e.target && e.target.closest && e.target.closest('a, button, [role="button"], input, textarea, select, .group, .cursor-pointer')
+      );
+      setIsHoveringInteractive((prev) => (prev !== isInteractive ? isInteractive : prev));
     };
     window.addEventListener('mouseover', handleMouseOver);
 
