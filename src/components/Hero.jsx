@@ -1,71 +1,4 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-function Typewriter() {
-  const phrases = [
-    "Founder & CEO, Beyond Bound®",
-    "Building India's Future in Metabolic Wellness"
-  ];
-
-  const [phraseIdx, setPhraseIdx] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [showGlow, setShowGlow] = useState(false);
-
-  useEffect(() => {
-    let timer;
-    const currentFullText = phrases[phraseIdx];
-
-    if (!isDeleting) {
-      if (displayedText.length < currentFullText.length) {
-        timer = setTimeout(() => {
-          setDisplayedText(currentFullText.substring(0, displayedText.length + 1));
-        }, 90); // 80–100ms per character
-      } else {
-        setShowGlow(true);
-        const glowTimer = setTimeout(() => setShowGlow(false), 500);
-
-        timer = setTimeout(() => {
-          setIsDeleting(true);
-        }, 2800); // 2.5–3 seconds pause
-
-        return () => {
-          clearTimeout(timer);
-          clearTimeout(glowTimer);
-        };
-      }
-    } else {
-      if (displayedText.length > 0) {
-        timer = setTimeout(() => {
-          setDisplayedText(currentFullText.substring(0, displayedText.length - 1));
-        }, 45); // 40–50ms per character
-      } else {
-        setIsDeleting(false);
-        setPhraseIdx((prev) => (prev + 1) % phrases.length);
-      }
-    }
-
-    return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, phraseIdx]);
-
-  return (
-    <span className="inline-block relative">
-      <span
-        className={`transition-all duration-500 ease-out font-heading font-medium tracking-wide ${showGlow
-          ? 'text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.6)] font-semibold'
-          : 'text-white/80'
-          }`}
-      >
-        {displayedText}
-      </span>
-      <motion.span
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-        className="inline-block w-[2px] h-[1.15em] bg-accent ml-1 align-middle"
-      />
-    </span>
-  );
-}
 
 export default function Hero() {
   const scrollTo = (id) => {
@@ -202,13 +135,7 @@ export default function Hero() {
 
             </motion.div>
 
-            {/* Subheadline Typewriter */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="min-h-[3rem] sm:min-h-[2.5rem] flex items-center mb-8 border-l border-accent pl-4 max-w-xl text-sm sm:text-base leading-relaxed"
-            >
-              <Typewriter />
-            </motion.div>
+
 
             {/* Understated Scroll Cue instead of buttons & quote block */}
             <motion.div
