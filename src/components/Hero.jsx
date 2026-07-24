@@ -1,6 +1,46 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
+  const phrases = [
+    'measured by the founder first.',
+    'built on real data, not claims.',
+    'is science-led, not marketed.',
+  ];
+
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    let timer;
+
+    if (!isDeleting) {
+      // Typing
+      if (displayedText.length < currentPhrase.length) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentPhrase.slice(0, displayedText.length + 1));
+        }, 80);
+      } else {
+        // Pause at end of phrase
+        timer = setTimeout(() => setIsDeleting(true), 2000);
+      }
+    } else {
+      // Deleting (slightly faster)
+      if (displayedText.length > 0) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentPhrase.slice(0, displayedText.length - 1));
+        }, 45);
+      } else {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, phraseIndex]);
+
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -114,13 +154,16 @@ export default function Hero() {
               </motion.span>
             </div>
 
-            {/* Headline Clip Reveal */}
+            {/* Headline Clip Reveal + Typewriter */}
             <div className="overflow-hidden mb-6 py-1">
               <motion.h2
                 variants={clipVariants}
                 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-white leading-[1.15] block max-w-2xl"
               >
-                Building a metabolic health brand that earns trust through proof.
+                Evidence-led healthcare
+                <br />
+                <span className="text-teal-400">{displayedText}</span>
+                <span className="inline-block w-[3px] h-[0.85em] bg-teal-400 ml-1 align-middle animate-pulse" />
               </motion.h2>
             </div>
 
