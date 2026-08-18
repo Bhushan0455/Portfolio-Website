@@ -229,6 +229,3 @@ Building evidence-based metabolic healthcare for India.
 Website:
 https://www.priyanshuchauhan.com
 
----
-
-> *"This isn't a portfolio. It's a working record of a founder still in the middle of the build."*
